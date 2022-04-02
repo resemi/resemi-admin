@@ -17,6 +17,8 @@
 
 # misc
 .DS_Store
+.idea/
+.next/
 *.pem
 
 # debug
