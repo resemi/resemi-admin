@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts';
-import Date from '../components/date';
+import Layout, { siteTitle } from '@/components/Layout'
+import utilStyles from '@/styles/utils.module.css'
+import { getSortedPostsData } from '@/lib/posts';
+import Date from '@/components/date';
 
 // 静态生成（预渲染）：（从页面导出）
 export async function getStaticProps() {

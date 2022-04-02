@@ -3,15 +3,15 @@
  * @author anguer
  * @date Create by 2022-04-02
  */
-import Layout from '../../components/layout';
-import { getAllPostIds, getPostData } from '../../lib/posts';
+import Layout from '@/components/Layout';
+import { getAllPostIds, getPostData } from '@/lib/posts';
 import Head from 'next/head'
-import Date from '../../components/date';
-import utilStyles from '../../styles/utils.module.css'
+import Date from '@/components/date';
+import utilStyles from '@/styles/utils.module.css'
 
 export default function Post({ postData }) {
   return (
-    <Layout>
+    <Layout home={false}>
       <Head>
         <title>{postData.title}</title>
       </Head>
