@@ -5,16 +5,17 @@ import utilStyles from '@/styles/utils.module.css'
 import { getSortedPostsData } from '@/lib/posts';
 import Date from '@/components/date';
 
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+
 // 静态生成（预渲染）：（从页面导出）
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  console.log('?????')
-  return {
-    props: {
-      allPostsData
+export const getStaticProps: GetStaticProps = async function () {
+    const allPostsData = getSortedPostsData()
+    return {
+        props: {
+            allPostsData
+        }
     }
-  }
-}
+};
 
 // 服务端渲染
 // export async function getServerSideProps(context) {
@@ -25,7 +26,7 @@ export async function getStaticProps() {
 //   }
 // }
 
-export default function Home({ allPostsData }) {
+export default function Home({ allPostsData }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout home>
       <Head>

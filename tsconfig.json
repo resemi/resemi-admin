@@ -20,10 +20,9 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "/#/*": ["types/*"],
-      "@/lib/*": ["lib/*"],
-      "@/components/*": ["src/components/*"],
-      "@/styles/*": ["src/styles/*"]
+      "#/*": ["types/*"],
+      "@/*": ["src/*"],
+      "@/lib/*": ["lib/*"]
     }
   },
   "include": [

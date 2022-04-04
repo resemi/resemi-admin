@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "antd": "^4.19.5",
     "dayjs": "^1.11.0",
     "gray-matter": "^4.0.3",
     "next": "12.1.4",
