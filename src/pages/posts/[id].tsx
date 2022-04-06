@@ -3,7 +3,7 @@
  * @author anguer
  * @date Create by 2022-04-02
  */
-import Layout from '@/components/Layout';
+import { Layout } from '@/layouts/default';
 import { getAllPostIds, getPostData } from '@/lib/posts';
 import Head from 'next/head'
 import Date from '@/components/date';

@@ -2,11 +2,16 @@ import Head from 'next/head'
 import styles from './Layout.module.css'
 import utilStyles from '@/styles/utils.module.css'
 import Link from 'next/link'
+import { FunctionComponent } from 'react';
 
 const name = 'Anguer'
 export const siteTitle = 'Next.js Sample Website'
 
-export default function Layout({ children, home }) {
+type LayoutProps = {
+  home: boolean
+}
+
+export const Layout: FunctionComponent<LayoutProps> = function ({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>

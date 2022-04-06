@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Layout, { siteTitle } from '@/components/Layout'
+import { Layout, siteTitle } from '@/layouts/default'
 import utilStyles from '@/styles/utils.module.css'
 import { getSortedPostsData } from '@/lib/posts';
 import Date from '@/components/date';
@@ -16,15 +16,6 @@ export const getStaticProps: GetStaticProps = async function () {
         }
     }
 };
-
-// 服务端渲染
-// export async function getServerSideProps(context) {
-//   return {
-//     props: {
-//       // props for your component
-//     }
-//   }
-// }
 
 export default function Home({ allPostsData }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
