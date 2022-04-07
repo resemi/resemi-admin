@@ -1,1 +1,1 @@
-export { Layout, siteTitle } from './Layout';
+export { ProLayout as Layout, siteTitle } from './Layout';

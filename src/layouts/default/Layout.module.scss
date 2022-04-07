@@ -1,0 +1,31 @@
+.layout {
+  height: 100vh;
+  border: 1px solid var(--semi-color-border);
+
+}
+
+.sidebar {
+  background-color: var(--semi-color-bg-1);
+}
+
+.header {
+  background-color: var(--semi-color-bg-1)
+}
+
+.nav {
+  max-width: 220px;
+  height: 100%
+}
+
+.content {
+  padding: 24px;
+  background-color: var(--semi-color-bg-0);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  color: var(--semi-color-text-2);
+  background-color: rgba(var(--semi-grey-0), 1);
+}

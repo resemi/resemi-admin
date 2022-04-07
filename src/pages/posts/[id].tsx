@@ -12,7 +12,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 
 export default function Post({ postData }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Layout home={false}>
+    <Layout>
       <Head>
         <title>{postData.title}</title>
       </Head>

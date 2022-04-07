@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async function () {
 
 export default function Home({ allPostsData }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>

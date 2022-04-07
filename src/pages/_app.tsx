@@ -1,34 +1,23 @@
-import 'antd/dist/antd.css';
-import '@/styles/globals.css';
+import '@/styles/globals.scss';
 
 import { AppProps } from 'next/app';
-import { ConfigProvider, Radio } from 'antd';
-import { useState } from 'react';
-import enUS from 'antd/lib/locale/en_US';
-import zhCN from 'antd/lib/locale/zh_CN';
+import { FunctionComponent } from 'react';
+import { NextPage } from 'next';
 
-export default function MyApp({Component, pageProps}: AppProps) {
-  const [locale, setLocale] = useState(zhCN);
+type NextPageWithLayout = NextPage & {
+  layout?: FunctionComponent
+}
 
-  function changeLocale(e) {
-    const localeValue = e.target.value;
-    setLocale(localeValue);
-  }
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+export default function MyApp({Component, pageProps}: AppPropsWithLayout) {
+  const Layout = Component.layout || (({ children }) => <>{children}</>);
 
   return (
-    <ConfigProvider locale={locale}>
-      <div className="change-locale" style={{marginBottom: '100px'}}>
-        <span style={{marginRight: 16}}>Change locale of components: </span>
-        <Radio.Group value={locale} onChange={changeLocale}>
-          <Radio.Button key="en" value={enUS}>
-            English
-          </Radio.Button>
-          <Radio.Button key="cn" value={zhCN}>
-            中文
-          </Radio.Button>
-        </Radio.Group>
-      </div>
+    <Layout>
       <Component {...pageProps} />
-    </ConfigProvider>
+    </Layout>
   )
 }
