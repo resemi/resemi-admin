@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Layout } from '@/layouts/default';
 
 export default function Page() {
   return (
-    <div className="locale-components">Test</div>
+    <Layout>Test</Layout>
   );
 }

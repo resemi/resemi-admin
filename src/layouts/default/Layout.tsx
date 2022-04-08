@@ -2,7 +2,9 @@ import styles from './Layout.module.scss'
 import { FunctionComponent } from 'react';
 
 import { Layout, Nav, Button, Breadcrumb, Avatar } from '@douyinfe/semi-ui';
-import { IconBell, IconHelpCircle, IconGithubLogo, IconHome, IconHistogram, IconLive, IconSetting } from '@douyinfe/semi-icons';
+import { IconBell, IconHelpCircle, IconGithubLogo } from '@douyinfe/semi-icons';
+
+import { routes, RouteType } from '@/routes';
 
 export const siteTitle = 'Next.js Sample Website'
 
@@ -13,6 +15,18 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children}) {
     console.log(screen, bool);
   };
 
+  function createNavItems(routes: RouteType[], parent?: RouteType) {
+    return routes?.map((route) => {
+      return {
+        itemKey: route.id,
+        text: route.name,
+        icon: route.icon,
+        link: `${(parent && parent.path) || ''}/${route.path}`.replace('//', '/'),
+        items: createNavItems(route.children, route),
+      }
+    });
+  }
+
   const {Header, Footer, Sider, Content} = Layout;
   return (
     <Layout className={styles.layout}>
@@ -20,23 +34,11 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children}) {
         <Nav
           defaultSelectedKeys={['Home']}
           className={styles.nav}
-          items={[
-            {itemKey: 'Home', text: '首页', icon: <IconHome size="large"/>},
-            {itemKey: 'Histogram', text: '基础数据', icon: <IconHistogram size="large"/>},
-            {
-              itemKey: 'Live',
-              text: '测试功能',
-              icon: <IconLive size="large"/>,
-              items: [
-                {itemKey: 'Mock', text: '表单'},
-                {itemKey: 'Jmeter', text: '输入框'},
-              ]
-            },
-            {itemKey: 'Setting', text: '设置', icon: <IconSetting size="large"/>},
-          ]}
+          items={createNavItems(routes)}
           header={{
             logo: <img src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg"/>,
             text: 'Next Admin',
+            link: '/'
           }}
           footer={{
             collapseButton: true,
