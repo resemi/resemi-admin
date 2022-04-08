@@ -9,10 +9,11 @@ import Head from 'next/head'
 import Date from '@/components/date';
 import utilStyles from '@/styles/utils.module.css'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { ReactElement } from 'react';
 
 export default function Post({ postData }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Layout>
+    <>
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -23,7 +24,13 @@ export default function Post({ postData }: InferGetStaticPropsType<typeof getSta
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
-    </Layout>
+    </>
+  )
+};
+
+Post.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>{page}</Layout>
   )
 }
 

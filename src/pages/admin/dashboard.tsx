@@ -5,6 +5,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import utilStyles from '@/styles/utils.module.css';
 import Link from 'next/link';
 import Date from '@/components/date';
+import { ReactElement } from 'react';
 
 // 静态生成（预渲染）：（从页面导出）
 export const getStaticProps: GetStaticProps = async function () {
@@ -18,7 +19,7 @@ export const getStaticProps: GetStaticProps = async function () {
 
 export default function Dashboard({ allPostsData }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Layout>
+    <>
       <section className={utilStyles.headingMd}>
         <p>[Your Self Introduction]</p>
         <p>
@@ -40,6 +41,12 @@ export default function Dashboard({ allPostsData }: InferGetStaticPropsType<type
           ))}
         </ul>
       </section>
-    </Layout>
+    </>
+  )
+}
+
+Dashboard.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout title={'Dashboard'}>{page}</Layout>
   )
 }

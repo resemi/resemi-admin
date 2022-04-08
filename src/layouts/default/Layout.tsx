@@ -1,38 +1,73 @@
 import styles from './Layout.module.scss'
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 
-import { Layout, Nav, Button, Breadcrumb, Avatar } from '@douyinfe/semi-ui';
-import { IconBell, IconHelpCircle, IconGithubLogo } from '@douyinfe/semi-icons';
+import { Layout, Nav, Button, Breadcrumb, Avatar, Dropdown } from '@douyinfe/semi-ui';
+import { IconBell, IconMoon, IconGithubLogo, IconLanguage, IconSun } from '@douyinfe/semi-icons';
 
 import { routes, RouteType } from '@/routes';
+import { useRouter } from 'next/router';
+import { useAppContext } from '@/provider/app.provider';
+import Head from 'next/head';
 
 export const siteTitle = 'Next.js Sample Website'
 
-type LayoutProps = {}
+type LayoutProps = {
+  title?: string;
+}
 
-export const ProLayout: FunctionComponent<LayoutProps> = function ({children}) {
-  const onBreakpoint = (screen, bool) => {
-    console.log(screen, bool);
-  };
+export const ProLayout: FunctionComponent<LayoutProps> = function ({children, ...props}) {
+  const router = useRouter();
+  const [defaultSelectedKeys, setSelectedKeys] = useState([]);
+  const appContext = useAppContext();
 
+  useEffect(() => {
+    // console.log('#router', router);
+    setSelectedKeys([router.pathname]);
+  }, []);
+
+  /**
+   * 生成导航菜单项
+   * @param routes
+   * @param parent
+   */
   function createNavItems(routes: RouteType[], parent?: RouteType) {
     return routes?.map((route) => {
       return {
-        itemKey: route.id,
+        // itemKey: route.id,
+        itemKey: `${(parent && parent.path) || ''}/${route.path}`.replace('//', '/'),
         text: route.name,
         icon: route.icon,
-        link: `${(parent && parent.path) || ''}/${route.path}`.replace('//', '/'),
         items: createNavItems(route.children, route),
       }
     });
   }
 
+  /**
+   * 切换菜单
+   * @param item
+   */
+  async function onSelectItem(item) {
+    await router.push(item.itemKey);
+    // console.log('#onSelectItem', item);
+    setSelectedKeys(item.selectedKeys);
+  }
+
+  /**
+   * 退出
+   */
+  async function onLogout() {
+    await router.replace('/login');
+  }
+
   const {Header, Footer, Sider, Content} = Layout;
   return (
     <Layout className={styles.layout}>
-      <Sider className={styles.sidebar} breakpoint={['md']} onBreakpoint={onBreakpoint}>
+      <Head>
+        {props.title && <title>{props.title}</title>}
+      </Head>
+      <Sider className={styles.sidebar}>
         <Nav
-          defaultSelectedKeys={['Home']}
+          defaultSelectedKeys={defaultSelectedKeys}
           className={styles.nav}
           items={createNavItems(routes)}
           header={{
@@ -43,6 +78,7 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children}) {
           footer={{
             collapseButton: true,
           }}
+          onSelect={onSelectItem}
         />
       </Sider>
       <Layout>
@@ -61,21 +97,46 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children}) {
                 />
                 <Button
                   theme="borderless"
-                  icon={<IconHelpCircle size="large"/>}
+                  icon={appContext.themeMode === 'dark' ? <IconSun size="large"/> : <IconMoon size="large"/>}
                   style={{
                     color: 'var(--semi-color-text-2)',
                     marginRight: '12px',
                   }}
+                  onClick={() => appContext.updateThemeMode(appContext.themeMode === 'dark' ? 'light' : 'dark')}
                 />
-                <Avatar color="orange" size="small">
-                  YJ
-                </Avatar>
+                <Button
+                  theme="borderless"
+                  icon={<IconLanguage size="large" />}
+                  style={{
+                    color: 'var(--semi-color-text-2)',
+                    marginRight: '12px',
+                  }}
+                  onClick={() => appContext.updateLanguage(appContext.language.code.toLowerCase().startsWith('zh') ? 'en_US' : 'zh_CN')}
+                >{appContext.language.code.slice(0, 2).toUpperCase()}</Button>
+                <Dropdown
+                  trigger={'click'}
+                  position={'bottomLeft'}
+                  render={
+                    <Dropdown.Menu>
+                      <Dropdown.Item>账号信息</Dropdown.Item>
+                      <Dropdown.Item>设置</Dropdown.Item>
+                      <Dropdown.Divider />
+                      <Dropdown.Item onClick={onLogout}>退出</Dropdown.Item>
+                    </Dropdown.Menu>
+                  }
+                >
+
+                  <Avatar color="orange" size="small">
+                    YJ
+                  </Avatar>
+                </Dropdown>
               </>
             }
           />
         </Header>
         <Content className={styles.content}>
           <Breadcrumb
+            aria-label='breadcrumb'
             style={{
               marginBottom: '24px',
             }}

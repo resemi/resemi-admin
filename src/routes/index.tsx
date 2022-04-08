@@ -12,37 +12,37 @@ export type RouteType = {
 export const routes: RouteType[] = [
   {
     id: 'Home',
-    path: "/",
+    path: "/admin/dashboard",
     name: "首页",
     icon: <IconHome size="large"/>,
   },
   {
     id: 'Data',
-    path: "/icons",
+    path: "/admin/table",
     name: "基础数据",
     icon: <IconHistogram size="large"/>,
   },
   {
-    id: 'Test',
-    path: "/icons",
-    name: "测试功能",
+    id: 'Components',
+    path: "/admin/comp",
+    name: "组件",
     icon: <IconLive size="large"/>,
     children: [
       {
         id: 'Form',
-        path: "/icons",
+        path: "/form",
         name: "表单",
       },
       {
         id: 'Input',
-        path: "/icons",
+        path: "/input",
         name: "输入框",
       }
     ]
   },
   {
     id: 'Settings',
-    path: "/icons",
+    path: "/admin/settings",
     name: "设置",
     icon: <IconSetting size="large"/>,
   },
