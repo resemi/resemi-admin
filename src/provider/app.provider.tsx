@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
-import { Locale, locales, LocaleKey } from '@/locale';
+import { Locale, locales, LocaleKey } from '@/locales';
 import { ConfigProvider } from '@douyinfe/semi-ui';
 
 type ThemeMode = 'dark' | 'light';
