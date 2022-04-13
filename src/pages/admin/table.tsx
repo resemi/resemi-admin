@@ -3,13 +3,14 @@ import { Table, Avatar } from '@douyinfe/semi-ui';
 import dayjs from 'dayjs';
 import { Layout } from '@/layouts/default';
 
-const figmaIconUrl = 'https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/figma-icon.png';
+const figmaIconUrl =
+  'https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/figma-icon.png';
 const columns = [
   {
     title: '标题',
     dataIndex: 'name',
     width: 400,
-    render: (text, record, index) => {
+    render: (text) => {
       return (
         <div>
           <Avatar size="small" shape="square" src={figmaIconUrl} style={{ marginRight: 12 }} />
@@ -32,30 +33,31 @@ const columns = [
   {
     title: '大小',
     dataIndex: 'size',
-    sorter: (a, b) => a.size - b.size > 0 ? 1 : -1,
-    render: (text) => `${text} KB`
+    sorter: (a, b) => (a.size - b.size > 0 ? 1 : -1),
+    render: (text) => `${text} KB`,
   },
   {
     title: '所有者',
     dataIndex: 'owner',
-    render: (text, record, index) => {
+    render: (text, record) => {
       return (
         <div>
-          <Avatar size="small" color={record.avatarBg} style={{ marginRight: 4 }}>{typeof text === 'string' && text.slice(0, 1)}</Avatar>
+          <Avatar size="small" color={record.avatarBg} style={{ marginRight: 4 }}>
+            {typeof text === 'string' && text.slice(0, 1)}
+          </Avatar>
           {text}
         </div>
       );
-    }
-
+    },
   },
   {
     title: '更新日期',
     dataIndex: 'updateTime',
-    sorter: (a, b) => a.updateTime - b.updateTime > 0 ? 1 : -1,
+    sorter: (a, b) => (a.updateTime - b.updateTime > 0 ? 1 : -1),
     render: (value) => {
       return dayjs(new Date(value)).format('YYYY-MM-DD');
-    }
-  }
+    },
+  },
 ];
 
 const DAY = 24 * 60 * 60 * 1000;
@@ -63,29 +65,32 @@ const DAY = 24 * 60 * 60 * 1000;
 export default function TablePage() {
   const [dataSource, setData] = useState([]);
 
-  const rowSelection = useMemo(() => ({
-    onChange: (selectedRowKeys, selectedRows) => {
-      console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-    },
-    getCheckboxProps: record => ({
-      disabled: record.name === 'Michael James', // Column configuration not to be checked
-      name: record.name,
+  const rowSelection = useMemo(
+    () => ({
+      onChange: (selectedRowKeys, selectedRows) => {
+        console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+      },
+      getCheckboxProps: (record) => ({
+        disabled: record.name === 'Michael James', // Column configuration not to be checked
+        name: record.name,
+      }),
     }),
-  }), []);
+    [],
+  );
   const scroll = useMemo(() => ({ y: 300 }), []);
 
   const getData = () => {
     const data = [];
-    for (let i = 0; i < 46; i++) {
+    for (let i = 0; i < 46; i += 1) {
       const isSemiDesign = i % 2 === 0;
       const randomNumber = (i * 1000) % 199;
       data.push({
-        key: '' + i,
+        key: `${i}`,
         name: isSemiDesign ? `Semi Design 设计稿${i}.fig` : `Semi Pro 设计稿${i}.fig`,
         owner: isSemiDesign ? '姜鹏志' : '郝宣',
         size: randomNumber,
         updateTime: new Date().valueOf() + randomNumber * DAY,
-        avatarBg: isSemiDesign ? 'grey' : 'red'
+        avatarBg: isSemiDesign ? 'grey' : 'red',
       });
     }
     return data;
@@ -96,11 +101,11 @@ export default function TablePage() {
     setData(data);
   }, []);
 
-  return <Table columns={columns} dataSource={dataSource} rowSelection={rowSelection} scroll={scroll} />;
-};
+  return (
+    <Table columns={columns} dataSource={dataSource} rowSelection={rowSelection} scroll={scroll} />
+  );
+}
 
 TablePage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout title={'DataTable'}>{page}</Layout>
-  )
-}
+  return <Layout title="DataTable">{page}</Layout>;
+};

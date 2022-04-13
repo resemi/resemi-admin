@@ -1,12 +1,12 @@
-import { Layout } from '@/layouts/default'
 import { Space, Card, Button, Avatar, Typography, Rating } from '@douyinfe/semi-ui';
+import { Layout } from '@/layouts/default';
 
 export default function Dashboard() {
   const { Meta } = Card;
   const { Text } = Typography;
   return (
-    <Layout title={'Dashboard'}>
-      <Space align='start'>
+    <Layout title="Dashboard">
+      <Space align="start">
         <Card
           style={{ maxWidth: 300 }}
           cover={
@@ -27,30 +27,30 @@ export default function Dashboard() {
               description="全面、易用、优质"
               avatar={
                 <Avatar
-                  alt='Card meta img'
+                  alt="Card meta img"
                   size="default"
-                  src='https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/card-meta-avatar-docs-demo.jpg'
+                  src="https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/card-meta-avatar-docs-demo.jpg"
                 />
               }
             />
           }
-          headerExtraContent={
-            <Text link>
-              More
-            </Text>
-          }
+          headerExtraContent={<Text link>More</Text>}
           cover={
             <img
               alt="example"
               src="https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/card-cover-docs-demo.jpeg"
             />
           }
-          footerLine={ true }
+          footerLine
           footerStyle={{ display: 'flex', justifyContent: 'flex-end' }}
           footer={
             <Space>
-              <Button theme='borderless' type='primary'>精选案例</Button>
-              <Button theme='solid' type='primary'>开始使用</Button>
+              <Button theme="borderless" type="primary">
+                精选案例
+              </Button>
+              <Button theme="solid" type="primary">
+                开始使用
+              </Button>
             </Space>
           }
         >
@@ -60,9 +60,9 @@ export default function Dashboard() {
           style={{ maxWidth: 300 }}
           actions={[
             // eslint-disable-next-line react/jsx-key
-            <Rating size='small' defaultValue={4}/>
+            <Rating size="small" defaultValue={4} />,
           ]}
-          headerLine={ false }
+          headerLine={false}
           cover={
             <img
               alt="example"
@@ -70,12 +70,9 @@ export default function Dashboard() {
             />
           }
         >
-          <Meta
-            title="Semi Doc"
-            description="全面、易用、优质"
-          />
+          <Meta title="Semi Doc" description="全面、易用、优质" />
         </Card>
       </Space>
     </Layout>
-  )
+  );
 }

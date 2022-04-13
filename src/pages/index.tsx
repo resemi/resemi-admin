@@ -8,7 +8,5 @@ export default function Home() {
     router.replace('/admin/dashboard').then();
   });
 
-  return (
-    <div/>
-  );
+  return <div />;
 };

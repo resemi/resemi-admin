@@ -1,12 +1,5 @@
-import React, { useState } from "react";
-import {
-  Button,
-  Card,
-  Form,
-  Space,
-  Row,
-  useFormApi, Avatar,
-} from '@douyinfe/semi-ui';
+import React, { useState } from 'react';
+import { Button, Card, Form, Space, Row, useFormApi, Avatar } from '@douyinfe/semi-ui';
 import { IconLock, IconUser } from '@douyinfe/semi-icons';
 import { useRouter } from 'next/router';
 
@@ -18,7 +11,9 @@ export default function Login() {
   });
   const [loading, setLoading] = useState(false);
 
-  const ComponentUsingFormApi = () => {
+  // TODO
+  // eslint-disable-next-line react/no-unstable-nested-components
+  function ComponentUsingFormApi() {
     const formApi = useFormApi();
     const change = () => {
       formApi.setValue('password', '123456');
@@ -26,13 +21,17 @@ export default function Login() {
     return (
       <Space>
         <Button onClick={change}>useFormApi</Button>
-        <Button theme='borderless' type='primary' htmlType='reset'>重置</Button>
-        <Button theme='solid' type='primary' htmlType='submit' loading={loading}>登录</Button>
+        <Button theme="borderless" type="primary" htmlType="reset">
+          重置
+        </Button>
+        <Button theme="solid" type="primary" htmlType="submit" loading={loading}>
+          登录
+        </Button>
       </Space>
     );
-  };
+  }
 
-  const pause = (millis) => new Promise(resolve => setTimeout(resolve, millis));
+  const pause = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
   const onSubmit = async (values) => {
     setLoading(true);
     await pause(3000);
@@ -44,40 +43,32 @@ export default function Login() {
   };
 
   return (
-    <Row type='flex' align='middle' justify='center' style={{ height: '100vh' }}>
+    <Row type="flex" align="middle" justify="center" style={{ height: '100vh' }}>
       <Form initValues={initValues} onSubmit={onSubmit}>
         <Card
           style={{ width: 360 }}
           title={
             <Card.Meta
-              title='Login'
-              description='Username:anguer;Password:123456'
-              avatar={
-                <Avatar color='red'>An</Avatar>
-              }
+              title="Login"
+              description="Username:anguer;Password:123456"
+              avatar={<Avatar color="red">An</Avatar>}
             />
           }
-          footerLine={ true }
+          footerLine
           footerStyle={{ display: 'flex', justifyContent: 'flex-end' }}
-          footer={
-            <ComponentUsingFormApi />
-          }
+          footer={<ComponentUsingFormApi />}
         >
           <Form.Input
-            field='username'
-            label='用户名'
-            rules={[
-              { required: true, message: '必填' }
-            ]}
+            field="username"
+            label="用户名"
+            rules={[{ required: true, message: '必填' }]}
             prefix={<IconUser />}
           />
           <Form.Input
-            field='password'
-            label='密码'
-            rules={[
-              { required: true, message: '必填' }
-            ]}
-            mode='password'
+            field="password"
+            label="密码"
+            rules={[{ required: true, message: '必填' }]}
+            mode="password"
             prefix={<IconLock />}
           />
         </Card>

@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Layout } from '@/layouts/default';
 
 export default function Page() {
-  return (
-    <Layout>Settings</Layout>
-  );
+  return <Layout>Settings</Layout>;
 }

@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
-import { Locale, locales, LocaleKey } from '@/locales';
 import { ConfigProvider } from '@douyinfe/semi-ui';
+import { Locale, locales, LocaleKey } from '@/locales';
 
 type ThemeMode = 'dark' | 'light';
 
@@ -10,7 +10,7 @@ type AppConfig = {
   updateThemeMode: (mode: ThemeMode) => void;
   language: Locale;
   updateLanguage: (lang: LocaleKey) => void;
-}
+};
 
 const defaultAppConfig: AppConfig = {
   themeMode: 'dark',
@@ -25,7 +25,7 @@ const AppContext = createContext<AppConfig>(defaultAppConfig);
  * 切换亮/暗模式
  */
 function updateThemeToBody(mode: ThemeMode) {
-  const body = document.body;
+  const { body } = document;
   body.setAttribute('theme-mode', mode);
   // if (body.hasAttribute('theme-mode')) {
   //   body.removeAttribute('theme-mode');
@@ -37,7 +37,7 @@ function updateThemeToBody(mode: ThemeMode) {
   // }
 }
 
-export function AppProvider({ children}) {
+export function AppProvider({ children }) {
   const [themeMode, setThemeMode] = useState(defaultAppConfig.themeMode);
   const [language, setLanguage] = useState(defaultAppConfig.language);
 
@@ -53,14 +53,12 @@ export function AppProvider({ children}) {
     language,
     updateLanguage: (lang) => {
       setLanguage(locales[lang]);
-    }
+    },
   };
 
   return (
     <AppContext.Provider value={context}>
-      <ConfigProvider locale={language}>
-        {children}
-      </ConfigProvider>
+      <ConfigProvider locale={language}>{children}</ConfigProvider>
     </AppContext.Provider>
   );
 }
