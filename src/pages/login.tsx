@@ -1,41 +1,87 @@
-import React from "react";
-import Link from 'next/link';
+import React, { useState } from "react";
 import {
   Button,
   Card,
   Form,
   Space,
   Row,
-  Col,
+  useFormApi, Avatar,
 } from '@douyinfe/semi-ui';
+import { IconLock, IconUser } from '@douyinfe/semi-icons';
+import { useRouter } from 'next/router';
 
 export default function Login() {
+  const router = useRouter();
+  const [initValues] = useState({
+    username: 'anguer',
+    password: '',
+  });
+  const [loading, setLoading] = useState(false);
+
+  const ComponentUsingFormApi = () => {
+    const formApi = useFormApi();
+    const change = () => {
+      formApi.setValue('password', '123456');
+    };
+    return (
+      <Space>
+        <Button onClick={change}>useFormApi</Button>
+        <Button theme='borderless' type='primary' htmlType='reset'>重置</Button>
+        <Button theme='solid' type='primary' htmlType='submit' loading={loading}>登录</Button>
+      </Space>
+    );
+  };
+
+  const pause = (millis) => new Promise(resolve => setTimeout(resolve, millis));
+  const onSubmit = async (values) => {
+    setLoading(true);
+    await pause(3000);
+    console.log('#onSubmit', values);
+    setLoading(false);
+    if (values.username === 'anguer' && values.password === '123456') {
+      await router.push('/');
+    }
+  };
+
   return (
-    <Row>
-      <Col md={8} push={8}>
+    <Row type='flex' align='middle' justify='center' style={{ height: '100vh' }}>
+      <Form initValues={initValues} onSubmit={onSubmit}>
         <Card
-          style={{ maxWidth: 340 }}
-          title={<>Login</>}
+          style={{ width: 360 }}
+          title={
+            <Card.Meta
+              title='Login'
+              description='Username:anguer;Password:123456'
+              avatar={
+                <Avatar color='red'>An</Avatar>
+              }
+            />
+          }
           footerLine={ true }
           footerStyle={{ display: 'flex', justifyContent: 'flex-end' }}
           footer={
-            <Space>
-              <Link href={'/'}><Button theme='borderless' type='primary'>注册</Button></Link>
-              <Link href={'/'}><Button theme='solid' type='primary'>登录</Button></Link>
-            </Space>
+            <ComponentUsingFormApi />
           }
         >
-          <Form>
-            <Form.Select field="Role" label='角色' style={{ width: '100%' }}>
-              <Form.Select.Option value="admin">管理员</Form.Select.Option>
-              <Form.Select.Option value="user">普通用户</Form.Select.Option>
-              <Form.Select.Option value="guest">访客</Form.Select.Option>
-            </Form.Select>
-            <Form.Input field='UserName' label='用户名' />
-            <Form.Input field='Password' label='密码'/>
-          </Form>
+          <Form.Input
+            field='username'
+            label='用户名'
+            rules={[
+              { required: true, message: '必填' }
+            ]}
+            prefix={<IconUser />}
+          />
+          <Form.Input
+            field='password'
+            label='密码'
+            rules={[
+              { required: true, message: '必填' }
+            ]}
+            mode='password'
+            prefix={<IconLock />}
+          />
         </Card>
-      </Col>
+      </Form>
     </Row>
   );
 }
