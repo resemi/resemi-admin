@@ -1,21 +1,19 @@
-import styles from './Layout.module.scss'
 import { FunctionComponent, useEffect, useState } from 'react';
 
 import { Layout, Nav, Button, Breadcrumb, Avatar, Dropdown } from '@douyinfe/semi-ui';
 import { IconBell, IconMoon, IconGithubLogo, IconLanguage, IconSun } from '@douyinfe/semi-icons';
 
-import { routes, RouteType } from '@/routes';
 import { useRouter } from 'next/router';
-import { useAppContext } from '@/provider/app.provider';
 import Head from 'next/head';
-
-export const siteTitle = 'Next.js Sample Website'
+import { routes, RouteType } from '@/routes';
+import { useAppContext } from '@/provider/app.provider';
+import styles from './Layout.module.scss';
 
 type LayoutProps = {
   title?: string;
-}
+};
 
-export const ProLayout: FunctionComponent<LayoutProps> = function ({children, ...props}) {
+export const ProLayout: FunctionComponent<LayoutProps> = function ({ children, ...props }) {
   const router = useRouter();
   const [defaultSelectedKeys, setSelectedKeys] = useState([]);
   const appContext = useAppContext();
@@ -27,18 +25,18 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children, ..
 
   /**
    * 生成导航菜单项
-   * @param routes
+   * @param __
    * @param parent
    */
-  function createNavItems(routes: RouteType[], parent?: RouteType) {
-    return routes?.map((route) => {
+  function createNavItems(__: RouteType[], parent?: RouteType) {
+    return __?.map((route) => {
       return {
         // itemKey: route.id,
         itemKey: `${(parent && parent.path) || ''}/${route.path}`.replace('//', '/'),
         text: route.name,
         icon: route.icon,
         items: createNavItems(route.children, route),
-      }
+      };
     });
   }
 
@@ -52,6 +50,16 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children, ..
     setSelectedKeys(item.selectedKeys);
   }
 
+  function onSwitchThemeMode() {
+    appContext.updateThemeMode(appContext.themeMode === 'dark' ? 'light' : 'dark');
+  }
+
+  function onSwitchLanguage() {
+    appContext.updateLanguage(
+      appContext.language.code.toLowerCase().startsWith('zh') ? 'enUS' : 'zhCN',
+    );
+  }
+
   /**
    * 退出
    */
@@ -59,21 +67,21 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children, ..
     await router.replace('/login');
   }
 
-  const {Header, Footer, Sider, Content} = Layout;
+  const { Header, Footer, Sider, Content } = Layout;
   return (
     <Layout className={styles.layout}>
-      <Head>
-        {props.title && <title>{props.title}</title>}
-      </Head>
+      <Head>{props.title && <title>{props.title}</title>}</Head>
       <Sider className={styles.sidebar}>
         <Nav
           defaultSelectedKeys={defaultSelectedKeys}
           className={styles.nav}
           items={createNavItems(routes)}
           header={{
-            logo: <img src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg"/>,
+            logo: (
+              <img alt="logo" src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg" />
+            ),
             text: 'Next Admin',
-            link: '/'
+            link: '/',
           }}
           footer={{
             collapseButton: true,
@@ -89,7 +97,7 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children, ..
               <>
                 <Button
                   theme="borderless"
-                  icon={<IconBell size="large"/>}
+                  icon={<IconBell size="large" />}
                   style={{
                     color: 'var(--semi-color-text-2)',
                     marginRight: '12px',
@@ -97,12 +105,18 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children, ..
                 />
                 <Button
                   theme="borderless"
-                  icon={appContext.themeMode === 'dark' ? <IconSun size="large"/> : <IconMoon size="large"/>}
+                  icon={
+                    appContext.themeMode === 'dark' ? (
+                      <IconSun size="large" />
+                    ) : (
+                      <IconMoon size="large" />
+                    )
+                  }
                   style={{
                     color: 'var(--semi-color-text-2)',
                     marginRight: '12px',
                   }}
-                  onClick={() => appContext.updateThemeMode(appContext.themeMode === 'dark' ? 'light' : 'dark')}
+                  onClick={onSwitchThemeMode}
                 />
                 <Button
                   theme="borderless"
@@ -111,11 +125,13 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children, ..
                     color: 'var(--semi-color-text-2)',
                     marginRight: '12px',
                   }}
-                  onClick={() => appContext.updateLanguage(appContext.language.code.toLowerCase().startsWith('zh') ? 'en_US' : 'zh_CN')}
-                >{appContext.language.code.slice(0, 2).toUpperCase()}</Button>
+                  onClick={onSwitchLanguage}
+                >
+                  {appContext.language.code.slice(0, 2).toUpperCase()}
+                </Button>
                 <Dropdown
-                  trigger={'click'}
-                  position={'bottomLeft'}
+                  trigger="click"
+                  position="bottomLeft"
                   render={
                     <Dropdown.Menu>
                       <Dropdown.Item>账号信息</Dropdown.Item>
@@ -125,7 +141,6 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children, ..
                     </Dropdown.Menu>
                   }
                 >
-
                   <Avatar color="orange" size="small">
                     YJ
                   </Avatar>
@@ -136,7 +151,7 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children, ..
         </Header>
         <Content className={styles.content}>
           <Breadcrumb
-            aria-label='breadcrumb'
+            aria-label="breadcrumb"
             style={{
               marginBottom: '24px',
             }}
@@ -158,11 +173,11 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({children, ..
               display: 'flex',
               alignItems: 'center',
               width: '100%',
-              justifyContent: 'center'
+              justifyContent: 'center',
             }}
           >
-              <IconGithubLogo size="large" style={{marginRight: '8px'}}/>
-              <span>Copyright © 2022 Anguer. All Rights Reserved. </span>
+            <IconGithubLogo size="large" style={{ marginRight: '8px' }} />
+            <span>Copyright © 2022 Anguer. All Rights Reserved. </span>
           </div>
         </Footer>
       </Layout>

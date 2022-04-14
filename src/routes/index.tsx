@@ -7,43 +7,43 @@ export type RouteType = {
   name: string;
   icon?: ReactNode;
   children?: RouteType[];
-}
+};
 
 export const routes: RouteType[] = [
   {
     id: 'Home',
-    path: "/admin/dashboard",
-    name: "首页",
-    icon: <IconHome size="large"/>,
+    path: '/admin/dashboard',
+    name: '首页',
+    icon: <IconHome size="large" />,
   },
   {
     id: 'Data',
-    path: "/admin/table",
-    name: "基础数据",
-    icon: <IconHistogram size="large"/>,
+    path: '/admin/table',
+    name: '基础数据',
+    icon: <IconHistogram size="large" />,
   },
   {
     id: 'Components',
-    path: "/admin/comp",
-    name: "组件",
-    icon: <IconLive size="large"/>,
+    path: '/admin/comp',
+    name: '组件',
+    icon: <IconLive size="large" />,
     children: [
       {
         id: 'Form',
-        path: "/form",
-        name: "表单",
+        path: '/form',
+        name: '表单',
       },
       {
         id: 'Input',
-        path: "/input",
-        name: "输入框",
-      }
-    ]
+        path: '/input',
+        name: '输入框',
+      },
+    ],
   },
   {
     id: 'Settings',
-    path: "/admin/settings",
-    name: "设置",
-    icon: <IconSetting size="large"/>,
+    path: '/admin/settings',
+    name: '设置',
+    icon: <IconSetting size="large" />,
   },
 ];
