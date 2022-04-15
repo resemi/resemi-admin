@@ -1,4 +1,5 @@
-// const path = require('path');
+// next config
+const WindiCSSWebpackPlugin = require('windicss-webpack-plugin');
 
 const semi = require('@douyinfe/semi-next').default({
   /* the extension options */
@@ -16,9 +17,10 @@ const nextConfig = semi({
     localeDetection: false,
   },
 
-  // sassOptions: {
-  //   includePaths: [path.join(__dirname, 'src/styles')],
-  // },
+  webpack(config) {
+    config.plugins.push(new WindiCSSWebpackPlugin());
+    return config;
+  },
 });
 
 module.exports = nextConfig;

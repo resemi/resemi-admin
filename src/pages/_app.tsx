@@ -1,3 +1,4 @@
+import 'windi.css';
 import '@/styles/globals.scss';
 
 import { AppProps } from 'next/app';

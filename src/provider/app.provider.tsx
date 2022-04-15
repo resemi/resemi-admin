@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { ConfigProvider } from '@douyinfe/semi-ui';
 import { Locale, locales, LocaleKey } from '@/locales';
 
-type ThemeMode = 'dark' | 'light';
+import { ThemeMode } from '@/enums/app.enum';
 
 type AppConfig = {
   themeMode: ThemeMode;
@@ -13,7 +13,7 @@ type AppConfig = {
 };
 
 const defaultAppConfig: AppConfig = {
-  themeMode: 'dark',
+  themeMode: ThemeMode.DARK,
   updateThemeMode: () => {},
   language: locales.zhCN,
   updateLanguage: () => {},
@@ -27,6 +27,11 @@ const AppContext = createContext<AppConfig>(defaultAppConfig);
 function updateThemeToBody(mode: ThemeMode) {
   const { body } = document;
   body.setAttribute('theme-mode', mode);
+  if (mode === ThemeMode.DARK) {
+    body.classList.add(ThemeMode.DARK);
+  } else {
+    body.classList.remove(ThemeMode.DARK);
+  }
   // if (body.hasAttribute('theme-mode')) {
   //   body.removeAttribute('theme-mode');
   //   // 以下这行代码，window.setMode仅用于当通过本Demo切换时，通知Semi官网Header记录更新当前模式（只用于演示）。在您的代码里无需存在。

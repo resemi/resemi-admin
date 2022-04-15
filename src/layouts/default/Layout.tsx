@@ -1,13 +1,14 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 
-import { Layout, Nav, Button, Breadcrumb, Avatar, Dropdown } from '@douyinfe/semi-ui';
-import { IconBell, IconMoon, IconGithubLogo, IconLanguage, IconSun } from '@douyinfe/semi-icons';
+import { Avatar, Breadcrumb, Button, Dropdown, Layout, Nav } from '@douyinfe/semi-ui';
+import { IconBell, IconGithubLogo, IconLanguage, IconMoon, IconSun } from '@douyinfe/semi-icons';
 
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { routes, RouteType } from '@/routes';
 import { useAppContext } from '@/provider/app.provider';
 import styles from './Layout.module.scss';
+import { ThemeMode } from '@/enums/app.enum';
 
 type LayoutProps = {
   title?: string;
@@ -51,7 +52,9 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({ children, .
   }
 
   function onSwitchThemeMode() {
-    appContext.updateThemeMode(appContext.themeMode === 'dark' ? 'light' : 'dark');
+    appContext.updateThemeMode(
+      appContext.themeMode === ThemeMode.DARK ? ThemeMode.LIGHT : ThemeMode.DARK,
+    );
   }
 
   function onSwitchLanguage() {
