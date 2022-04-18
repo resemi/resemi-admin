@@ -1,5 +1,5 @@
 {
-  "name": "next-open",
+  "name": "nextjs-admin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "pnpm": ">=6"
   },
   "dependencies": {
     "@douyinfe/semi-icons": "2.8.0",
