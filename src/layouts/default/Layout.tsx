@@ -14,7 +14,7 @@ type LayoutProps = {
   title?: string;
 };
 
-export const ProLayout: FunctionComponent<LayoutProps> = function ({ children, ...props }) {
+export const BasicLayout: FunctionComponent<LayoutProps> = function ({ children, ...props }) {
   const router = useRouter();
   const [defaultSelectedKeys, setSelectedKeys] = useState([]);
   const appContext = useAppContext();
@@ -52,15 +52,11 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({ children, .
   }
 
   function onSwitchThemeMode() {
-    appContext.updateThemeMode(
-      appContext.themeMode === ThemeMode.DARK ? ThemeMode.LIGHT : ThemeMode.DARK,
-    );
+    appContext.updateThemeMode(appContext.themeMode === ThemeMode.DARK ? ThemeMode.LIGHT : ThemeMode.DARK);
   }
 
   function onSwitchLanguage() {
-    appContext.updateLanguage(
-      appContext.language.code.toLowerCase().startsWith('zh') ? 'enUS' : 'zhCN',
-    );
+    appContext.updateLanguage(appContext.language.code.toLowerCase().startsWith('zh') ? 'enUS' : 'zhCN');
   }
 
   /**
@@ -80,9 +76,7 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({ children, .
           className={styles.nav}
           items={createNavItems(routes)}
           header={{
-            logo: (
-              <img alt="logo" src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg" />
-            ),
+            logo: <img alt="logo" src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg" />,
             text: 'Next Admin',
             link: '/',
           }}
@@ -108,13 +102,7 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({ children, .
                 />
                 <Button
                   theme="borderless"
-                  icon={
-                    appContext.themeMode === 'dark' ? (
-                      <IconSun size="large" />
-                    ) : (
-                      <IconMoon size="large" />
-                    )
-                  }
+                  icon={appContext.themeMode === 'dark' ? <IconSun size="large" /> : <IconMoon size="large" />}
                   style={{
                     color: 'var(--semi-color-text-2)',
                     marginRight: '12px',
@@ -186,4 +174,8 @@ export const ProLayout: FunctionComponent<LayoutProps> = function ({ children, .
       </Layout>
     </Layout>
   );
+};
+
+export const ProLayout = function ({ children }) {
+  return <div>{children}</div>;
 };

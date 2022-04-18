@@ -1,11 +1,11 @@
 import { Space, Card, Button, Avatar, Typography, Rating } from '@douyinfe/semi-ui';
-import { Layout } from '@/layouts/default';
+import { BasicLayout } from '@/layouts/default';
 
 export default function Dashboard() {
   const { Meta } = Card;
   const { Text } = Typography;
   return (
-    <Layout title="Dashboard">
+    <BasicLayout title="Dashboard">
       <Space align="start">
         <Card
           style={{ maxWidth: 300 }}
@@ -73,6 +73,6 @@ export default function Dashboard() {
           <Meta title="Semi Doc" description="全面、易用、优质" />
         </Card>
       </Space>
-    </Layout>
+    </BasicLayout>
   );
 }

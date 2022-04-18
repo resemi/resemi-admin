@@ -15,12 +15,12 @@ export default function Login() {
   // eslint-disable-next-line react/no-unstable-nested-components
   function ComponentUsingFormApi() {
     const formApi = useFormApi();
-    const change = () => {
+    function onChange() {
       formApi.setValue('password', '123456');
-    };
+    }
     return (
       <Space>
-        <Button onClick={change}>useFormApi</Button>
+        <Button onClick={onChange}>useFormApi</Button>
         <Button theme="borderless" type="primary" htmlType="reset">
           重置
         </Button>
@@ -32,7 +32,7 @@ export default function Login() {
   }
 
   const pause = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
-  const onSubmit = async (values) => {
+  async function onSubmit(values) {
     setLoading(true);
     await pause(3000);
     console.log('#onSubmit', values);
@@ -40,7 +40,7 @@ export default function Login() {
     if (values.username === 'anguer' && values.password === '123456') {
       await router.push('/');
     }
-  };
+  }
 
   return (
     <Row type="flex" align="middle" justify="center" style={{ height: '100vh' }}>

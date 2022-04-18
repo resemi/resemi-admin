@@ -23,12 +23,25 @@
     "jsx-a11y/anchor-is-valid": "off",
     "@typescript-eslint/no-use-before-define": ["error", { "variables": false }],
     "@typescript-eslint/no-unused-vars": "error",
-    "react/react-in-jsx-scope": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
     "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": ["error", {
+      "ignoreFunctionalComponents": true
+    }],
     "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
-    "import/extensions": ["error", { "extensions": [".js", ".jsx", ".json", ".ts", ".tsx"], "scss": "always", "enum": "always", "provider": "always" }],
+    "import/extensions": [
+      "error",
+      {
+        "extensions": [".js", ".jsx", ".json", ".ts", ".tsx"],
+        "scss": "always",
+        "enum": "always",
+        "provider": "always"
+      }
+    ],
     "react/prop-types": "off",
     "react/jsx-no-bind": ["error", { "allowFunctions": true }],
     "spaced-comment": ["error", "always", { "markers": ["/ <reference"] }],

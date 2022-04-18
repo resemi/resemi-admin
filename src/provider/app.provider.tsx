@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 import { ConfigProvider } from '@douyinfe/semi-ui';
 import { Locale, locales, LocaleKey } from '@/locales';
@@ -50,16 +50,19 @@ export function AppProvider({ children }) {
     updateThemeToBody(themeMode);
   }, [themeMode]);
 
-  const context = {
-    themeMode,
-    updateThemeMode: (mode) => {
-      setThemeMode(mode);
-    },
-    language,
-    updateLanguage: (lang) => {
-      setLanguage(locales[lang]);
-    },
-  };
+  const context = useMemo(
+    () => ({
+      themeMode,
+      updateThemeMode: (mode) => {
+        setThemeMode(mode);
+      },
+      language,
+      updateLanguage: (lang) => {
+        setLanguage(locales[lang]);
+      },
+    }),
+    [themeMode, language],
+  );
 
   return (
     <AppContext.Provider value={context}>

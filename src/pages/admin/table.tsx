@@ -1,10 +1,9 @@
 import { useState, useMemo, useEffect, ReactElement } from 'react';
 import { Table, Avatar } from '@douyinfe/semi-ui';
 import dayjs from 'dayjs';
-import { Layout } from '@/layouts/default';
+import { BasicLayout } from '@/layouts/default';
 
-const figmaIconUrl =
-  'https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/figma-icon.png';
+const figmaIconUrl = 'https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/figma-icon.png';
 const columns = [
   {
     title: '标题',
@@ -101,11 +100,9 @@ export default function TablePage() {
     setData(data);
   }, []);
 
-  return (
-    <Table columns={columns} dataSource={dataSource} rowSelection={rowSelection} scroll={scroll} />
-  );
+  return <Table columns={columns} dataSource={dataSource} rowSelection={rowSelection} scroll={scroll} />;
 }
 
 TablePage.getLayout = function getLayout(page: ReactElement) {
-  return <Layout title="DataTable">{page}</Layout>;
+  return <BasicLayout title="DataTable">{page}</BasicLayout>;
 };
