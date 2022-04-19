@@ -11,7 +11,6 @@ export default function Login() {
   });
   const [loading, setLoading] = useState(false);
 
-  // TODO
   // eslint-disable-next-line react/no-unstable-nested-components
   function ComponentUsingFormApi() {
     const formApi = useFormApi();
@@ -31,11 +30,12 @@ export default function Login() {
     );
   }
 
+  // eslint-disable-next-line no-promise-executor-return
   const pause = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
   async function onSubmit(values) {
     setLoading(true);
     await pause(3000);
-    console.log('#onSubmit', values);
+
     setLoading(false);
     if (values.username === 'anguer' && values.password === '123456') {
       await router.push('/');

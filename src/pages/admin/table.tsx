@@ -67,6 +67,7 @@ export default function TablePage() {
   const rowSelection = useMemo(
     () => ({
       onChange: (selectedRowKeys, selectedRows) => {
+        // eslint-disable-next-line no-console
         console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
       },
       getCheckboxProps: (record) => ({
