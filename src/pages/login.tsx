@@ -30,8 +30,10 @@ export default function Login() {
     );
   }
 
-  // eslint-disable-next-line no-promise-executor-return
-  const pause = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
+  const pause = (millis) =>
+    new Promise((resolve) => {
+      setTimeout(resolve, millis);
+    });
   async function onSubmit(values) {
     setLoading(true);
     await pause(3000);
