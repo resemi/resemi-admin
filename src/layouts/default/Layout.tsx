@@ -189,6 +189,6 @@ export const BasicLayout: FunctionComponent<LayoutProps> = function ({ children,
   );
 };
 
-export const ProLayout = function ({ children }) {
-  return <div>{children}</div>;
-};
+// export const ProLayout = function ({ children }) {
+//   return <div>{children}</div>;
+// };
