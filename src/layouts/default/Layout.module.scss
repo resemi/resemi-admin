@@ -1,6 +1,16 @@
+$layout-base-space: 20px;
+$layout-content-space: $layout-base-space;
+$layout-footer-space: $layout-base-space;
+
+$layout-height: 100vh;
+$layout-header-height: 60px;
+$layout-footer-height: 60px;
+
+$layout-loading-z-index: 100;
+
 .layout {
   position: relative;
-  height: 100vh;
+  height: $layout-height;
 }
 
 .sidebar {
@@ -8,7 +18,21 @@
 }
 
 .header {
+  height: $layout-header-height;
   background-color: var(--semi-color-bg-1);
+}
+
+.footer {
+  display: flex;
+  height: $layout-footer-height;
+  justify-content: space-between;
+  padding: $layout-footer-space;
+  color: var(--semi-color-text-2);
+  background-color: rgba(var(--semi-grey-0), 1);
+}
+
+.breadcrumb {
+  margin-bottom: $layout-base-space;
 }
 
 .nav {
@@ -17,14 +41,30 @@
 }
 
 .content {
-  padding: 24px;
+  position: relative;
+  padding: $layout-content-space;
   background-color: var(--semi-color-bg-0);
 }
 
-.footer {
+.content-inner {
+  border-radius: 10px;
+  border: 1px solid var(--semi-color-border);
+  padding: $layout-content-space;
+}
+
+.loading {
+  position: absolute;
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  color: var(--semi-color-text-2);
-  background-color: rgba(var(--semi-grey-0), 1);
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: calc(100vh - #{$layout-header-height});
+  width: 100%;
+  background-color: var(--semi-color-bg-0);
+  z-index: $layout-loading-z-index;
+}
+
+.none {
+  display: none;
 }

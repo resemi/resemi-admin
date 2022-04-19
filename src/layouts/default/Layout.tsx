@@ -9,6 +9,7 @@ import { routes, RouteType } from '@/routes';
 import { useAppContext } from '@/provider/app.provider';
 import styles from './Layout.module.scss';
 import { ThemeMode } from '@/enums/app.enum';
+import Loading from './Loading';
 
 type LayoutProps = {
   title?: string;
@@ -18,6 +19,19 @@ export const BasicLayout: FunctionComponent<LayoutProps> = function ({ children,
   const router = useRouter();
   const [defaultSelectedKeys, setSelectedKeys] = useState([]);
   const appContext = useAppContext();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    function handleStart(url) {
+      setLoading(url !== router.pathname);
+    }
+    function handleComplete() {
+      setLoading(false);
+    }
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleComplete);
+  }, [router]);
 
   useEffect(() => {
     // console.log('#router', router);
@@ -154,22 +168,13 @@ export const BasicLayout: FunctionComponent<LayoutProps> = function ({ children,
           />
         </Header>
         <Content className={styles.content}>
+          <Loading loading={loading} />
           <Breadcrumb
             aria-label="breadcrumb"
-            style={{
-              marginBottom: '24px',
-            }}
+            className={styles.breadcrumb}
             routes={['首页', '当这个页面标题很长时需要省略', '上一页', '详情页']}
           />
-          <div
-            style={{
-              borderRadius: '10px',
-              border: '1px solid var(--semi-color-border)',
-              padding: '32px',
-            }}
-          >
-            {children}
-          </div>
+          <div className={styles['content-inner']}>{children}</div>
         </Content>
         <Footer className={styles.footer}>
           <div

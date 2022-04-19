@@ -4,20 +4,25 @@ import { BasicLayout } from '@/layouts/default';
 export default function Dashboard() {
   const { Meta } = Card;
   const { Text } = Typography;
+  const list = Array.from(new Array(10).keys());
   return (
     <BasicLayout title="Dashboard">
-      <Space align="start">
-        <Card
-          style={{ maxWidth: 300 }}
-          cover={
-            <img
-              alt="example"
-              src="https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/card-cover-docs-demo2.jpeg"
-            />
-          }
-        >
-          <Meta title="卡片封面" />
-        </Card>
+      <Space align="start" wrap>
+        {list.map(() => {
+          return (
+            <Card
+              style={{ maxWidth: 300 }}
+              cover={
+                <img
+                  alt="example"
+                  src="https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/card-cover-docs-demo2.jpeg"
+                />
+              }
+            >
+              <Meta title="卡片封面" />
+            </Card>
+          );
+        })}
 
         <Card
           style={{ maxWidth: 340 }}

@@ -13,7 +13,7 @@ type AppConfig = {
 };
 
 const defaultAppConfig: AppConfig = {
-  themeMode: ThemeMode.DARK,
+  themeMode: ThemeMode.LIGHT,
   updateThemeMode: () => {},
   language: locales.zhCN,
   updateLanguage: () => {},
