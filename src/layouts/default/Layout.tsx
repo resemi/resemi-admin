@@ -59,6 +59,10 @@ export const BasicLayout: FunctionComponent<LayoutProps> = function ({ children,
     appContext.updateLanguage(appContext.language.code.toLowerCase().startsWith('zh') ? 'enUS' : 'zhCN');
   }
 
+  function onGithubClick() {
+    window.open('https://github.com/ghaaaaa/nextjs-admin#readme', '_blank');
+  }
+
   /**
    * 退出
    */
@@ -108,6 +112,15 @@ export const BasicLayout: FunctionComponent<LayoutProps> = function ({ children,
                     marginRight: '12px',
                   }}
                   onClick={onSwitchThemeMode}
+                />
+                <Button
+                  theme="borderless"
+                  icon={<IconGithubLogo size="large" />}
+                  style={{
+                    color: 'var(--semi-color-text-2)',
+                    marginRight: '12px',
+                  }}
+                  onClick={onGithubClick}
                 />
                 <Button
                   theme="borderless"

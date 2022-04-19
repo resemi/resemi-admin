@@ -1,6 +1,10 @@
 {
   "name": "nextjs-admin",
   "version": "0.1.0",
+  "author": {
+    "name": "Anguer",
+    "email": "*@gmail.com"
+  },
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -11,9 +15,10 @@
     "prepare": "husky install"
   },
   "engines": {
-    "node": ">=12.0.0",
+    "node": "^12 || >=14",
     "pnpm": ">=6"
   },
+  "homepage": "https://github.com/ghaaaaa/nextjs-admin#readme",
   "dependencies": {
     "@douyinfe/semi-icons": "2.8.0",
     "@douyinfe/semi-ui": "2.8.0",
