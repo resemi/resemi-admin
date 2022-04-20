@@ -1,21 +1,22 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 import { ConfigProvider } from '@douyinfe/semi-ui';
-import { Locale, locales, LocaleKey } from '@/locales';
+import { IntlProvider } from 'react-intl';
+import { messages, Locales } from '@/locales';
 
 import { ThemeMode } from '@/enums/app.enum';
 
 type AppConfig = {
   themeMode: ThemeMode;
   updateThemeMode: (mode: ThemeMode) => void;
-  language: Locale;
-  updateLanguage: (lang: LocaleKey) => void;
+  language: Locales;
+  updateLanguage: (local: Locales) => void;
 };
 
 const defaultAppConfig: AppConfig = {
   themeMode: ThemeMode.LIGHT,
   updateThemeMode: () => {},
-  language: locales.zhCN,
+  language: Locales.ZH_CN,
   updateLanguage: () => {},
 };
 
@@ -51,22 +52,25 @@ export function AppProvider({ children }) {
   }, [themeMode]);
 
   const context = useMemo(
-    () => ({
-      themeMode,
-      updateThemeMode: (mode) => {
-        setThemeMode(mode);
-      },
-      language,
-      updateLanguage: (lang) => {
-        setLanguage(locales[lang]);
-      },
-    }),
+    () =>
+      ({
+        themeMode,
+        updateThemeMode: (mode) => {
+          setThemeMode(mode);
+        },
+        language,
+        updateLanguage: (locale) => {
+          setLanguage(locale);
+        },
+      } as AppConfig),
     [themeMode, language],
   );
 
   return (
     <AppContext.Provider value={context}>
-      <ConfigProvider locale={language}>{children}</ConfigProvider>
+      <IntlProvider messages={messages[language].app} defaultLocale={Locales.ZH_CN} locale={language}>
+        <ConfigProvider locale={messages[language].semi}>{children}</ConfigProvider>
+      </IntlProvider>
     </AppContext.Provider>
   );
 }

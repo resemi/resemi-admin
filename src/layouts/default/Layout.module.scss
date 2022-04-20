@@ -6,6 +6,8 @@ $layout-height: 100vh;
 $layout-header-height: 60px;
 $layout-footer-height: 60px;
 
+$layout-sidebar-width: 240px;
+
 $layout-loading-z-index: 100;
 
 .layout {
@@ -36,7 +38,7 @@ $layout-loading-z-index: 100;
 }
 
 .nav {
-  max-width: 220px;
+  max-width: $layout-sidebar-width;
   height: 100%;
 }
 

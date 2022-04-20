@@ -10,6 +10,8 @@ import { useAppContext } from '@/provider/app.provider';
 import styles from './Layout.module.scss';
 import { ThemeMode } from '@/enums/app.enum';
 import Loading from './Loading';
+import { Locales } from '@/locales';
+import { FormattedMessage } from 'react-intl';
 
 type LayoutProps = {
   title?: string;
@@ -70,7 +72,7 @@ export const BasicLayout: FunctionComponent<LayoutProps> = function ({ children,
   }
 
   function onSwitchLanguage() {
-    appContext.updateLanguage(appContext.language.code.toLowerCase().startsWith('zh') ? 'enUS' : 'zhCN');
+    appContext.updateLanguage(appContext.language === Locales.ZH_CN ? Locales.EN_US : Locales.ZH_CN);
   }
 
   function onGithubClick() {
@@ -108,6 +110,7 @@ export const BasicLayout: FunctionComponent<LayoutProps> = function ({ children,
         <Header className={styles.header}>
           <Nav
             mode="horizontal"
+            header={<div><FormattedMessage id="hello" /><FormattedMessage id="layout.header" /></div>}
             footer={
               <>
                 <Button
@@ -145,7 +148,7 @@ export const BasicLayout: FunctionComponent<LayoutProps> = function ({ children,
                   }}
                   onClick={onSwitchLanguage}
                 >
-                  {appContext.language.code.slice(0, 2).toUpperCase()}
+                  {appContext.language.slice(0, 2).toUpperCase()}
                 </Button>
                 <Dropdown
                   trigger="click"
