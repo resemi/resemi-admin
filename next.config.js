@@ -21,6 +21,10 @@ const nextConfig = semi({
     config.plugins.push(new WindiCSSWebpackPlugin());
     return config;
   },
+
+  rewrites() {
+    return {};
+  },
 });
 
 module.exports = nextConfig;
