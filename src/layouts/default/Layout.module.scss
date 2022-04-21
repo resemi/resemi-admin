@@ -13,6 +13,7 @@ $layout-loading-z-index: 100;
 .layout {
   position: relative;
   height: $layout-height;
+  color: var(--semi-color-text-0);
 }
 
 .sidebar {

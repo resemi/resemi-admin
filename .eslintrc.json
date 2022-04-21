@@ -27,6 +27,10 @@
     "@typescript-eslint/no-shadow": "error",
     "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "react/function-component-definition": ["error", {
+      "namedComponents": ["arrow-function", "function-declaration", "function-expression"],
+      "unnamedComponents": []
+    }],
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": ["error", {
       "ignoreFunctionalComponents": true

@@ -1,4 +1,4 @@
-import { IconHome, IconHistogram, IconLive, IconSetting } from '@douyinfe/semi-icons';
+import { IconHome, IconHistogram, IconComponent, IconPuzzle, IconSetting } from '@douyinfe/semi-icons';
 import { ReactNode } from 'react';
 
 export type RouteType = {
@@ -26,7 +26,7 @@ export const routes: RouteType[] = [
     id: 'Components',
     path: '/admin/comp',
     name: '组件',
-    icon: <IconLive size="large" />,
+    icon: <IconComponent size="large" />,
     children: [
       {
         id: 'Form',
@@ -37,6 +37,19 @@ export const routes: RouteType[] = [
         id: 'Input',
         path: '/input',
         name: '输入框',
+      },
+    ],
+  },
+  {
+    id: 'Features',
+    path: '/admin/feat',
+    name: '功能',
+    icon: <IconPuzzle size="large" />,
+    children: [
+      {
+        id: 'Intl',
+        path: '/intl',
+        name: '国际化',
       },
     ],
   },
