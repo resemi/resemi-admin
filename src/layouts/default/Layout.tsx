@@ -5,13 +5,13 @@ import { IconBell, IconGithubLogo, IconLanguage, IconMoon, IconSun } from '@douy
 
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { FormattedMessage } from 'react-intl';
 import { routes, RouteType } from '@/routes';
 import { useAppContext } from '@/provider/app.provider';
 import styles from './Layout.module.scss';
 import { ThemeMode } from '@/enums/app.enum';
 import Loading from './Loading';
 import { Locales } from '@/locales';
-import { FormattedMessage } from 'react-intl';
 
 type LayoutProps = {
   title?: string;
@@ -110,7 +110,12 @@ export const BasicLayout: FunctionComponent<LayoutProps> = function ({ children,
         <Header className={styles.header}>
           <Nav
             mode="horizontal"
-            header={<div><FormattedMessage id="hello" /><FormattedMessage id="layout.header" /></div>}
+            header={
+              <div>
+                <FormattedMessage id="hello" />
+                <FormattedMessage id="layout.header" />
+              </div>
+            }
             footer={
               <>
                 <Button

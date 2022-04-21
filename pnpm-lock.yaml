@@ -3,12 +3,15 @@ lockfileVersion: 5.3
 overrides:
   '@types/react': 17.0.43
 
+packageExtensionsChecksum: 16aea2d6acdcd5cf6681912a3ab22a0c
+
 specifiers:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
   '@douyinfe/semi-icons': 2.8.0
   '@douyinfe/semi-next': 2.8.0
   '@douyinfe/semi-ui': 2.8.0
+  '@types/lodash-es': 4.17.6
   '@types/node': 17.0.24
   '@types/react': 17.0.43
   '@types/react-dom': 18.0.1
@@ -26,7 +29,7 @@ specifiers:
   gray-matter: 4.0.3
   husky: 7.0.4
   lint-staged: 12.3.8
-  lodash-es: ^4.17.21
+  lodash-es: 4.17.21
   next: 12.1.5
   prettier: 2.6.2
   react: 18.0.0
@@ -35,6 +38,7 @@ specifiers:
   remark: 14.0.2
   remark-html: 15.0.1
   reset-css: 5.0.1
+  rimraf: 3.0.2
   sass: 1.50.0
   typescript: 4.6.3
   windicss: 3.5.1
@@ -58,6 +62,7 @@ devDependencies:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
   '@douyinfe/semi-next': 2.8.0
+  '@types/lodash-es': 4.17.6
   '@types/node': 17.0.24
   '@types/react': 17.0.43
   '@types/react-dom': 18.0.1
@@ -74,6 +79,7 @@ devDependencies:
   husky: 7.0.4
   lint-staged: 12.3.8
   prettier: 2.6.2
+  rimraf: 3.0.2
   sass: 1.50.0
   typescript: 4.6.3
   windicss: 3.5.1
@@ -369,7 +375,7 @@ packages:
       '@cspotcode/source-map-consumer': 0.8.0
     dev: true
 
-  /@douyinfe/semi-animation-react/2.8.0_react-dom@18.0.0+react@18.0.0:
+  /@douyinfe/semi-animation-react/2.8.0_bdb4aea89f170aaa1ddb585ff4b9f19e:
     resolution: {integrity: sha512-w9of0FLxJ85sd9OsJh80CNXLSiKSpgtA6satwlbMoEi3g4NrEvNW5T3dpSdKJuCNmXhQ9ir0Gcv15z4/lonZrQ==}
     peerDependencies:
       prop-types: 15.7.2
@@ -380,6 +386,7 @@ packages:
       '@douyinfe/semi-animation': 2.8.0
       '@douyinfe/semi-animation-styled': 2.8.0
       classnames: 2.3.1
+      prop-types: 15.8.1
       react: 18.0.0
       react-dom: 18.0.0_react@18.0.0
     dev: false
@@ -452,13 +459,12 @@ packages:
     peerDependencies:
       '@types/react': '>=16.0.0'
       '@types/react-dom': '>=16.0.0'
-      prop-types: 15.7.2
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
     dependencies:
       '@babel/runtime-corejs3': 7.17.9
       '@douyinfe/semi-animation': 2.8.0
-      '@douyinfe/semi-animation-react': 2.8.0_react-dom@18.0.0+react@18.0.0
+      '@douyinfe/semi-animation-react': 2.8.0_bdb4aea89f170aaa1ddb585ff4b9f19e
       '@douyinfe/semi-foundation': 2.8.0
       '@douyinfe/semi-icons': 2.8.0_react@18.0.0
       '@douyinfe/semi-illustrations': 2.8.0_react@18.0.0
@@ -480,12 +486,17 @@ packages:
       resize-observer-polyfill: 1.5.1
       scroll-into-view-if-needed: 2.2.29
       utility-types: 3.10.0
+    optionalDependencies:
+      prop-types: 15.8.1
     dev: false
 
   /@douyinfe/semi-webpack-plugin/2.8.0:
     resolution: {integrity: sha512-D+czwv6VWy+5JsQ0c9mILYapO5tKntoUhH+YCTvc7a/nYoGRKZMUoTS/IKbtELVYjE6d3ZXTjfdOSTltwyZG9w==}
     peerDependencies:
       webpack: ^4 || ^5
+    peerDependenciesMeta:
+      webpack:
+        optional: true
     dependencies:
       '@babel/generator': 7.17.9
       '@babel/parser': 7.17.9
@@ -777,6 +788,16 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}
+    dev: true
+
+  /@types/lodash-es/4.17.6:
+    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
+    dependencies:
+      '@types/lodash': 4.14.182
+    dev: true
+
+  /@types/lodash/4.14.182:
+    resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
     dev: true
 
   /@types/mdast/3.0.10:
@@ -1470,6 +1491,9 @@ packages:
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       webpack: ^4.27.0 || ^5.0.0
+    peerDependenciesMeta:
+      webpack:
+        optional: true
     dependencies:
       camelcase: 6.3.0
       cssesc: 3.0.0
@@ -3857,6 +3881,8 @@ packages:
         optional: true
       sass:
         optional: true
+      webpack:
+        optional: true
     dependencies:
       klona: 2.0.5
       loader-utils: 2.0.0
@@ -4172,6 +4198,9 @@ packages:
     engines: {node: '>= 8.9.0'}
     peerDependencies:
       webpack: ^4.0.0 || ^5.0.0
+    peerDependenciesMeta:
+      webpack:
+        optional: true
     dependencies:
       loader-utils: 2.0.0
       schema-utils: 2.7.1

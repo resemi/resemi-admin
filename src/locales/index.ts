@@ -1,7 +1,6 @@
 import semiZhCN from '@douyinfe/semi-ui/lib/es/locale/source/zh_CN';
 import semiEnUS from '@douyinfe/semi-ui/lib/es/locale/source/en_US';
 import { createIntl, createIntlCache } from 'react-intl';
-import mapValues from 'lodash-es/mapValues';
 import zhCN from './zh-CN';
 import enUS from './en';
 
@@ -23,12 +22,20 @@ export const messages = {
   },
 };
 
-// const cache = createIntlCache();
-//
-// export const intl = createIntl(
-//   mapValues(messages, (t, k) => ({
-//     locale: k,
-//     messages: t.app,
-//   })),
-//   cache,
-// );
+const cache = createIntlCache();
+
+export const useLocale = () => {
+  // TODO: get currenLocale for store
+  const currenLocale = Locales.ZH_CN;
+  const intl = createIntl(
+    {
+      locale: currenLocale,
+      messages: messages[currenLocale].app,
+    },
+    cache,
+  );
+
+  return {
+    intl,
+  };
+};
