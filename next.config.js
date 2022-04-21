@@ -23,7 +23,16 @@ const nextConfig = semi({
   },
 
   rewrites() {
-    return {};
+    return [
+      {
+        source: '/:path*',
+        destination: '/www/:path*',
+      },
+      {
+        source: '/admin/:path*',
+        destination: '/admin/:path*',
+      },
+    ];
   },
 });
 
