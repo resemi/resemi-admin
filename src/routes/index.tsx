@@ -9,6 +9,8 @@ export type RouteType = {
   children?: RouteType[];
 };
 
+export const adminBasePath = '/admin';
+
 export const routes: RouteType[] = [
   {
     id: 'Home',

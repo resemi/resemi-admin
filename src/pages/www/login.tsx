@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Card, Form, Space, Row, useFormApi, Avatar } from '@douyinfe/semi-ui';
+import { Button, Card, Form, Space, useFormApi, Avatar } from '@douyinfe/semi-ui';
 import { IconLock, IconUser } from '@douyinfe/semi-icons';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export default function Login() {
   const router = useRouter();
@@ -20,9 +21,11 @@ export default function Login() {
     return (
       <Space>
         <Button onClick={onChange}>useFormApi</Button>
-        <Button theme="borderless" type="primary" htmlType="reset">
-          重置
-        </Button>
+        <Link href="/register">
+          <Button theme="borderless" type="primary">
+            注册
+          </Button>
+        </Link>
         <Button theme="solid" type="primary" htmlType="submit" loading={loading}>
           登录
         </Button>
@@ -45,7 +48,7 @@ export default function Login() {
   }
 
   return (
-    <Row type="flex" align="middle" justify="center" style={{ height: '100vh' }}>
+    <div>
       <Form initValues={initValues} onSubmit={onSubmit}>
         <Card
           style={{ width: 360 }}
@@ -75,6 +78,6 @@ export default function Login() {
           />
         </Card>
       </Form>
-    </Row>
+    </div>
   );
 }

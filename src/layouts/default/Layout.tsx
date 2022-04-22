@@ -8,11 +8,11 @@ import { Sidebar } from '@/layouts/default/sidebar';
 import { Footer } from '@/layouts/default/footer';
 import { Main } from '@/layouts/default/main';
 
-export type LayoutProps = {
+export type BasicLayoutProps = {
   title?: string;
 };
 
-export const BasicLayout: FunctionComponent<LayoutProps> = ({ children, ...props }) => {
+export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children, ...props }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -43,4 +43,10 @@ export const BasicLayout: FunctionComponent<LayoutProps> = ({ children, ...props
       </Layout>
     </Layout>
   );
+};
+
+export type LandingLayoutProps = {};
+
+export const LandingLayout: FunctionComponent<LandingLayoutProps> = ({ children }) => {
+  return <div className="flex justify-center items-center h-full">{children}</div>;
 };

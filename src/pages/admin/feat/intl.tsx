@@ -1,11 +1,10 @@
 import React from 'react';
 import { FormattedDate, FormattedMessage, FormattedNumber, FormattedPlural, useIntl } from 'react-intl';
-import { BasicLayout } from '@/layouts/default';
 
 export default function Page() {
   const intl = useIntl();
   return (
-    <BasicLayout>
+    <>
       <FormattedDate value={Date.now()} year="numeric" month="long" day="2-digit" />
       <br />
       <FormattedNumber value={2000} />
@@ -28,6 +27,6 @@ export default function Page() {
       <p>
         <FormattedMessage id="click_count" values={{ count: 1 }} />
       </p>
-    </BasicLayout>
+    </>
   );
 }
