@@ -1,17 +1,15 @@
 import { IconMoon, IconSun } from '@douyinfe/semi-icons';
 import { Button } from '@douyinfe/semi-ui';
 import { FunctionComponent, useEffect } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { ThemeMode } from '@/enums/app.enum';
-import { useAppContext } from '@/provider/app.provider';
+import { appSelector, appState } from '@/store';
 
 export type ThemeModeSwitcherProps = {};
 
 export const ThemeModeSwitcher: FunctionComponent<ThemeModeSwitcherProps> = () => {
-  const appContext = useAppContext();
-
-  function isDarkMode() {
-    return appContext.themeMode === ThemeMode.DARK;
-  }
+  const [state, setState] = useRecoilState(appState);
+  const selector = useRecoilValue(appSelector);
 
   function updateThemeToBody(mode: ThemeMode) {
     const { body } = document;
@@ -29,17 +27,22 @@ export const ThemeModeSwitcher: FunctionComponent<ThemeModeSwitcherProps> = () =
   }
 
   useEffect(() => {
-    updateThemeToBody(appContext.themeMode);
-  }, [appContext.themeMode]);
+    updateThemeToBody(state.themeMode);
+  }, [state.themeMode]);
 
   function onSwitchThemeMode() {
-    appContext.updateThemeMode(isDarkMode() ? ThemeMode.LIGHT : ThemeMode.DARK);
+    setState((oldState) => {
+      return {
+        ...oldState,
+        themeMode: selector.isDarkMode() ? ThemeMode.LIGHT : ThemeMode.DARK,
+      };
+    });
   }
 
   return (
     <Button
       theme="borderless"
-      icon={isDarkMode() ? <IconSun size="large" /> : <IconMoon size="large" />}
+      icon={selector.isDarkMode() ? <IconSun size="large" /> : <IconMoon size="large" />}
       style={{
         color: 'var(--semi-color-text-2)',
         marginRight: '12px',
