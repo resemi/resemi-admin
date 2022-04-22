@@ -31,6 +31,7 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-intl": "5.25.0",
+    "recoil": "^0.7.2",
     "remark": "14.0.2",
     "remark-html": "15.0.1",
     "reset-css": "5.0.1"
@@ -76,10 +77,19 @@
         "optionalDependencies": {
           "prop-types": "*"
         }
+      },
+      "@douyinfe/semi-icons": {
+        "optionalDependencies": {
+          "react": "*"
+        }
       }
     },
     "peerDependencyRules": {
-      "ignoreMissing": ["webpack", "react", "react-dom"]
+      "ignoreMissing": [
+        "webpack",
+        "react",
+        "react-dom"
+      ]
     }
   }
 }

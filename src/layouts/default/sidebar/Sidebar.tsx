@@ -13,7 +13,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = () => {
   useEffect(() => {
     // console.log('#router', router);
     setSelectedKeys([router.pathname]);
-  }, []);
+  }, [router.pathname]);
 
   /**
    * 生成导航菜单项

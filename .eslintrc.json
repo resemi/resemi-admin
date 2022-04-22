@@ -13,7 +13,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
   "rules": {
     "no-use-before-define": "off",
     "jsx-a11y/heading-has-content": "off",
@@ -49,7 +49,13 @@
     "react/prop-types": "off",
     "react/jsx-no-bind": ["error", { "allowFunctions": true }],
     "spaced-comment": ["error", "always", { "markers": ["/ <reference"] }],
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": [
+      "warn", {
+        "additionalHooks": "useRecoilCallback"
+      }
+    ]
   },
   "settings": {
     "import/resolver": {

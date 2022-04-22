@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 overrides:
   '@types/react': 17.0.43
 
-packageExtensionsChecksum: 16aea2d6acdcd5cf6681912a3ab22a0c
+packageExtensionsChecksum: 88f092752611e7549d774c77c00335b4
 
 specifiers:
   '@commitlint/cli': 16.2.3
@@ -35,6 +35,7 @@ specifiers:
   react: 18.0.0
   react-dom: 18.0.0
   react-intl: 5.25.0
+  recoil: ^0.7.2
   remark: 14.0.2
   remark-html: 15.0.1
   reset-css: 5.0.1
@@ -45,7 +46,7 @@ specifiers:
   windicss-webpack-plugin: 1.6.10
 
 dependencies:
-  '@douyinfe/semi-icons': 2.8.0_react@18.0.0
+  '@douyinfe/semi-icons': 2.8.0
   '@douyinfe/semi-ui': 2.8.0_f8807043d5716dccb46feeac3da57300
   dayjs: 1.11.0
   gray-matter: 4.0.3
@@ -54,6 +55,7 @@ dependencies:
   react: 18.0.0
   react-dom: 18.0.0_react@18.0.0
   react-intl: 5.25.0_react@18.0.0+typescript@4.6.3
+  recoil: 0.7.2_react-dom@18.0.0+react@18.0.0
   remark: 14.0.2
   remark-html: 15.0.1
   reset-css: 5.0.1
@@ -381,6 +383,11 @@ packages:
       prop-types: 15.7.2
       react: '>=16.0.0'
       react-dom: '>=16.0.1'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
       '@babel/runtime-corejs3': 7.17.9
       '@douyinfe/semi-animation': 2.8.0
@@ -418,13 +425,15 @@ packages:
       scroll-into-view-if-needed: 2.2.29
     dev: false
 
-  /@douyinfe/semi-icons/2.8.0_react@18.0.0:
+  /@douyinfe/semi-icons/2.8.0:
     resolution: {integrity: sha512-ECYkdDywE77CkFxeoqEjubBnXrcQZYeR+07lIl0yPwA4nrZRH1dA7zwZxdAEmvk/E5OL3TpweQKjYJ8YIiOx6A==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
     dependencies:
       '@babel/runtime-corejs3': 7.17.9
       classnames: 2.3.1
+    optionalDependencies:
       react: 18.0.0
     dev: false
 
@@ -432,6 +441,9 @@ packages:
     resolution: {integrity: sha512-oY6nugnBF9rWNhUdzfo6MsDDyEyrx4gtEvztyDC5aWnyUsGgE03P/rELfzSuUbyFyc6VcUtJWnzpeeTD2PHm/w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
     dependencies:
       '@babel/runtime-corejs3': 7.17.9
       react: 18.0.0
@@ -461,12 +473,17 @@ packages:
       '@types/react-dom': '>=16.0.0'
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
       '@babel/runtime-corejs3': 7.17.9
       '@douyinfe/semi-animation': 2.8.0
       '@douyinfe/semi-animation-react': 2.8.0_bdb4aea89f170aaa1ddb585ff4b9f19e
       '@douyinfe/semi-foundation': 2.8.0
-      '@douyinfe/semi-icons': 2.8.0_react@18.0.0
+      '@douyinfe/semi-icons': 2.8.0
       '@douyinfe/semi-illustrations': 2.8.0_react@18.0.0
       '@douyinfe/semi-theme-default': 2.8.0
       '@types/react': 17.0.43
@@ -2263,6 +2280,10 @@ packages:
       strip-bom-string: 1.0.0
     dev: false
 
+  /hamt_plus/1.0.2:
+    resolution: {integrity: sha1-4hwlKWjH4zsg9qGwlM2FeHomVgE=}
+    dev: false
+
   /hard-rejection/2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
     engines: {node: '>=6'}
@@ -3205,6 +3226,10 @@ packages:
         optional: true
       node-sass:
         optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
       sass:
         optional: true
     dependencies:
@@ -3585,6 +3610,9 @@ packages:
     resolution: {integrity: sha512-XqX7uzmFo0pUceWFCt7Gff6IyIMzFUn7QMZrbrQfGxtaxXZIcGQzoNpRLE3fQLnS4XzLLPMZX2T9TRcSrasicw==}
     peerDependencies:
       react: ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
     dependencies:
       loose-envify: 1.4.0
       react: 18.0.0
@@ -3596,6 +3624,11 @@ packages:
     peerDependencies:
       react: '>= 16.3.0'
       react-dom: '>= 16.3.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
       clsx: 1.1.1
       prop-types: 15.8.1
@@ -3609,6 +3642,8 @@ packages:
       react: ^16.3.0 || 17 || 18
       typescript: ^4.5
     peerDependenciesMeta:
+      react:
+        optional: true
       typescript:
         optional: true
     dependencies:
@@ -3634,6 +3669,11 @@ packages:
     peerDependencies:
       react: 0.14.x || 15.x || 16.x || 17.x
       react-dom: 0.14.x || 15.x || 16.x || 17.x
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
       prop-types: 15.8.1
       react: 18.0.0
@@ -3646,6 +3686,11 @@ packages:
     peerDependencies:
       react: ^16.3.0 || ^17.0.0
       react-dom: ^16.3.0 || ^17.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
       '@babel/runtime': 7.17.9
       invariant: 2.2.4
@@ -3660,6 +3705,11 @@ packages:
     peerDependencies:
       react: ^15.0.0 || ^16.0.0 || ^17.0.0
       react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
       '@babel/runtime': 7.17.9
       memoize-one: 5.2.1
@@ -3708,6 +3758,25 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
+
+  /recoil/0.7.2_react-dom@18.0.0+react@18.0.0:
+    resolution: {integrity: sha512-OT4pI7FOUHcIoRtjsL5Lqq+lFFzQfir4MIbUkqyJ3nqv3WfBP1pHepyurqTsK5gw+T+I2R8+uOD28yH+Lg5o4g==}
+    peerDependencies:
+      react: '>=16.13.1'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      hamt_plus: 1.0.2
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
+    dev: false
 
   /redent/3.0.0:
     resolution: {integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==}
@@ -4217,6 +4286,8 @@ packages:
       '@babel/core':
         optional: true
       babel-plugin-macros:
+        optional: true
+      react:
         optional: true
     dependencies:
       react: 18.0.0

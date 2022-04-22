@@ -3,6 +3,7 @@ import { createContext, useContext, useMemo, useState } from 'react';
 import { ConfigProvider } from '@douyinfe/semi-ui';
 import { IntlProvider } from 'react-intl';
 import { useRouter } from 'next/router';
+import { RecoilRoot } from 'recoil';
 import { messages, Locales } from '@/locales';
 
 import { ThemeMode } from '@/enums/app.enum';
@@ -36,9 +37,11 @@ export function AppProvider({ children }) {
 
   return (
     <AppContext.Provider value={context}>
-      <IntlProvider locale={locale} messages={messages[locale].app} defaultLocale={Locales.ZH_CN}>
-        <ConfigProvider locale={messages[locale].semi}>{children}</ConfigProvider>
-      </IntlProvider>
+      <RecoilRoot>
+        <IntlProvider locale={locale} messages={messages[locale].app} defaultLocale={Locales.ZH_CN}>
+          <ConfigProvider locale={messages[locale].semi}>{children}</ConfigProvider>
+        </IntlProvider>
+      </RecoilRoot>
     </AppContext.Provider>
   );
 }
