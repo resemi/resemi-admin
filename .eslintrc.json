@@ -42,8 +42,7 @@
       {
         "extensions": [".js", ".jsx", ".json", ".ts", ".tsx"],
         "scss": "always",
-        "enum": "always",
-        "provider": "always"
+        "enum": "always"
       }
     ],
     "react/prop-types": "off",
