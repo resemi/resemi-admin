@@ -31,12 +31,14 @@ const columns = [
   {
     title: '大小',
     dataIndex: 'size',
+    width: 200,
     sorter: (a, b) => (a.size - b.size > 0 ? 1 : -1),
     render: (text) => `${text} KB`,
   },
   {
     title: '所有者',
     dataIndex: 'owner',
+    width: 200,
     render: (text, record) => {
       return (
         <div>
@@ -51,6 +53,7 @@ const columns = [
   {
     title: '更新日期',
     dataIndex: 'updateTime',
+    width: 200,
     sorter: (a, b) => (a.updateTime - b.updateTime > 0 ? 1 : -1),
     render: (value) => {
       return dayjs(new Date(value)).format('YYYY-MM-DD');
@@ -76,7 +79,7 @@ export default function TablePage() {
     }),
     [],
   );
-  const scroll = useMemo(() => ({ y: 300 }), []);
+  const scroll = useMemo(() => ({ y: 500 }), []);
 
   const getData = () => {
     const data = [];
@@ -100,5 +103,5 @@ export default function TablePage() {
     setData(data);
   }, []);
 
-  return <Table columns={columns} dataSource={dataSource} rowSelection={rowSelection} scroll={scroll} />;
+  return <Table columns={columns} resizable dataSource={dataSource} rowSelection={rowSelection} scroll={scroll} />;
 }

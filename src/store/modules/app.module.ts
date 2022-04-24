@@ -11,14 +11,14 @@ export type AppSelector = {
 };
 
 export const appState = atom<AppState>({
-  key: 'appState',
+  key: 'appStateKey',
   default: {
     themeMode: ThemeMode.LIGHT,
   },
 });
 
 export const appSelector = selector<AppSelector>({
-  key: 'appSelector',
+  key: 'appSelectorKey',
   get: ({ get }) => {
     const app = get(appState);
 
