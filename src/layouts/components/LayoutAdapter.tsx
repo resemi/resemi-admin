@@ -2,6 +2,7 @@ import { FunctionComponent } from 'react';
 import { useRouter } from 'next/router';
 import { BasicLayout, LandingLayout } from '@/layouts/default';
 import { adminBasePath } from '@/routes';
+import { AuthGuard } from '@/layouts';
 
 export type LayoutAdapterProps = {};
 
@@ -12,8 +13,11 @@ export const LayoutAdapter: FunctionComponent<LayoutAdapterProps> = ({ children 
     return route.startsWith(adminBasePath);
   }
 
-  if (isAdmin()) {
-    return <BasicLayout>{children}</BasicLayout>;
-  }
-  return <LandingLayout>{children}</LandingLayout>;
+  const Layout = isAdmin() ? BasicLayout : LandingLayout;
+
+  return (
+    <AuthGuard>
+      <Layout>{children}</Layout>
+    </AuthGuard>
+  );
 };

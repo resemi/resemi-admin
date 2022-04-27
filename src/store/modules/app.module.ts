@@ -1,3 +1,8 @@
+/**
+ * app state
+ * @author Anguer
+ * @description Learn to https://recoiljs.org/zh-hans/docs/api-reference/core/atom
+ */
 import { atom, selector } from 'recoil';
 import { ThemeMode } from '@/enums/app.enum';
 

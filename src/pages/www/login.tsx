@@ -3,9 +3,13 @@ import { Button, Card, Form, Space, useFormApi, Avatar } from '@douyinfe/semi-ui
 import { IconLock, IconUser } from '@douyinfe/semi-icons';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useRecoilState } from 'recoil';
+import http from '@/hooks/http';
+import { userState } from '@/store';
 
 export default function Login() {
   const router = useRouter();
+  const [, setUser] = useRecoilState(userState);
   const [initValues] = useState({
     username: 'anguer',
     password: '',
@@ -20,7 +24,7 @@ export default function Login() {
     }
     return (
       <Space>
-        <Button onClick={onChange}>useFormApi</Button>
+        <Button onClick={onChange}>Set Password</Button>
         <Link href="/register">
           <Button theme="borderless" type="primary">
             注册
@@ -33,17 +37,21 @@ export default function Login() {
     );
   }
 
-  const pause = (millis) =>
-    new Promise((resolve) => {
-      setTimeout(resolve, millis);
-    });
   async function onSubmit(values) {
     setLoading(true);
-    await pause(3000);
+    const [err, result] = await http.postSync('/api/login', { data: values });
 
-    setLoading(false);
-    if (values.username === 'anguer' && values.password === '123456') {
+    if (!err) {
+      setUser((oldValue) => {
+        return {
+          ...oldValue,
+          token: result.token,
+        };
+      });
+      setLoading(false);
       await router.push('/');
+    } else {
+      setLoading(false);
     }
   }
 
