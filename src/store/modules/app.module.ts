@@ -11,8 +11,8 @@ export type AppState = {
 };
 
 export type AppSelector = {
-  isDarkMode: () => boolean;
-  isLightMode: () => boolean;
+  isDarkMode: boolean;
+  isLightMode: boolean;
 };
 
 export const appState = atom<AppState>({
@@ -27,17 +27,9 @@ export const appSelector = selector<AppSelector>({
   get: ({ get }) => {
     const app = get(appState);
 
-    function isDarkMode() {
-      return app.themeMode === ThemeMode.DARK;
-    }
-
-    function isLightMode() {
-      return app.themeMode === ThemeMode.LIGHT;
-    }
-
     return {
-      isDarkMode,
-      isLightMode,
+      isDarkMode: app.themeMode === ThemeMode.DARK,
+      isLightMode: app.themeMode === ThemeMode.LIGHT,
     };
   },
 });
