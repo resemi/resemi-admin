@@ -1,20 +1,36 @@
 import { FunctionComponent, Fragment, useEffect } from 'react';
+import { useRecoilValueLoadable } from 'recoil';
 import { useRouter } from 'next/router';
-import { useRecoilValue } from 'recoil';
-import { adminBasePath } from '@/routes';
-import { userState } from '@/store';
+import { Spin } from '@douyinfe/semi-ui';
+import { userTokenQuery } from '@/store';
 
 export type AuthGuardProps = {};
 
 export const AuthGuard: FunctionComponent<AuthGuardProps> = ({ children }) => {
-  const { route, replace } = useRouter();
-  const user = useRecoilValue(userState);
+  const { replace } = useRouter();
+  const userLoadable = useRecoilValueLoadable(userTokenQuery);
 
   useEffect(() => {
-    if (route.startsWith(adminBasePath) && !user.token) {
-      replace('/login').then();
+    if (userLoadable.state !== 'loading') {
+      // auth is loaded and there is no token
+      if (userLoadable.state !== 'hasValue') {
+        // remember the page that user tried to access
+        replace('/login').then();
+      }
     }
-  });
+  }, [userLoadable.state]);
 
-  return <Fragment key="AuthGuard">{children}</Fragment>;
+  switch (userLoadable.state) {
+    case 'loading':
+      return (
+        <div className="h-screen w-screen flex justify-center items-center">
+          <Spin size="large" />
+        </div>
+      );
+    case 'hasValue':
+      return <Fragment key="AuthGuard">{children}</Fragment>;
+    case 'hasError':
+    default:
+      return null;
+  }
 };

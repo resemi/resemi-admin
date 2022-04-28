@@ -1,4 +1,9 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
+
+const pause = (millis) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, millis);
+  });
 
 export type UserState = {
   id: string;
@@ -10,5 +15,17 @@ export const userState = atom<UserState>({
   default: {
     id: '',
     token: '',
+  },
+});
+
+export const userTokenQuery = selector({
+  key: 'userTokenQueryKey',
+  get: async ({ get }) => {
+    const user = get(userState);
+    await pause(3000);
+    if (!user.token) {
+      throw new Error('no token');
+    }
+    return user.token;
   },
 });
