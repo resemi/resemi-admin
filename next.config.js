@@ -5,6 +5,22 @@ const semi = require('@douyinfe/semi-next').default({
   /* the extension options */
 });
 
+// [[[ Temporarily fix duplicate atom key from https://github.com/facebookexperimental/Recoil/issues/733#issuecomment-923492445
+const intercept = require('intercept-stdout');
+
+// safely ignore recoil warning messages in dev (triggered by HMR)
+function interceptStdout(text) {
+  if (text.includes('Duplicate atom key')) {
+    return '';
+  }
+  return text;
+}
+
+if (process.env.NODE_ENV === 'development') {
+  intercept(interceptStdout);
+}
+// ]]]
+
 /** @type {import('next').NextConfig} */
 const nextConfig = semi({
   // enable/disable strict mode

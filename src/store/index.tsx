@@ -5,6 +5,7 @@ import { ConfigProvider } from '@douyinfe/semi-ui';
 import { Locales, messages } from '@/locales';
 
 export * from './modules/app.module';
+export * from './modules/user.module';
 
 export function AppStoreProvider({ children }) {
   const { locale } = useRouter();

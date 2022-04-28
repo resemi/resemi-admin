@@ -34,7 +34,7 @@ export const ThemeModeSwitcher: FunctionComponent<ThemeModeSwitcherProps> = () =
     setState((oldState) => {
       return {
         ...oldState,
-        themeMode: selector.isDarkMode() ? ThemeMode.LIGHT : ThemeMode.DARK,
+        themeMode: selector.isDarkMode ? ThemeMode.LIGHT : ThemeMode.DARK,
       };
     });
   }
@@ -42,7 +42,7 @@ export const ThemeModeSwitcher: FunctionComponent<ThemeModeSwitcherProps> = () =
   return (
     <Button
       theme="borderless"
-      icon={selector.isDarkMode() ? <IconSun size="large" /> : <IconMoon size="large" />}
+      icon={selector.isDarkMode ? <IconSun size="large" /> : <IconMoon size="large" />}
       style={{
         color: 'var(--semi-color-text-2)',
         marginRight: '12px',
