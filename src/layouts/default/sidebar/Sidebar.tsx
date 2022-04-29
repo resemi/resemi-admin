@@ -9,9 +9,9 @@ export type SidebarProps = {};
 export const Sidebar: FunctionComponent<SidebarProps> = () => {
   const router = useRouter();
   const [defaultSelectedKeys, setSelectedKeys] = useState([]);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   useEffect(() => {
-    // console.log('#router', router);
     setSelectedKeys([router.pathname]);
   }, [router.pathname]);
 
@@ -42,12 +42,22 @@ export const Sidebar: FunctionComponent<SidebarProps> = () => {
     setSelectedKeys(item.selectedKeys);
   }
 
+  function onBreakpoint(screen, bool) {
+    setIsCollapsed(!bool);
+  }
+
+  function onCollapseChange(value) {
+    setIsCollapsed(value);
+  }
+
   return (
-    <Layout.Sider className={styles.sidebar}>
+    <Layout.Sider className={styles.sidebar} breakpoint={['xl']} onBreakpoint={onBreakpoint}>
       <Nav
         defaultSelectedKeys={defaultSelectedKeys}
         className={styles.nav}
         items={createNavItems(routes)}
+        isCollapsed={isCollapsed}
+        onCollapseChange={onCollapseChange}
         header={{
           logo: <img alt="logo" src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg" />,
           text: 'Next Admin',
