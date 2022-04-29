@@ -1,4 +1,12 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
+import { recoilPersist } from 'recoil-persist';
+
+const { persistAtom } = recoilPersist({});
+
+const pause = (millis) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, millis);
+  });
 
 export type UserState = {
   id: string;
@@ -10,5 +18,18 @@ export const userState = atom<UserState>({
   default: {
     id: '',
     token: '',
+  },
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const userTokenQuery = selector({
+  key: 'userTokenQueryKey',
+  get: async ({ get }) => {
+    const user = get(userState);
+    await pause(2000);
+    if (!user.token) {
+      throw new Error('no token');
+    }
+    return user.token;
   },
 });

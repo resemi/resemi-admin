@@ -38,6 +38,7 @@ specifiers:
   react-dom: 18.0.0
   react-intl: 5.25.0
   recoil: ^0.7.2
+  recoil-persist: 4.1.0
   remark: 14.0.2
   remark-html: 15.0.1
   reset-css: 5.0.1
@@ -60,6 +61,7 @@ dependencies:
   react-dom: 18.0.0_react@18.0.0
   react-intl: 5.25.0_react@18.0.0+typescript@4.6.3
   recoil: 0.7.2_react-dom@18.0.0+react@18.0.0
+  recoil-persist: registry.npmjs.org/recoil-persist/4.1.0_recoil@0.7.2
   remark: 14.0.2
   remark-html: 15.0.1
   reset-css: 5.0.1
@@ -5374,6 +5376,17 @@ packages:
     dependencies:
       picomatch: registry.npmjs.org/picomatch/2.3.1
     dev: true
+
+  registry.npmjs.org/recoil-persist/4.1.0_recoil@0.7.2:
+    resolution: {integrity: sha512-7ruOsLhrEqBpl8EM6j5OITSKJXvH7BfSDxO5m1Heb3dJo6mnCJ3t4ln1KDJhZrvFOkqyO37Ufv3VB1wU06tfCA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/recoil-persist/-/recoil-persist-4.1.0.tgz}
+    id: registry.npmjs.org/recoil-persist/4.1.0
+    name: recoil-persist
+    version: 4.1.0
+    peerDependencies:
+      recoil: ^0.6.1
+    dependencies:
+      recoil: 0.7.2_react-dom@18.0.0+react@18.0.0
+    dev: false
 
   registry.npmjs.org/regenerator-runtime/0.13.9:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz}

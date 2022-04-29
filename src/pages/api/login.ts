@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     method,
   } = req;
 
-  await pause(2000);
+  await pause(1000);
 
   switch (method) {
     case 'POST':

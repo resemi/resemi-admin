@@ -3,13 +3,14 @@ import { Button, Card, Form, Space, useFormApi, Avatar } from '@douyinfe/semi-ui
 import { IconLock, IconUser } from '@douyinfe/semi-icons';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import http from '@/hooks/http';
 import { userState } from '@/store';
+import { ClientOnly } from '@/components/ClientOnly';
 
 export default function Login() {
   const router = useRouter();
-  const [, setUser] = useRecoilState(userState);
+  const setUser = useSetRecoilState(userState);
   const [initValues] = useState({
     username: 'anguer',
     password: '',
@@ -56,7 +57,7 @@ export default function Login() {
   }
 
   return (
-    <div>
+    <ClientOnly>
       <Form initValues={initValues} onSubmit={onSubmit}>
         <Card
           style={{ width: 360 }}
@@ -86,6 +87,6 @@ export default function Login() {
           />
         </Card>
       </Form>
-    </div>
+    </ClientOnly>
   );
 }
