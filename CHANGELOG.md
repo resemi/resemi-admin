@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.1...v0.1.2) (2022-04-30)
+
+
+### Features
+
+* add changelog page ([c3ccb17](https://github.com/ghaaaaa/nextjs-admin/commit/c3ccb170025a8e92807b3792624ce630416c37e4))
+
 ### 0.1.1 (2022-04-30)
 
 
