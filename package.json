@@ -1,6 +1,6 @@
 {
   "name": "nextjs-admin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Anguer",
     "email": "*@gmail.com"
@@ -14,6 +14,7 @@
     "lint": "eslint ./ --ext js,jsx,ts,tsx",
     "lint:lint-staged": "lint-staged",
     "reinstall": "rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
+    "release": "standard-version",
     "prepare": "husky install"
   },
   "engines": {
@@ -32,6 +33,7 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-intl": "5.25.0",
+    "react-use": "17.3.2",
     "recoil": "^0.7.2",
     "recoil-persist": "4.1.0",
     "remark": "14.0.2",
@@ -63,6 +65,7 @@
     "prettier": "2.6.2",
     "rimraf": "3.0.2",
     "sass": "1.50.0",
+    "standard-version": "9.3.2",
     "typescript": "4.6.3",
     "windicss": "3.5.1",
     "windicss-webpack-plugin": "1.6.10"

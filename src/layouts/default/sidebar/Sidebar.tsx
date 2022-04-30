@@ -3,13 +3,14 @@ import { useRouter } from 'next/router';
 import { FunctionComponent, useEffect, useState } from 'react';
 import { routes, RouteType } from '@/routes';
 import styles from '@/layouts/default/Layout.module.scss';
+import { useAppState } from '@/store';
 
 export type SidebarProps = {};
 
 export const Sidebar: FunctionComponent<SidebarProps> = () => {
   const router = useRouter();
   const [defaultSelectedKeys, setSelectedKeys] = useState([]);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [appState, setAppState] = useAppState();
 
   useEffect(() => {
     setSelectedKeys([router.pathname]);
@@ -42,21 +43,22 @@ export const Sidebar: FunctionComponent<SidebarProps> = () => {
     setSelectedKeys(item.selectedKeys);
   }
 
-  function onBreakpoint(screen, bool) {
-    setIsCollapsed(!bool);
-  }
-
   function onCollapseChange(value) {
-    setIsCollapsed(value);
+    setAppState((oldValue) => {
+      return {
+        ...oldValue,
+        isSideCollapsed: value,
+      };
+    });
   }
 
   return (
-    <Layout.Sider className={styles.sidebar} breakpoint={['xl']} onBreakpoint={onBreakpoint}>
+    <Layout.Sider className={styles.sidebar}>
       <Nav
         defaultSelectedKeys={defaultSelectedKeys}
         className={styles.nav}
         items={createNavItems(routes)}
-        isCollapsed={isCollapsed}
+        isCollapsed={appState.isSideCollapsed}
         onCollapseChange={onCollapseChange}
         header={{
           logo: <img alt="logo" src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg" />,
