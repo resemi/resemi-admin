@@ -1,4 +1,4 @@
-import { IconHome, IconComponent, IconPuzzle, IconSetting } from '@douyinfe/semi-icons';
+import { IconHome, IconComponent, IconPuzzle, IconSetting, IconArticle } from '@douyinfe/semi-icons';
 import { ReactNode } from 'react';
 
 export type RouteType = {
@@ -17,6 +17,12 @@ export const routes: RouteType[] = [
     path: '/admin/dashboard',
     name: '首页',
     icon: <IconHome size="large" />,
+  },
+  {
+    id: 'Changelog',
+    path: '/admin/changelog',
+    name: '更新日志',
+    icon: <IconArticle size="large" />,
   },
   {
     id: 'Components',
