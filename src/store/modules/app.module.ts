@@ -3,11 +3,16 @@
  * @author Anguer
  * @description Learn to https://recoiljs.org/zh-hans/docs/api-reference/core/atom
  */
-import { atom, selector } from 'recoil';
+import { atom, selector, useRecoilState } from 'recoil';
+import { recoilPersist } from 'recoil-persist';
 import { ThemeMode } from '@/enums/app.enum';
+
+const { persistAtom } = recoilPersist({});
 
 export type AppState = {
   themeMode: ThemeMode;
+  isMobile: boolean;
+  isSideCollapsed: boolean;
 };
 
 export type AppSelector = {
@@ -19,8 +24,13 @@ export const appState = atom<AppState>({
   key: 'appStateKey',
   default: {
     themeMode: ThemeMode.LIGHT,
+    isMobile: false,
+    isSideCollapsed: false,
   },
+  effects_UNSTABLE: [persistAtom],
 });
+
+export const useAppState = () => useRecoilState(appState);
 
 export const appSelector = selector<AppSelector>({
   key: 'appSelectorKey',

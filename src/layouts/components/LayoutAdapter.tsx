@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { useRouter } from 'next/router';
 import { BasicLayout as AdminLayout, LandingLayout } from '@/layouts/default';
 import { adminBasePath } from '@/routes';
-import { AuthGuard } from '@/layouts';
+import { AuthGuard } from '@/components/AuthGuard';
 
 export type LayoutAdapterProps = {};
 
