@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.2...v0.1.3) (2022-05-01)
+
+
+### Bug Fixes
+
+* optimize seo ([9eedd00](https://github.com/ghaaaaa/nextjs-admin/commit/9eedd00eae182fc73e5204abd59b910d5c5c2889))
+
 ### [0.1.2](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.1...v0.1.2) (2022-04-30)
 
 
