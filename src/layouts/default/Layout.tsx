@@ -1,18 +1,15 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import { Layout } from '@douyinfe/semi-ui';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
 import styles from './Layout.module.scss';
 import { Header } from '@/layouts/default/header';
 import { Sidebar } from '@/layouts/default/sidebar';
 import { Footer } from '@/layouts/default/footer';
 import { Main } from '@/layouts/default/main';
 
-export type BasicLayoutProps = {
-  title?: string;
-};
+export type BasicLayoutProps = {};
 
-export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children, ...props }) => {
+export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -30,11 +27,6 @@ export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children, ...
 
   return (
     <Layout className={styles.layout}>
-      {props.title && (
-        <Head>
-          <title>{props.title}</title>
-        </Head>
-      )}
       <Sidebar />
       <Layout>
         <Header />
