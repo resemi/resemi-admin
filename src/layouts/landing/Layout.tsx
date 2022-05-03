@@ -8,7 +8,7 @@ export type LandingLayoutProps = {};
 export const LandingLayout: FunctionComponent<LandingLayoutProps> = ({ children }) => {
   return (
     <Layout className={styles.layout}>
-      <Header>Header</Header>
+      <Header />
       <Layout.Content className={styles.content}>
         <div className="flex justify-center items-center h-full">{children}</div>
       </Layout.Content>
