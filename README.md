@@ -1,34 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
 
-## Getting Started
+<h1>NextJS Admin</h1>
 
-First, run the development server:
+</div>
+
+**中文** | [English](./README.md)
+
+## 简介
+
+NextJS Admin 是一个免费开源的中后台模版。使用了最新的`NextJS 12`,`React 18`,`TypeScript`等主流技术开发，也可用于学习参考。
+
+
+## 安装使用
+
+- 获取项目代码
 
 ```bash
-npm run dev
-# or
-yarn dev
+git clone https://github.com/ghaaaa/nextjs-admin.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 安装依赖
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+cd nextjs-admin
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+pnpm install
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
 
-## Learn More
+- 运行
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 打包
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+pnpm build
+```
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 更新日志
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[CHANGELOG](./CHANGELOG.md)
+
+
+## 如何贡献
+
+非常欢迎你的加入！[提一个 Issue](https://github.com/ghaaaaa/nextjs-admin/issues/new/choose) 或者提交一个 Pull Request。
+
+**Pull Request:**
+
+1. Fork 代码!
+2. 创建自己的分支: `git checkout -b feat/xxxx`
+3. 提交你的修改: `git commit -am 'feat(function): add xxxxx'`
+4. 推送您的分支: `git push origin feat/xxxx`
+5. 提交`pull request`
+
+
+## Git 贡献提交规范
+
+- 参考 ([Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular))
+
+  - `feat` 增加新功能
+  - `fix` 修复问题/BUG
+  - `style` 代码风格相关无影响运行结果的
+  - `perf` 优化/性能提升
+  - `refactor` 重构
+  - `revert` 撤销修改
+  - `test` 测试相关
+  - `docs` 文档/注释
+  - `chore` 依赖更新/脚手架配置修改等
+  - `workflow` 工作流改进
+  - `ci` 持续集成
+  - `types` 类型定义文件更改
+  - `wip` 开发中
+
+
+## 维护者
+
+[@Ghaaaaa](https://github.com/ghaaaaa)
+[@Anguer](https://github.com/anguer)
+
+
+## License
+
+[MIT](./LICENSE)
