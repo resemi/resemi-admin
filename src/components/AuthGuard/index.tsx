@@ -3,14 +3,12 @@ import { useRecoilValueLoadable } from 'recoil';
 import { useRouter } from 'next/router';
 import { Spin } from '@douyinfe/semi-ui';
 import { userTokenQuery } from '@/store';
-import { useHasMounted } from '@/components/ClientOnly';
 
 export type AuthGuardProps = {};
 
 export const AuthGuard: FunctionComponent<AuthGuardProps> = ({ children }) => {
   const { replace } = useRouter();
   const userLoadable = useRecoilValueLoadable(userTokenQuery);
-  const hasMounted = useHasMounted();
 
   useEffect(() => {
     if (userLoadable.state !== 'loading') {
@@ -21,10 +19,6 @@ export const AuthGuard: FunctionComponent<AuthGuardProps> = ({ children }) => {
       }
     }
   }, [userLoadable.state]);
-
-  if (!hasMounted) {
-    return null;
-  }
 
   switch (userLoadable.state) {
     case 'loading':

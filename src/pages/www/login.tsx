@@ -50,7 +50,7 @@ export default function Login() {
         };
       });
       setLoading(false);
-      await router.push('/');
+      await router.push('/admin/dashboard');
     } else {
       setLoading(false);
     }
