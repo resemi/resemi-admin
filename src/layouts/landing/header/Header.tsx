@@ -30,7 +30,7 @@ export const Header: FunctionComponent<HeaderProps> = () => {
               src="https://sf6-cdn-tos.douyinstatic.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/webcast_logo.svg"
             />
           ),
-          text: 'Nextjs Admin',
+          text: 'NextJS Admin',
           link: '/',
         }}
         footer={
