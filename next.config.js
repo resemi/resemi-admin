@@ -48,7 +48,18 @@ const nextConfig = semi({
         source: '/admin/:path*',
         destination: '/admin/:path*',
       },
+      {
+        source: '/admin',
+        destination: '/admin/dashboard',
+      },
+      {
+        source: '/',
+        destination: '/www/index',
+      },
     ];
+  },
+  redirects() {
+    return [];
   },
 });
 

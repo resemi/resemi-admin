@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.3...v0.1.4) (2022-05-03)
+
+
+### Features
+
+* add google meta tag ([a5441fd](https://github.com/ghaaaaa/nextjs-admin/commit/a5441fd877ec39734555e70f6dea8d3dd57bd2ae))
+* add google search console ([af20f30](https://github.com/ghaaaaa/nextjs-admin/commit/af20f30c91aa398c29790df7d280d5f171cce6d0))
+* add landing directory ([5d8ab11](https://github.com/ghaaaaa/nextjs-admin/commit/5d8ab11615d171d5642b5ec373d63778e9f7915b))
+* add landing directory ([136ea41](https://github.com/ghaaaaa/nextjs-admin/commit/136ea415842c148d56453d35abcb78e309be5b89))
+* add readme and license file ([10bd564](https://github.com/ghaaaaa/nextjs-admin/commit/10bd564f323575ebab4e4169a79d57ba57af10ec))
+
+
+### Bug Fixes
+
+* small fix ([65471d3](https://github.com/ghaaaaa/nextjs-admin/commit/65471d38fa09f6f8794158378a0a161fc27ad27d))
+
 ### [0.1.3](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.2...v0.1.3) (2022-05-01)
 
 

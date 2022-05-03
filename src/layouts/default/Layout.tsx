@@ -36,9 +36,3 @@ export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children }) =
     </Layout>
   );
 };
-
-export type LandingLayoutProps = {};
-
-export const LandingLayout: FunctionComponent<LandingLayoutProps> = ({ children }) => {
-  return <div className="flex justify-center items-center h-full">{children}</div>;
-};

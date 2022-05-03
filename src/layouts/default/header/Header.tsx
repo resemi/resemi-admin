@@ -1,19 +1,15 @@
 import { Avatar, Button, Dropdown, Layout, Nav } from '@douyinfe/semi-ui';
-import { IconBell, IconGithubLogo } from '@douyinfe/semi-icons';
+import { IconBell } from '@douyinfe/semi-icons';
 import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import styles from '@/layouts/default/Layout.module.scss';
-import { ThemeModeSwitcher } from './ThemeModeSwitcher';
-import { LocaleSwitcher } from './LocaleSwitcher';
+import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
+import { LocaleSwitcher } from '@/layouts/components/LocaleSwitcher';
 
 export type HeaderProps = {};
 
 export const Header: FunctionComponent<HeaderProps> = () => {
   const router = useRouter();
-
-  function onGithubClick() {
-    window.open('https://github.com/ghaaaaa/nextjs-admin#readme', '_blank');
-  }
 
   async function onLogout() {
     await router.replace('/login');
@@ -35,15 +31,6 @@ export const Header: FunctionComponent<HeaderProps> = () => {
               }}
             />
             <ThemeModeSwitcher />
-            <Button
-              theme="borderless"
-              icon={<IconGithubLogo size="large" />}
-              style={{
-                color: 'var(--semi-color-text-2)',
-                marginRight: '12px',
-              }}
-              onClick={onGithubClick}
-            />
             <LocaleSwitcher />
             <Dropdown
               trigger="click"
