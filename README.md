@@ -8,18 +8,18 @@
 
 ## 简介
 
-NextJS Admin 是一个免费开源的中后台模版。使用了最新的`NextJS 12`,`React 18`,`TypeScript`等主流技术开发，也可用于学习参考。
+NextJS Admin 是一个基于`NextJS 12`,`React 18`,`TypeScript`等主流技术开发的免费开源的中后台模版。
 
 
 ## 安装使用
 
-- 获取项目代码
+获取项目代码
 
 ```bash
-git clone https://github.com/ghaaaa/nextjs-admin.git
+git clone https://github.com/ghaaaaa/nextjs-admin.git
 ```
 
-- 安装依赖
+安装依赖
 
 ```bash
 cd nextjs-admin
@@ -28,27 +28,22 @@ pnpm install
 
 ```
 
-- 运行
+运行
 
 ```bash
 pnpm dev
 ```
 
-- 打包
+打包
 
 ```bash
 pnpm build
 ```
 
 
-## 更新日志
-
-[CHANGELOG](./CHANGELOG.md)
-
-
 ## 如何贡献
 
-非常欢迎你的加入！[提一个 Issue](https://github.com/ghaaaaa/nextjs-admin/issues/new/choose) 或者提交一个 Pull Request。
+欢迎你的加入！[提一个 Issue](https://github.com/ghaaaaa/nextjs-admin/issues/new/choose) 或者提交一个 Pull Request。
 
 **Pull Request:**
 
@@ -61,27 +56,26 @@ pnpm build
 
 ## Git 贡献提交规范
 
-- 参考 ([Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular))
+> 参考 [Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular)
 
-  - `feat` 增加新功能
-  - `fix` 修复问题/BUG
-  - `style` 代码风格相关无影响运行结果的
-  - `perf` 优化/性能提升
-  - `refactor` 重构
-  - `revert` 撤销修改
-  - `test` 测试相关
-  - `docs` 文档/注释
-  - `chore` 依赖更新/脚手架配置修改等
-  - `workflow` 工作流改进
-  - `ci` 持续集成
-  - `types` 类型定义文件更改
-  - `wip` 开发中
+- `feat` 增加新功能
+- `fix` 修复问题/BUG
+- `style` 代码风格相关无影响运行结果的
+- `perf` 优化/性能提升
+- `refactor` 重构
+- `revert` 撤销修改
+- `test` 测试相关
+- `docs` 文档/注释
+- `chore` 依赖更新/脚手架配置修改等
+- `workflow` 工作流改进
+- `ci` 持续集成
+- `types` 类型定义文件更改
+- `wip` 开发中
 
 
-## 维护者
+## 更新日志
 
-[@Ghaaaaa](https://github.com/ghaaaaa)
-[@Anguer](https://github.com/anguer)
+[CHANGELOG](./CHANGELOG.md)
 
 
 ## License
