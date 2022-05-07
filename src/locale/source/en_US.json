@@ -1,0 +1,9 @@
+{
+  "hello": "hello",
+  "layout.header": "Header",
+  "test1": "Hello, let's learn how to use React-Intl",
+  "test2": "How {n, number, ::currency/USD} is displayed in your selected language",
+  "test3": "This is how {n, number} is formatted in the selected locale",
+  "test4": "Start Today: {d, date}",
+  "click_count": "You clicked {count, plural, one {# time} other {# times}}"
+}

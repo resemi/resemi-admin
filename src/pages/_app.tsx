@@ -29,10 +29,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <meta property="og:description" content={description} key="description" />
         <meta name="keywords" content={keywords} />
         <meta name="author" content={author} />
-        <meta
-          name="viewport"
-          content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,width=device-width,viewport-fit=cover"
-        />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="google-site-verification" content="YOuLXmHPeyzodGVVoqnbTLwf_7LXeqxKKlgie8vU88s" />
       </Head>
       <LayoutAdapter>

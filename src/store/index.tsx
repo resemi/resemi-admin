@@ -4,7 +4,7 @@ import { IntlProvider } from 'react-intl';
 import { ConfigProvider } from '@douyinfe/semi-ui';
 import { useEffect } from 'react';
 import { useWindowSize } from 'react-use';
-import { Locales, messages } from '@/locales';
+import { Locales, messages } from '@/locale';
 import { appState } from './modules/app.module';
 
 export * from './modules/app.module';
