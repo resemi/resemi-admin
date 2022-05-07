@@ -1,6 +1,17 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.1.6](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.5...v0.1.6) (2022-05-07)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* small fix ([8f520bf](https://github.com/ghaaaaa/nextjs-admin/commit/8f520bf57fe501acd23ad6b6ec133a1a0409468e))
+
+
+### ✏️ Documentation | 文档
+
+* update changelog ([de68851](https://github.com/ghaaaaa/nextjs-admin/commit/de68851498307988a2aa3c0040a45809aee752b5))
 
 ### [0.1.5](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.4...v0.1.5) (2022-05-07)
 
