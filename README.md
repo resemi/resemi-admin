@@ -67,10 +67,8 @@ pnpm build
 - `test` 测试相关
 - `docs` 文档/注释
 - `chore` 依赖更新/脚手架配置修改等
-- `workflow` 工作流改进
 - `ci` 持续集成
 - `types` 类型定义文件更改
-- `wip` 开发中
 
 
 ## 更新日志
