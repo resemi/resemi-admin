@@ -1,13 +1,24 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.1.6](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.5...v0.1.6) (2022-05-07)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* small fix ([8f520bf](https://github.com/ghaaaaa/nextjs-admin/commit/8f520bf57fe501acd23ad6b6ec133a1a0409468e))
+
+
+### ✏️ Documentation | 文档
+
+* update changelog ([de68851](https://github.com/ghaaaaa/nextjs-admin/commit/de68851498307988a2aa3c0040a45809aee752b5))
 
 ### [0.1.5](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.4...v0.1.5) (2022-05-07)
 
 ### [0.1.4](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.3...v0.1.4) (2022-05-03)
 
 
-### Features
+### ✨ Features | 新功能
 
 * add google meta tag ([a5441fd](https://github.com/ghaaaaa/nextjs-admin/commit/a5441fd877ec39734555e70f6dea8d3dd57bd2ae))
 * add google search console ([af20f30](https://github.com/ghaaaaa/nextjs-admin/commit/af20f30c91aa398c29790df7d280d5f171cce6d0))
@@ -16,28 +27,28 @@ All notable changes to this project will be documented in this file. See [standa
 * add readme and license file ([10bd564](https://github.com/ghaaaaa/nextjs-admin/commit/10bd564f323575ebab4e4169a79d57ba57af10ec))
 
 
-### Bug Fixes
+### 🐛 Bug Fixes | Bug 修复
 
 * small fix ([65471d3](https://github.com/ghaaaaa/nextjs-admin/commit/65471d38fa09f6f8794158378a0a161fc27ad27d))
 
 ### [0.1.3](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.2...v0.1.3) (2022-05-01)
 
 
-### Bug Fixes
+### 🐛 Bug Fixes | Bug 修复
 
 * optimize seo ([9eedd00](https://github.com/ghaaaaa/nextjs-admin/commit/9eedd00eae182fc73e5204abd59b910d5c5c2889))
 
 ### [0.1.2](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.1...v0.1.2) (2022-04-30)
 
 
-### Features
+### ✨ Features | 新功能
 
 * add changelog page ([c3ccb17](https://github.com/ghaaaaa/nextjs-admin/commit/c3ccb170025a8e92807b3792624ce630416c37e4))
 
 ### 0.1.1 (2022-04-30)
 
 
-### Features
+### ✨ Features | 新功能
 
 * add eslint and prettier config ([9a0b662](https://github.com/ghaaaaa/nextjs-admin/commit/9a0b6624e3e0558af05e8597c771725268fdf42a))
 * add eslint and prettier config ([7ca1dc2](https://github.com/ghaaaaa/nextjs-admin/commit/7ca1dc23bd7b7aecc62dcd3914db3e3d19817851))
@@ -48,7 +59,7 @@ All notable changes to this project will be documented in this file. See [standa
 * add windicss ([e6bc2e4](https://github.com/ghaaaaa/nextjs-admin/commit/e6bc2e46f1ca9dc29ed000c7a2a685769508c3d6))
 
 
-### Bug Fixes
+### 🐛 Bug Fixes | Bug 修复
 
 * add http and login api ([f1bded9](https://github.com/ghaaaaa/nextjs-admin/commit/f1bded925438871dc2ad896b7c2dfbccb2267f7b))
 * clean code ([f187b89](https://github.com/ghaaaaa/nextjs-admin/commit/f187b8960f335606f64718a290b01515a4a71ff5))

@@ -31,6 +31,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <meta name="author" content={author} />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="google-site-verification" content="YOuLXmHPeyzodGVVoqnbTLwf_7LXeqxKKlgie8vU88s" />
+        <meta name="google-site-verification" content="1sWvVpnEFhLRPGKh9BpikcBQCcjwHIIlpZ2ExUNxWlo" />
       </Head>
       <LayoutAdapter>
         <Component {...pageProps} />
