@@ -1,6 +1,6 @@
 {
   "name": "nextjs-admin",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": {
     "name": "Anguer",
     "email": "*@gmail.com"
@@ -26,28 +26,28 @@
     "@douyinfe/semi-icons": "2.9.1",
     "@douyinfe/semi-ui": "2.9.1",
     "@potjs/http": "^0.1.1",
-    "dayjs": "1.11.0",
+    "dayjs": "1.11.2",
     "github-markdown-css": "5.1.0",
     "gray-matter": "4.0.3",
     "lodash-es": "4.17.21",
-    "next": "12.1.5",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-intl": "5.25.0",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-intl": "5.25.1",
     "react-markdown": "8.0.3",
     "react-use": "17.3.2",
-    "recoil": "^0.7.2",
+    "recoil": "0.7.2",
     "recoil-persist": "4.1.0",
     "reset-css": "5.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "16.2.3",
-    "@commitlint/config-conventional": "16.2.1",
+    "@commitlint/cli": "16.2.4",
+    "@commitlint/config-conventional": "16.2.4",
     "@douyinfe/semi-next": "2.9.1",
     "@types/lodash-es": "4.17.6",
-    "@types/node": "17.0.24",
+    "@types/node": "17.0.31",
     "@types/react": "18.0.5",
-    "@types/react-dom": "18.0.1",
+    "@types/react-dom": "18.0.3",
     "@typescript-eslint/eslint-plugin": "5.19.0",
     "@typescript-eslint/parser": "5.19.0",
     "eslint": "8.13.0",
@@ -65,9 +65,9 @@
     "rimraf": "3.0.2",
     "sass": "1.50.0",
     "standard-version": "9.3.2",
-    "typescript": "4.6.3",
+    "typescript": "4.6.4",
     "windicss": "3.5.1",
-    "windicss-webpack-plugin": "1.6.10"
+    "windicss-webpack-plugin": "1.7.2"
   },
   "resolutions": {
     "@types/react": "17.0.43"

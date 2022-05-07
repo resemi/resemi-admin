@@ -2,7 +2,7 @@ import { IconLanguage } from '@douyinfe/semi-icons';
 import { Button } from '@douyinfe/semi-ui';
 import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
-import { Locales } from '@/locales';
+import { Locales } from '@/locale';
 
 export type LocaleSwitcherProps = {};
 
