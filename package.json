@@ -9,13 +9,14 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "dev": "NODE_ENV=development next dev",
-    "build": "NODE_ENV=production next build",
+    "build": "NODE_ENV=production next-sitemap && next build",
     "start": "NODE_ENV=production next start",
     "lint": "eslint ./ --ext js,jsx,ts,tsx",
     "lint:lint-staged": "lint-staged",
     "reinstall": "rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
     "release": "standard-version",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "sitemap": "next-sitemap"
   },
   "engines": {
     "node": "^12 || >=14",
@@ -61,6 +62,7 @@
     "husky": "7.0.4",
     "intercept-stdout": "^0.1.2",
     "lint-staged": "12.3.8",
+    "next-sitemap": "2.5.20",
     "prettier": "2.6.2",
     "rimraf": "3.0.2",
     "sass": "1.50.0",
