@@ -34,6 +34,7 @@ specifiers:
   lint-staged: 12.3.8
   lodash-es: 4.17.21
   next: 12.1.6
+  next-sitemap: 2.5.20
   prettier: 2.6.2
   react: 18.1.0
   react-dom: 18.1.0
@@ -89,6 +90,7 @@ devDependencies:
   husky: 7.0.4
   intercept-stdout: registry.npmjs.org/intercept-stdout/0.1.2
   lint-staged: 12.3.8
+  next-sitemap: registry.npmjs.org/next-sitemap/2.5.20_next@12.1.6
   prettier: 2.6.2
   rimraf: 3.0.2
   sass: 1.50.0
@@ -2565,6 +2567,12 @@ packages:
     engines: {node: '>=v12'}
     dependencies:
       chalk: registry.npmjs.org/chalk/4.1.2
+    dev: true
+
+  registry.npmjs.org/@corex/deepmerge/2.6.148:
+    resolution: {integrity: sha512-6QMz0/2h5C3ua51iAnXMPWFbb1QOU1UvSM4bKBw5mzdT+WtLgjbETBBIQZ+Sh9WvEcGwlAt/DEdRpIC3XlDBMA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@corex/deepmerge/-/deepmerge-2.6.148.tgz}
+    name: '@corex/deepmerge'
+    version: 2.6.148
     dev: true
 
   registry.npmjs.org/@cspotcode/source-map-consumer/0.8.0:
@@ -5415,6 +5423,21 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz}
     name: neo-async
     version: 2.6.2
+    dev: true
+
+  registry.npmjs.org/next-sitemap/2.5.20_next@12.1.6:
+    resolution: {integrity: sha512-Qbm4N2WGA6VHemFN0C9PNWQav9RKwMEbVrNgVvDQhG0sDBmNBgKii54WklOjCvVJVHgQPgtXLBhlNaJGS+RVQA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/next-sitemap/-/next-sitemap-2.5.20.tgz}
+    id: registry.npmjs.org/next-sitemap/2.5.20
+    name: next-sitemap
+    version: 2.5.20
+    engines: {node: '>=14.18'}
+    hasBin: true
+    peerDependencies:
+      next: '*'
+    dependencies:
+      '@corex/deepmerge': registry.npmjs.org/@corex/deepmerge/2.6.148
+      minimist: registry.npmjs.org/minimist/1.2.6
+      next: registry.npmjs.org/next/12.1.6_a9eb0ab28e351cd492a20c09356804bd
     dev: true
 
   registry.npmjs.org/next/12.1.6_a9eb0ab28e351cd492a20c09356804bd:
