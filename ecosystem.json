@@ -1,0 +1,41 @@
+{
+  "apps": [
+    {
+      "name": "NextJS Admin",
+      "script": "pnpm start",
+      "args": "",
+      "cwd": "./",
+      "instances": 1,
+      "autorestart": true,
+      "max_restarts": 2,
+      "max_memory_restart": "2G",
+      "watch": false,
+      "out_file": "/dev/null",
+      "error_file": "./.log/error.log",
+      "env": {
+        "PORT": "3000",
+        "NODE_ENV": "development"
+      },
+      "env_staging": {
+        "PORT": "3000",
+        "NODE_ENV": "test"
+      },
+      "env_production": {
+        "PORT": "3000",
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  "deploy": {
+    "production": {
+      "user": "<your_remote_server_username>",
+      "host": "<your_remote_server_ip>",
+      "key": "<your_remote_server_ssh_key>",
+      "ref": "origin/main",
+      "repo": "<your_git_repo_url>",
+      "path": "/home/<your_server_username>/<repo_name>",
+      "post-setup": "pnpm install",
+      "post-deploy": "pm2 startOrRestart ecosystem.config.js --env production"
+    }
+  }
+}
