@@ -7,7 +7,7 @@ import { userTokenQuery } from '@/store';
 export type AuthGuardProps = {};
 
 export const AuthGuard: FunctionComponent<AuthGuardProps> = ({ children }) => {
-  const { replace } = useRouter();
+  const router = useRouter();
   const userLoadable = useRecoilValueLoadable(userTokenQuery);
 
   useEffect(() => {
@@ -15,10 +15,10 @@ export const AuthGuard: FunctionComponent<AuthGuardProps> = ({ children }) => {
       // auth is loaded and there is no token
       if (userLoadable.state !== 'hasValue') {
         // remember the page that user tried to access
-        replace('/login').then();
+        router.replace('/login').then();
       }
     }
-  }, [userLoadable.state]);
+  }, [userLoadable.state, router]);
 
   switch (userLoadable.state) {
     case 'loading':

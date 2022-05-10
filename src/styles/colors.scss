@@ -1,0 +1,55 @@
+// https://semi.design/zh-CN/basic/tokens
+
+// primary=blue secondary=blue tertiary=gery info=blue success=green warning=orange danger=red;
+$types: primary secondary tertiary info success warning danger;
+
+@mixin generate-color {
+  @each $i in $types {
+    &-#{$i} {
+      color: var(--semi-color-#{$i}); // rgba(var(--semi-blue-5), 1)
+      &-hover {
+        color: var(--semi-color-#{$i}-hover);
+      }
+      &-active {
+        color: var(--semi-color-#{$i}-active);
+      }
+      // tertiary warning danger
+      @if $i == tertiary or $i == warning or $i == danger {
+      } @else {
+        &-disabled {
+          color: var(--semi-color-#{$i}-disabled);
+        }
+      }
+      &-light-default {
+        color: var(--semi-color-#{$i}-light-default);
+      }
+      &-light-hover {
+        color: var(--semi-color-#{$i}-light-hover);
+      }
+      &-light-active {
+        color: var(--semi-color-#{$i}-light-active);
+      }
+    }
+  }
+}
+
+.color {
+  @include generate-color;
+
+  &-text {
+    color: var(--semi-color-text-0);
+    &-primary {
+      color: var(--semi-color-text-1);
+    }
+    &-secondary {
+      color: var(--semi-color-text-2);
+    }
+    &-tertiary {
+      color: var(--semi-color-text-3);
+    }
+  }
+
+  &-border {
+    color: var(--semi-color-border);
+  }
+}

@@ -1,4 +1,4 @@
-import { Layout, Nav } from '@douyinfe/semi-ui';
+import { Layout, Nav, SideSheet } from '@douyinfe/semi-ui';
 import { useRouter } from 'next/router';
 import { FunctionComponent, useEffect, useState } from 'react';
 import { routes, RouteType } from '@/routes';
@@ -52,24 +52,55 @@ export const Sidebar: FunctionComponent<SidebarProps> = () => {
     });
   }
 
-  return (
-    <Layout.Sider className={styles.sidebar}>
-      <Nav
-        defaultSelectedKeys={defaultSelectedKeys}
-        className={styles.nav}
-        items={createNavItems(routes)}
-        isCollapsed={appState.isSideCollapsed}
-        onCollapseChange={onCollapseChange}
-        header={{
-          logo: <img alt="logo" src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg" />,
-          text: 'NextJS Admin',
-          link: '/',
-        }}
-        footer={{
-          collapseButton: true,
-        }}
-        onSelect={onSelectItem}
-      />
-    </Layout.Sider>
-  );
+  function onHideSide() {
+    setAppState((oldValue) => {
+      return {
+        ...oldValue,
+        isSideSheetVisible: false,
+      };
+    });
+  }
+
+  function renderSidebar() {
+    return (
+      <Layout.Sider className={styles.sidebar}>
+        <Nav
+          defaultSelectedKeys={defaultSelectedKeys}
+          className={styles.nav}
+          items={createNavItems(routes)}
+          isCollapsed={!appState.isMobile && appState.isSideCollapsed}
+          onCollapseChange={onCollapseChange}
+          header={{
+            logo: <img alt="logo" src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg" />,
+            text: 'NextJS Admin',
+            link: '/',
+          }}
+          footer={
+            !appState.isMobile && {
+              collapseButton: true,
+            }
+          }
+          onSelect={onSelectItem}
+        />
+      </Layout.Sider>
+    );
+  }
+
+  function renderSideSheet() {
+    return (
+      <SideSheet
+        headerStyle={{ display: 'none' }}
+        bodyStyle={{ padding: 0 }}
+        placement="left"
+        closable={false}
+        visible={appState.isSideSheetVisible}
+        width={styles.sidebarWidth}
+        onCancel={onHideSide}
+      >
+        {renderSidebar()}
+      </SideSheet>
+    );
+  }
+
+  return appState.isMobile ? renderSideSheet() : renderSidebar();
 };

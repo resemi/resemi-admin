@@ -22,7 +22,7 @@ export function AppStoreConfigure() {
         isSideCollapsed: width < 1200,
       };
     });
-  }, [width]);
+  }, [width, setAppState]);
 
   return <> </>;
 }

@@ -1,4 +1,4 @@
-$layout-base-space: 20px;
+$layout-base-space: 24px;
 $layout-content-space: $layout-base-space;
 $layout-footer-space: $layout-base-space;
 
@@ -10,6 +10,10 @@ $layout-sidebar-width: 240px;
 
 $layout-loading-z-index: 100;
 
+:export {
+  sidebarWidth: $layout-sidebar-width;
+}
+
 .layout {
   position: relative;
   height: $layout-height;
@@ -18,6 +22,7 @@ $layout-loading-z-index: 100;
 
 .sidebar {
   background-color: var(--semi-color-bg-1);
+  height: 100%;
 }
 
 .header {
