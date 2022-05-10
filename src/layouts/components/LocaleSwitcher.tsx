@@ -23,7 +23,6 @@ export const LocaleSwitcher: FunctionComponent<LocaleSwitcherProps> = () => {
       icon={<IconLanguage size="large" />}
       style={{
         color: 'var(--semi-color-text-2)',
-        marginRight: '12px',
       }}
       onClick={onSwitchLanguage}
     >

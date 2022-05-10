@@ -45,7 +45,6 @@ export const ThemeModeSwitcher: FunctionComponent<ThemeModeSwitcherProps> = () =
       icon={selector.isDarkMode ? <IconSun size="large" /> : <IconMoon size="large" />}
       style={{
         color: 'var(--semi-color-text-2)',
-        marginRight: '12px',
       }}
       onClick={onSwitchThemeMode}
     />

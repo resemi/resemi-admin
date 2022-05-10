@@ -1,25 +1,46 @@
 import { Avatar, Button, Dropdown, Layout, Nav } from '@douyinfe/semi-ui';
-import { IconBell } from '@douyinfe/semi-icons';
+import { IconBell, IconSidebar } from '@douyinfe/semi-icons';
 import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
 import styles from '@/layouts/default/Layout.module.scss';
 import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
 import { LocaleSwitcher } from '@/layouts/components/LocaleSwitcher';
+import { useAppState } from '@/store';
 
 export type HeaderProps = {};
 
 export const Header: FunctionComponent<HeaderProps> = () => {
   const router = useRouter();
+  const [appState, setAppState] = useAppState();
 
   async function onLogout() {
     await router.replace('/login');
+  }
+
+  function onShowSide() {
+    setAppState((oldValue) => {
+      return {
+        ...oldValue,
+        isSideSheetVisible: true,
+      };
+    });
   }
 
   return (
     <Layout.Header className={styles.header}>
       <Nav
         mode="horizontal"
-        header={<div>Header</div>}
+        header={
+          appState.isMobile && (
+            <Button
+              icon={<IconSidebar size="large" />}
+              style={{
+                color: 'var(--semi-color-text-2)',
+              }}
+              onClick={onShowSide}
+            />
+          )
+        }
         footer={
           <>
             <Button
@@ -27,7 +48,6 @@ export const Header: FunctionComponent<HeaderProps> = () => {
               icon={<IconBell size="large" />}
               style={{
                 color: 'var(--semi-color-text-2)',
-                marginRight: '12px',
               }}
             />
             <ThemeModeSwitcher />
@@ -44,7 +64,13 @@ export const Header: FunctionComponent<HeaderProps> = () => {
                 </Dropdown.Menu>
               }
             >
-              <Avatar color="orange" size="small">
+              <Avatar
+                color="orange"
+                size="small"
+                style={{
+                  marginLeft: '12px',
+                }}
+              >
                 YJ
               </Avatar>
             </Dropdown>
