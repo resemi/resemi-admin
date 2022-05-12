@@ -41,25 +41,27 @@ const nextConfig = semi({
   rewrites() {
     return [
       {
-        source: '/:path*',
-        destination: '/www/:path*',
-      },
-      {
-        source: '/admin/:path*',
-        destination: '/admin/:path*',
-      },
-      {
-        source: '/admin',
-        destination: '/admin/dashboard',
-      },
-      {
         source: '/',
-        destination: '/www/index',
+        destination: '/www',
+      },
+      {
+        source: '/login',
+        destination: '/www/login',
+      },
+      {
+        source: '/register',
+        destination: '/www/register',
       },
     ];
   },
   redirects() {
-    return [];
+    return [
+      {
+        source: '/www',
+        destination: '/',
+        permanent: true,
+      },
+    ];
   },
 });
 
