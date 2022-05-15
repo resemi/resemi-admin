@@ -17,27 +17,15 @@ NextJS Admin 是一个基于`NextJS 12`,`React 18`,`TypeScript`等主流技术�
 
 ```bash
 git clone https://github.com/ghaaaaa/nextjs-admin.git
-```
 
-安装依赖
+# 安装依赖
+cd inssent-open && yarn install
 
-```bash
-cd nextjs-admin
+# 运行
+yarn dev
 
-pnpm install
-
-```
-
-运行
-
-```bash
-pnpm dev
-```
-
-打包
-
-```bash
-pnpm build
+# 构建打包
+yarn build
 ```
 
 
