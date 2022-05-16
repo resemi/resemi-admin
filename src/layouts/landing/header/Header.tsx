@@ -41,7 +41,6 @@ export const Header: FunctionComponent<HeaderProps> = () => {
               icon={<IconGithubLogo size="large" />}
               style={{
                 color: 'var(--semi-color-text-2)',
-                marginRight: '12px',
               }}
               onClick={onGithubClick}
             />
