@@ -4,7 +4,7 @@ import { IconLock, IconUser } from '@douyinfe/semi-icons';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useSetRecoilState } from 'recoil';
-import http from '@/hooks/http';
+import http from '@/utils/http';
 import { userState } from '@/store';
 import { ClientOnly } from '@/components/ClientOnly';
 
