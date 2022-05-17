@@ -7,7 +7,7 @@
   },
   "private": true,
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
+    "preinstall": "npx only-allow yarn",
     "dev": "next dev",
     "build": "next build",
     "build:prod": "NODE_ENV=production next build",
@@ -15,14 +15,13 @@
     "start": "next start",
     "lint": "eslint ./ --ext js,jsx,ts,tsx",
     "lint:lint-staged": "lint-staged",
-    "reinstall": "rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
+    "reinstall": "rimraf yarn.lock && rimraf node_modules && yarn install",
     "release": "standard-version",
     "prepare": "husky install",
     "sitemap": "next-sitemap"
   },
   "engines": {
-    "node": "^12 || >=14",
-    "pnpm": ">=6"
+    "node": "^12 || >=14"
   },
   "homepage": "https://github.com/ghaaaaa/nextjs-admin#readme",
   "dependencies": {
@@ -68,7 +67,7 @@
     "prettier": "2.6.2",
     "rimraf": "3.0.2",
     "sass": "1.50.0",
-    "standard-version": "9.3.2",
+    "standard-version": "9.5.0",
     "typescript": "4.6.4",
     "windicss": "3.5.1",
     "windicss-webpack-plugin": "1.7.2"
@@ -78,28 +77,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "pnpm lint"
+      "yarn lint"
     ]
-  },
-  "pnpm": {
-    "packageExtensions": {
-      "@douyinfe/semi-ui": {
-        "optionalDependencies": {
-          "prop-types": "*"
-        }
-      },
-      "@douyinfe/semi-icons": {
-        "optionalDependencies": {
-          "react": "*"
-        }
-      }
-    },
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "webpack",
-        "react",
-        "react-dom"
-      ]
-    }
   }
 }
