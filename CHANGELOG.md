@@ -1,6 +1,39 @@
 # Changelog
 
 
+## [0.2.0](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.6...v0.2.0) (2022-05-17)
+
+
+### ✨ Features | 新功能
+
+* add sitemap ([9f13e2e](https://github.com/ghaaaaa/nextjs-admin/commit/9f13e2ed812d265a52b51776b9eaa0ed4dd45aff))
+
+
+### ✏️ Documentation | 文档
+
+* small fix ([9e34fa0](https://github.com/ghaaaaa/nextjs-admin/commit/9e34fa0f2fee7d92d251243f2a3b77137d68b966))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* config windi colors by semi tokens ([6ffbeac](https://github.com/ghaaaaa/nextjs-admin/commit/6ffbeacf6d2cf7acf2356ef43ea324bcace8c206))
+* fix eslint warning ([5f0ef54](https://github.com/ghaaaaa/nextjs-admin/commit/5f0ef54d4707839e2aa2b945b63553aa1d5ffd76))
+* fix next rewrites and redirects ([7d50787](https://github.com/ghaaaaa/nextjs-admin/commit/7d5078701645ecc6f00560daffe4803289cafa6c))
+* optimize hooks and utils ([fc1efcf](https://github.com/ghaaaaa/nextjs-admin/commit/fc1efcfa5acf131f3ab095b7f2c8f126cb300ebc))
+* optimize layout ([89c53fc](https://github.com/ghaaaaa/nextjs-admin/commit/89c53fc2e5e42a3b893b74a0538dc6d91357dd7b))
+* small fix ([243d857](https://github.com/ghaaaaa/nextjs-admin/commit/243d8574fbe50d244c01292f919e2884e9855b38))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* add eslint ignore file ([70c2448](https://github.com/ghaaaaa/nextjs-admin/commit/70c244854cdd99efc3562656a119b0222873d44e))
+* add multi environment and pm2 ecosystem config ([194ae07](https://github.com/ghaaaaa/nextjs-admin/commit/194ae07a5c99921a6a276ddbaa430137befbb7dc))
+* fix type/react version ([eee75a6](https://github.com/ghaaaaa/nextjs-admin/commit/eee75a649af93f20d0f8f2dc33a8dad249097a2b))
+* small fix ([131bb33](https://github.com/ghaaaaa/nextjs-admin/commit/131bb331b41c90356832f05432c73863e0fe3ea9))
+* switch pnpm to yarn ([e21291f](https://github.com/ghaaaaa/nextjs-admin/commit/e21291fb8d665fad8c00a54a12633c377591e2df))
+* update scripts ([a94c28a](https://github.com/ghaaaaa/nextjs-admin/commit/a94c28a48d6619fe27a82b5e0fde1c182fb672f6))
+* upgrade dependencies version ([9066ebb](https://github.com/ghaaaaa/nextjs-admin/commit/9066ebbe339f8ec747a277de448ffd171176fd4c))
+
 ### [0.1.6](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.5...v0.1.6) (2022-05-07)
 
 
