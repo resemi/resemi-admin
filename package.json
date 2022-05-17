@@ -21,7 +21,8 @@
     "sitemap": "next-sitemap"
   },
   "engines": {
-    "node": "^12 || >=14"
+    "node": "^12 || >=14",
+    "yarn": "^1"
   },
   "homepage": "https://github.com/ghaaaaa/nextjs-admin#readme",
   "dependencies": {
