@@ -35,7 +35,7 @@
       "repo": "<your_git_repo_url>",
       "path": "/home/<your_server_username>/<repo_name>",
       "post-setup": "yarn install",
-      "post-deploy": "pm2 startOrRestart ecosystem.config.js --env production"
+      "post-deploy": "pm2 startOrRestart ecosystem.json --env production"
     }
   }
 }
