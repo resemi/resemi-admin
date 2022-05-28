@@ -23,5 +23,5 @@ export default function useProgress(start: Fn, end: Fn) {
       router.events.off('routeChangeComplete', handleStop);
       router.events.off('routeChangeError', handleStop);
     };
-  }, [router]);
+  }, [router, start, end]);
 }

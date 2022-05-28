@@ -4,9 +4,11 @@ import '@/styles/globals.scss';
 import { AppProps } from 'next/app';
 import { NextPage } from 'next';
 import Head from 'next/head';
+import NProgress from 'nprogress';
 import { LayoutAdapter } from '@/layouts';
 import { AppStoreProvider } from '@/store';
 import useAppMeta from '@/hooks/web/useAppMeta';
+import useProgress from '@/hooks/web/useProgress';
 
 // Extended component properties
 type NextPageWithLayout = NextPage & {
@@ -19,6 +21,11 @@ type AppPropsWithLayout = AppProps & {
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const { title, description, keywords, author } = useAppMeta(Component.title);
+
+  useProgress(
+    () => NProgress.start(),
+    () => NProgress.done(),
+  );
 
   return (
     <AppStoreProvider>

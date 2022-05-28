@@ -1,23 +1,17 @@
 import { useEffect, useState } from 'react';
 
+export function useMounted() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  return mounted;
+}
+
 export function ClientOnly({ children, ...delegated }) {
-  const [hasMounted, setHasMounted] = useState(false);
+  const mounted = useMounted();
 
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  if (!hasMounted) {
+  if (!mounted) {
     return null;
   }
 
   return <div {...delegated}>{children}</div>;
-}
-
-export function useHasMounted() {
-  const [hasMounted, setHasMounted] = useState(false);
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-  return hasMounted;
 }

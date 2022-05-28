@@ -1,8 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import ReactMarkdown from 'react-markdown';
-import 'github-markdown-css/github-markdown-light.css';
+import { Markdown } from '@/components/Markdown';
 
 async function getChangelog() {
   const fullPath = path.join(process.cwd(), 'CHANGELOG.md');
@@ -24,9 +23,5 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export default function Changelog({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return (
-    <article className="markdown-body">
-      <ReactMarkdown>{data.content}</ReactMarkdown>
-    </article>
-  );
+  return <Markdown>{data.content}</Markdown>;
 }
