@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from 'react';
-import { BackTop, Layout } from '@douyinfe/semi-ui';
+import { Layout } from '@douyinfe/semi-ui';
 import { useRouter } from 'next/router';
 import styles from './Layout.module.scss';
 import { Header } from '@/layouts/default/header';
@@ -29,7 +29,6 @@ export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children }) =
       <Layout>
         <Header />
         <Main loading={loading}>{children}</Main>
-        <BackTop />
         <Footer />
       </Layout>
     </Layout>

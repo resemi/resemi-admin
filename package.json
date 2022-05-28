@@ -30,6 +30,7 @@
     "@douyinfe/semi-ui": "2.11.2",
     "@potjs/http": "^0.1.1",
     "dayjs": "1.11.2",
+    "framer-motion": "6.3.4",
     "lodash-es": "4.17.21",
     "next": "12.1.6",
     "nprogress": "0.2.0",

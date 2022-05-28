@@ -10,6 +10,9 @@ import { AppStoreProvider } from '@/store';
 import useAppMeta from '@/hooks/web/useAppMeta';
 import useProgress from '@/hooks/web/useProgress';
 
+// NProgress configuration
+NProgress.configure({ showSpinner: false });
+
 // Extended component properties
 type NextPageWithLayout = NextPage & {
   title?: string;
