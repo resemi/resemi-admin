@@ -4,13 +4,13 @@ import { BasicLayout as AdminLayout } from '@/layouts/default';
 import { LandingLayout } from '@/layouts/landing';
 import { adminBasePath } from '@/routes';
 import { AuthGuard } from '@/components/AuthGuard';
-import { useHasMounted } from '@/components/ClientOnly';
+import { useMounted } from '@/components/ClientOnly';
 
 export type LayoutAdapterProps = {};
 
 export const LayoutAdapter: FunctionComponent<LayoutAdapterProps> = ({ children }) => {
   const { route } = useRouter();
-  const hasMounted = useHasMounted();
+  const hasMounted = useMounted();
 
   if (!hasMounted) {
     return null;
