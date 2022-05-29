@@ -1,22 +1,21 @@
 import { Button, Layout, Nav } from '@douyinfe/semi-ui';
 import { IconGithubLogo } from '@douyinfe/semi-icons';
-import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
+import { signIn } from 'next-auth/react';
 import styles from '@/layouts/default/Layout.module.scss';
 import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
 import { LocaleSwitcher } from '@/layouts/components/LocaleSwitcher';
+import { PageEnum } from '@/enums/app.enum';
 
 export type HeaderProps = {};
 
 export const Header: FunctionComponent<HeaderProps> = () => {
-  const { push } = useRouter();
-
   function onGithubClick() {
     window.open('https://github.com/ghaaaaa/nextjs-admin#readme', '_blank');
   }
 
   async function onLogin() {
-    await push('/login');
+    await signIn('', { callbackUrl: PageEnum.Admin });
   }
 
   return (

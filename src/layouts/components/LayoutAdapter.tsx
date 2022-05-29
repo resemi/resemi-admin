@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { BasicLayout as AdminLayout } from '@/layouts/default';
 import { LandingLayout } from '@/layouts/landing';
 import { adminBasePath } from '@/routes';
-import { AuthGuard } from '@/components/AuthGuard';
 import { useMounted } from '@/components/ClientOnly';
 
 export type LayoutAdapterProps = {};
@@ -20,13 +19,7 @@ export const LayoutAdapter: FunctionComponent<LayoutAdapterProps> = ({ children 
     return route.startsWith(adminBasePath);
   }
 
-  const Layout = isAdmin()
-    ? ({ children: child }) => (
-        <AuthGuard>
-          <AdminLayout>{child}</AdminLayout>
-        </AuthGuard>
-      )
-    : LandingLayout;
+  const Layout = isAdmin() ? AdminLayout : LandingLayout;
 
   return <Layout>{children}</Layout>;
 };

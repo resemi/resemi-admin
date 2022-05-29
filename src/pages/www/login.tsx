@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
-import { Button, Card, Form, Space, useFormApi, Avatar } from '@douyinfe/semi-ui';
+import { Button, Card, Form, Space, useFormApi, Avatar, Toast } from '@douyinfe/semi-ui';
 import { IconLock, IconUser } from '@douyinfe/semi-icons';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useSetRecoilState } from 'recoil';
-import http from '@/utils/http';
-import { userState } from '@/store';
+import { getCsrfToken, signIn } from 'next-auth/react';
 import { ClientOnly } from '@/components/ClientOnly';
+import { PageEnum } from '@/enums/app.enum';
 
-export default function Login() {
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      csrfToken: await getCsrfToken(context),
+    },
+  };
+}
+
+export default function Login({ csrfToken }) {
   const router = useRouter();
-  const setUser = useSetRecoilState(userState);
   const [initValues] = useState({
     username: 'anguer',
     password: '',
@@ -40,19 +46,16 @@ export default function Login() {
 
   async function onSubmit(values) {
     setLoading(true);
-    const [err, result] = await http.postSync('/api/login', { data: values });
-
-    if (!err) {
-      setUser((oldValue) => {
-        return {
-          ...oldValue,
-          token: result.token,
-        };
-      });
-      setLoading(false);
-      await router.push('/admin/dashboard');
-    } else {
-      setLoading(false);
+    const res = await signIn('credentials', {
+      ...values,
+      callbackUrl: router.query.callbackUrl || PageEnum.Admin,
+      redirect: false,
+    });
+    setLoading(false);
+    if (res && res.error) {
+      Toast.error(res.error);
+    } else if (res.ok) {
+      await router.push(res.url);
     }
   }
 
@@ -72,6 +75,7 @@ export default function Login() {
           footerStyle={{ display: 'flex', justifyContent: 'flex-end' }}
           footer={<ComponentUsingFormApi />}
         >
+          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
           <Form.Input
             field="username"
             label="用户名"

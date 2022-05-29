@@ -5,10 +5,14 @@ import { AppProps } from 'next/app';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import NProgress from 'nprogress';
+import { SessionProvider } from 'next-auth/react';
 import { LayoutAdapter } from '@/layouts';
 import { AppStoreProvider } from '@/store';
 import useAppMeta from '@/hooks/web/useAppMeta';
 import useProgress from '@/hooks/web/useProgress';
+
+// NProgress configuration
+NProgress.configure({ showSpinner: false });
 
 // Extended component properties
 type NextPageWithLayout = NextPage & {
@@ -40,9 +44,11 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <meta name="google-site-verification" content="YOuLXmHPeyzodGVVoqnbTLwf_7LXeqxKKlgie8vU88s" />
         <meta name="google-site-verification" content="1sWvVpnEFhLRPGKh9BpikcBQCcjwHIIlpZ2ExUNxWlo" />
       </Head>
-      <LayoutAdapter>
-        <Component {...pageProps} />
-      </LayoutAdapter>
+      <SessionProvider session={pageProps.session} refetchInterval={0}>
+        <LayoutAdapter>
+          <Component {...pageProps} />
+        </LayoutAdapter>
+      </SessionProvider>
     </AppStoreProvider>
   );
 }
