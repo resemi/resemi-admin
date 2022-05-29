@@ -1,6 +1,24 @@
 # Changelog
 
 
+## [0.3.0](https://github.com/ghaaaaa/nextjs-admin/compare/v0.2.0...v0.3.0) (2022-05-29)
+
+
+### ✨ Features | 新功能
+
+* add login for next-auth ([095bda9](https://github.com/ghaaaaa/nextjs-admin/commit/095bda9d98a6f891d2c0eb6e2c43ba937509ba9c))
+* add next-auth production env ([eda85a2](https://github.com/ghaaaaa/nextjs-admin/commit/eda85a2e55cb52453d28a5223ce16af9d79e09cb))
+* add pag-transition for framer-motion ([6bec3e8](https://github.com/ghaaaaa/nextjs-admin/commit/6bec3e8f1bcab910d82f29ec3c0ffc7acb3199dd))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* clean code ([a203123](https://github.com/ghaaaaa/nextjs-admin/commit/a20312312a4905031d4b9454880bb3b92a8415d7))
+* fix ecosystem config ([839adcf](https://github.com/ghaaaaa/nextjs-admin/commit/839adcf829bde1eba22416c559add7faf245d6ee))
+* fix global background color ([a1ae3c4](https://github.com/ghaaaaa/nextjs-admin/commit/a1ae3c4f25994126de962174b7a3d9ae05d0148c))
+* something fix ([df524aa](https://github.com/ghaaaaa/nextjs-admin/commit/df524aa0161dad9ed757d83a1bba2df4540dd4e6))
+* something update ([e5f1aa1](https://github.com/ghaaaaa/nextjs-admin/commit/e5f1aa15153cfb93119b09246847e2d0c5b5b5d4))
+
 ## [0.2.0](https://github.com/ghaaaaa/nextjs-admin/compare/v0.1.6...v0.2.0) (2022-05-17)
 
 
