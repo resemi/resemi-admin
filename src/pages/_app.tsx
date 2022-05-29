@@ -44,7 +44,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <meta name="google-site-verification" content="YOuLXmHPeyzodGVVoqnbTLwf_7LXeqxKKlgie8vU88s" />
         <meta name="google-site-verification" content="1sWvVpnEFhLRPGKh9BpikcBQCcjwHIIlpZ2ExUNxWlo" />
       </Head>
-      <SessionProvider session={pageProps.session} refetchInterval={0}>
+      <SessionProvider session={pageProps.session} refetchInterval={10}>
         <LayoutAdapter>
           <Component {...pageProps} />
         </LayoutAdapter>

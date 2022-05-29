@@ -1,18 +1,16 @@
 import { Breadcrumb, Layout } from '@douyinfe/semi-ui';
 import { FunctionComponent } from 'react';
 import styles from '@/layouts/default/Layout.module.scss';
-import Loading from '@/layouts/default/Loading';
+import PageLoading from '@/layouts/components/PageLoading';
 import { Page } from '@/layouts/default/page';
 import { PageTransition } from '@/components/PageTransition';
 
-export type MainProps = {
-  loading: boolean;
-};
+export type MainProps = {};
 
-export const Main: FunctionComponent<MainProps> = ({ children, loading }) => {
+export const Main: FunctionComponent<MainProps> = ({ children }) => {
   return (
     <Layout.Content className={styles.content}>
-      <Loading loading={loading} />
+      <PageLoading className={styles.loading} />
       <PageTransition>
         <Breadcrumb
           aria-label="breadcrumb"
