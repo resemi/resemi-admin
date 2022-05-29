@@ -1,7 +1,7 @@
 import { Avatar, Button, Dropdown, Layout, Nav } from '@douyinfe/semi-ui';
 import { IconBell, IconSidebar } from '@douyinfe/semi-icons';
-import { useRouter } from 'next/router';
 import { FunctionComponent } from 'react';
+import { signOut } from 'next-auth/react';
 import styles from '@/layouts/default/Layout.module.scss';
 import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
 import { LocaleSwitcher } from '@/layouts/components/LocaleSwitcher';
@@ -10,11 +10,10 @@ import { useAppState } from '@/store';
 export type HeaderProps = {};
 
 export const Header: FunctionComponent<HeaderProps> = () => {
-  const router = useRouter();
   const [appState, setAppState] = useAppState();
 
   async function onLogout() {
-    await router.replace('/login');
+    await signOut({ callbackUrl: '/login' });
   }
 
   function onShowSide() {
