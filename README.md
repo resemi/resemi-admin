@@ -29,6 +29,11 @@ yarn build
 ```
 
 
+## 使用 Gitpod
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ghaaaaa/nextjs-admin)
+
+
 ## 如何贡献
 
 欢迎你的加入！[提一个 Issue](https://github.com/ghaaaaa/nextjs-admin/issues/new/choose) 或者提交一个 Pull Request。
