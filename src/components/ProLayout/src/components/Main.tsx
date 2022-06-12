@@ -1,8 +1,8 @@
 import { Breadcrumb, Layout } from '@douyinfe/semi-ui';
 import { FunctionComponent } from 'react';
-import styles from '@/layouts/default/Layout.module.scss';
-import PageLoading from '@/layouts/components/PageLoading';
-import { Page } from '@/layouts/default/page';
+import styles from '../Layout.module.scss';
+import PageLoading from './PageLoading';
+import { Page } from './Page';
 import { PageTransition } from '@/components/PageTransition';
 
 export type MainProps = {};

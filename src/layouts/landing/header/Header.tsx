@@ -2,7 +2,7 @@ import { Button, Layout, Nav } from '@douyinfe/semi-ui';
 import { IconGithubLogo } from '@douyinfe/semi-icons';
 import { FunctionComponent } from 'react';
 import { signIn } from 'next-auth/react';
-import styles from '@/layouts/default/Layout.module.scss';
+import styles from '../Landing.module.scss';
 import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
 import { LocaleSwitcher } from '@/layouts/components/LocaleSwitcher';
 import { PageEnum } from '@/enums/app.enum';
