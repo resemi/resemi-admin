@@ -1,7 +1,7 @@
 import { IconGithubLogo } from '@douyinfe/semi-icons';
 import { Layout } from '@douyinfe/semi-ui';
 import { FunctionComponent } from 'react';
-import styles from '@/layouts/default/Layout.module.scss';
+import styles from '../Layout.module.scss';
 
 export type FooterProps = {};
 
