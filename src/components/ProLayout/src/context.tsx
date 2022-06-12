@@ -1,9 +1,24 @@
-import { createContext, ReactNode, useContext } from 'react';
-import { NavItems, OnSelectedData } from '@douyinfe/semi-ui/navigation';
+import type { ReactNode, MouseEvent } from 'react';
+import { createContext, useContext } from 'react';
+
+export interface MenuItem {
+  itemKey: string;
+  text: string;
+  icon: ReactNode | string;
+  items: MenuItem[];
+}
+
+export interface OnSelectedData {
+  itemKey: string;
+  selectedKeys: string[];
+  selectedItems: MenuItem[];
+  domEvent: MouseEvent;
+  isOpen: boolean;
+}
 
 export interface Menu {
   defaultSelectedKeys: string[];
-  items: NavItems;
+  items: MenuItem[];
   onSelect: (data: OnSelectedData) => void;
 }
 
@@ -12,7 +27,7 @@ export interface Header {
 }
 
 export interface LayoutContextValue {
-  prefixCls: string;
+  prefixCls?: string;
   layout?: 'side' | 'top' | 'mix';
   isMobile?: boolean;
   isSideCollapsed?: boolean;
