@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.2](https://github.com/ghaaaaa/nextjs-admin/compare/v0.3.1...v0.3.2) (2022-06-19)
+
+
+### Bug Fixes
+
+* fix layout interface ([9f0b3a9](https://github.com/ghaaaaa/nextjs-admin/commit/9f0b3a937e7c47b3229021c86688f983e5a40ebf))
+* optimize layout ([53df6e0](https://github.com/ghaaaaa/nextjs-admin/commit/53df6e08c282dc2ded1a50c0568efbfbb1b8f604))
+
 ### [0.3.1](https://github.com/ghaaaaa/nextjs-admin/compare/v0.3.0...v0.3.1) (2022-06-04)
 
 ## [0.3.0](https://github.com/ghaaaaa/nextjs-admin/compare/v0.2.0...v0.3.0) (2022-05-29)
