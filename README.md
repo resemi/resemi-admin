@@ -16,7 +16,7 @@ NextJS Admin 是一个基于`NextJS 12`,`React 18`,`TypeScript`等主流技术�
 获取项目代码
 
 ```bash
-git clone https://github.com/ghaaaaa/nextjs-admin.git
+git clone https://github.com/resemi/resemi-admin.git
 
 # 安装依赖
 cd inssent-open && yarn install
@@ -31,12 +31,12 @@ yarn build
 
 ## 使用 Gitpod
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ghaaaaa/nextjs-admin)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/resemi/resemi-admin)
 
 
 ## 如何贡献
 
-欢迎你的加入！[提一个 Issue](https://github.com/ghaaaaa/nextjs-admin/issues/new/choose) 或者提交一个 Pull Request。
+欢迎你的加入！[提一个 Issue](https://github.com/resemi/resemi-admin/issues/new/choose) 或者提交一个 Pull Request。
 
 **Pull Request:**
 

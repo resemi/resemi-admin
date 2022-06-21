@@ -11,7 +11,7 @@ export type HeaderProps = {};
 
 export const Header: FunctionComponent<HeaderProps> = () => {
   function onGithubClick() {
-    window.open('https://github.com/ghaaaaa/nextjs-admin#readme', '_blank');
+    window.open('https://github.com/resemi/resemi-admin#readme', '_blank');
   }
 
   async function onLogin() {

@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-admin",
+  "name": "resemi-admin",
   "version": "0.3.2",
   "author": {
     "name": "Anguer",
@@ -24,7 +24,7 @@
     "node": ">=14",
     "yarn": ">=1"
   },
-  "homepage": "https://github.com/ghaaaaa/nextjs-admin#readme",
+  "homepage": "https://github.com/resemi/resemi-admin#readme",
   "dependencies": {
     "@douyinfe/semi-icons": "2.12.0",
     "@douyinfe/semi-ui": "2.12.0",
