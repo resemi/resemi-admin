@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/resemi/resemi-admin/compare/v0.4.0...v0.4.1) (2022-06-22)
+
+
+### Bug Fixes
+
+* update title and remove google search files ([062abf8](https://github.com/resemi/resemi-admin/commit/062abf8cb89c59f2b20df3522b5be480718402de))
+
 ## [0.4.0](https://github.com/resemi/resemi-admin/compare/v0.3.2...v0.4.0) (2022-06-22)
 
 ### [0.3.2](https://github.com/resemi/resemi-admin/compare/v0.3.1...v0.3.2) (2022-06-19)
