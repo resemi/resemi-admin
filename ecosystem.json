@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "NextJS Admin",
+      "name": "Resemi Admin",
       "script": "yarn start",
       "args": "",
       "cwd": "./",
