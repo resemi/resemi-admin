@@ -23,7 +23,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = () => {
           onCollapseChange={state.onSideCollapse}
           header={{
             logo: <img alt="logo" src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg" />,
-            text: 'NextJS Admin',
+            text: 'Resemi Admin',
             link: '/',
           }}
           footer={

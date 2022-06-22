@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>NextJS Admin</h1>
+<h1>Resemi Admin</h1>
 
 </div>
 
@@ -8,7 +8,7 @@
 
 ## 简介
 
-NextJS Admin 是一个基于`NextJS 12`,`React 18`,`TypeScript`等主流技术开发的免费开源的中后台模版。
+Resemi Admin 是一个基于`NextJS 12`,`React 18`,`TypeScript`等主流技术开发的免费开源的中后台模版。
 
 
 ## 安装使用
