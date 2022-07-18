@@ -13,8 +13,7 @@
     "build:prod": "NODE_ENV=production next build",
     "build:staging": "NODE_ENV=test next build",
     "start": "next start",
-    "lint": "eslint ./ --ext js,jsx,ts,tsx",
-    "lint:lint-staged": "lint-staged",
+    "lint": "lint-staged",
     "reinstall": "rimraf yarn.lock && rimraf node_modules && yarn install",
     "release": "esno ./scripts/release",
     "prepare": "husky install",
@@ -30,7 +29,6 @@
     "@douyinfe/semi-ui": "^2.15.0",
     "@potjs/http": "^0.1.1",
     "dayjs": "^1.11.3",
-    "framer-motion": "^6.5.1",
     "lodash-es": "^4.17.21",
     "next": "^12.2.2",
     "next-auth": "^4.10.0",
@@ -48,6 +46,8 @@
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@douyinfe/semi-next": "^2.15.0",
+    "@douyinfe/semi-webpack-plugin": "^2.15.0",
+    "@semi-bot/semi-theme-resemi-admin": "^0.0.1",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.0.6",
     "@types/react": "^17.0.43",
@@ -83,7 +83,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "yarn lint"
+      "eslint ./ --ext js,jsx,ts,tsx"
     ]
   }
 }

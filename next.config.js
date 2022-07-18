@@ -1,5 +1,6 @@
 // next config
 const WindiCSSWebpackPlugin = require('windicss-webpack-plugin');
+const SemiWebpackPlugin = require('@douyinfe/semi-webpack-plugin').default;
 
 const semi = require('@douyinfe/semi-next').default({
   /* the extension options */
@@ -34,7 +35,13 @@ const nextConfig = semi({
   },
 
   webpack(config) {
-    config.plugins.push(new WindiCSSWebpackPlugin());
+    config.plugins.push(
+      new SemiWebpackPlugin({
+        theme: '@semi-bot/semi-theme-resemi-admin',
+        // include: '~@semi-bot/semi-theme-resemi-admin/scss/local.scss'
+      }),
+      new WindiCSSWebpackPlugin(),
+    );
     return config;
   },
 
