@@ -377,7 +377,7 @@
     scroll-into-view-if-needed "^2.2.24"
     utility-types "^3.10.0"
 
-"@douyinfe/semi-webpack-plugin@2.15.0":
+"@douyinfe/semi-webpack-plugin@2.15.0", "@douyinfe/semi-webpack-plugin@^2.15.0":
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/@douyinfe/semi-webpack-plugin/-/semi-webpack-plugin-2.15.0.tgz#1e91c33bad22f9381319d4403b8972b90990c841"
   integrity sha512-DJ+ku952sGSby4gDooWACkiAW5LHdDsrAcuLoe6r0D6XhFNDoGEQshhLc/gDSadeDscKc5+bilW7imYVwSmPoA==
@@ -680,6 +680,11 @@
   integrity sha512-YYog7KFoQwkzts8f5jcJHikEQeTLyhQFirD6N0bcPWXVbsmeQNOR+3ZosBqqJ+I7aBcnR4EY6ryi5RSvYzTpew==
   dependencies:
     "@vue/shared" "^3.2.31"
+
+"@semi-bot/semi-theme-resemi-admin@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@semi-bot/semi-theme-resemi-admin/-/semi-theme-resemi-admin-0.0.1.tgz#b81fe238aca02c2b0d2a6dd0437fb20e42177104"
+  integrity sha512-/yb8L9iwXjPN8xRuv+PB5U2clpUlbxoIMKuOaKIKGDj+mydySa6AccxqbDZebdnSxaHR3pZlazDKBWGRldAWVg==
 
 "@swc/helpers@0.4.2":
   version "0.4.2"
