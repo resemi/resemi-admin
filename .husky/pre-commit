@@ -3,4 +3,4 @@
 . "$(dirname "$0")/common.sh"
 
 #yarn lint
-yarn lint:lint-staged
+yarn lint
