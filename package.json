@@ -1,6 +1,6 @@
 {
   "name": "resemi-admin",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "author": {
     "name": "Anguer",
     "email": "*@gmail.com"
@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/resemi/resemi-admin#readme",
   "dependencies": {
-    "@douyinfe/semi-icons": "^2.15.0",
-    "@douyinfe/semi-ui": "^2.15.0",
+    "@douyinfe/semi-icons": "^2.15.1",
+    "@douyinfe/semi-ui": "^2.15.1",
     "@potjs/http": "^0.1.1",
     "dayjs": "^1.11.3",
     "lodash-es": "^4.17.21",
@@ -45,8 +45,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
-    "@douyinfe/semi-next": "^2.15.0",
-    "@douyinfe/semi-webpack-plugin": "^2.15.0",
+    "@douyinfe/semi-next": "^2.15.1",
+    "@douyinfe/semi-webpack-plugin": "^2.15.1",
     "@semi-bot/semi-theme-resemi-admin": "^0.0.1",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.0.6",

@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.2](https://github.com/anguer/resemi-admin/compare/v0.4.1...v0.4.2) (2022-07-19)
+
+
+### Bug Fixes
+
+* migration middleware for next@12.2 ([8260102](https://github.com/anguer/resemi-admin/commit/826010239fffd1805c051c20f822e96f1d7eba8c))
+* remove page-transition ([b52dac8](https://github.com/anguer/resemi-admin/commit/b52dac8442cc725636cf408b556bfab5ca397565))
+
 ### [0.4.1](https://github.com/resemi/resemi-admin/compare/v0.4.0...v0.4.1) (2022-06-22)
 
 
