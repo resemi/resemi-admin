@@ -1,0 +1,38 @@
+{
+  "title": "",
+  "defaultTitle": "Resemi Admin by Next.js",
+  "titleTemplate": "%s - Resemi Admin",
+  "noindex": false,
+  "nofollow": false,
+  "robotsProps": {},
+  "description": "Resemi Admin with NextJS 12 and React 18",
+  "canonical": "",
+  "mobileAlternate": {
+    "media": "",
+    "href": ""
+  },
+  "languageAlternates": [],
+  "additionalMetaTags": [
+    {
+      "name": "keywords",
+      "content": "resemi,nextjs,next.js,react,admin,template,typescript,dashboard"
+    },
+    {
+      "name": "viewport",
+      "content": "initial-scale=1.0, width=device-width"
+    },
+    {
+      "name": "author",
+      "content": "Anguer"
+    }
+  ],
+  "additionalLinkTags": [],
+  "twitter": {
+    "cardType": "",
+    "site": "",
+    "handle": ""
+  },
+  "facebook": {
+    "appId": ""
+  }
+}

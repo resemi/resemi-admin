@@ -4,8 +4,11 @@ import { IconLock, IconUser } from '@douyinfe/semi-icons';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getCsrfToken, signIn } from 'next-auth/react';
+import { NextSeo } from 'next-seo';
+import { FormattedMessage } from 'react-intl';
 import { ClientOnly } from '@/components/ClientOnly';
 import { PageEnum } from '@/enums/app.enum';
+import { useIntl } from '@/locale';
 
 export async function getServerSideProps(context) {
   return {
@@ -17,6 +20,8 @@ export async function getServerSideProps(context) {
 
 export default function Login({ csrfToken }) {
   const router = useRouter();
+  const intl = useIntl();
+
   const [initValues] = useState({
     username: 'anguer',
     password: '',
@@ -34,11 +39,11 @@ export default function Login({ csrfToken }) {
         <Button onClick={onChange}>Set Password</Button>
         <Link href="/register">
           <Button theme="borderless" type="primary">
-            注册
+            {intl.formatMessage({ id: 'page.login.action.signUp' })}
           </Button>
         </Link>
         <Button theme="solid" type="primary" htmlType="submit" loading={loading}>
-          登录
+          {intl.formatMessage({ id: 'page.login.action.signIn' })}
         </Button>
       </Space>
     );
@@ -61,13 +66,14 @@ export default function Login({ csrfToken }) {
 
   return (
     <ClientOnly>
+      <NextSeo title="Sign in" />
       <Form initValues={initValues} onSubmit={onSubmit}>
         <Card
           style={{ width: 360 }}
           title={
             <Card.Meta
-              title="Login"
-              description="Username:anguer;Password:123456"
+              title={<FormattedMessage id="page.login.title" />}
+              description={<FormattedMessage id="page.login.desc" />}
               avatar={<Avatar color="red">An</Avatar>}
             />
           }
@@ -78,14 +84,16 @@ export default function Login({ csrfToken }) {
           <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
           <Form.Input
             field="username"
-            label="用户名"
-            rules={[{ required: true, message: '必填' }]}
+            label={<FormattedMessage id="page.login.label.username" />}
+            placeholder={intl.formatMessage({ id: 'page.login.label.username' })}
+            rules={[{ required: true, message: intl.formatMessage({ id: 'page.login.error.required' }) }]}
             prefix={<IconUser />}
           />
           <Form.Input
             field="password"
-            label="密码"
-            rules={[{ required: true, message: '必填' }]}
+            label={<FormattedMessage id="page.login.label.password" />}
+            placeholder={intl.formatMessage({ id: 'page.login.label.password' })}
+            rules={[{ required: true, message: intl.formatMessage({ id: 'page.login.error.required' }) }]}
             mode="password"
             prefix={<IconLock />}
           />
