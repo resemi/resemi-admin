@@ -1,4 +1,11 @@
 {
+  "page.login.title": "Sign In",
+  "page.login.desc": "Username:anguer; Password:123456",
+  "page.login.label.username": "Username",
+  "page.login.label.password": "Password",
+  "page.login.error.required": "Required",
+  "page.login.action.signIn": "Sign In",
+  "page.login.action.signUp": "Sign Up",
   "hello": "hello",
   "layout.header": "Header",
   "test1": "Hello, let's learn how to use React-Intl",

@@ -6,12 +6,12 @@ export function useMounted() {
   return mounted;
 }
 
-export function ClientOnly({ children, ...delegated }) {
+export function ClientOnly({ children }) {
   const mounted = useMounted();
 
   if (!mounted) {
     return null;
   }
 
-  return <div {...delegated}>{children}</div>;
+  return <> {children}</>;
 }
