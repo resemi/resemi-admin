@@ -4,6 +4,7 @@ import { IconLock, IconUser } from '@douyinfe/semi-icons';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getCsrfToken, signIn } from 'next-auth/react';
+import { NextSeo } from 'next-seo';
 import { ClientOnly } from '@/components/ClientOnly';
 import { PageEnum } from '@/enums/app.enum';
 
@@ -61,6 +62,7 @@ export default function Login({ csrfToken }) {
 
   return (
     <ClientOnly>
+      <NextSeo title="Sign in" />
       <Form initValues={initValues} onSubmit={onSubmit}>
         <Card
           style={{ width: 360 }}
