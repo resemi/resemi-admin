@@ -1,4 +1,11 @@
 {
+  "page.login.title": "登 录",
+  "page.login.desc": "用户名：anguer；密码：123456",
+  "page.login.label.username": "用户名",
+  "page.login.label.password": "密码",
+  "page.login.error.required": "必填项",
+  "page.login.action.signIn": "登录",
+  "page.login.action.signUp": "注册",
   "hello": "你好",
   "layout.header": "头部",
   "test1": "大家好，让我们学习如何使用React Intl",

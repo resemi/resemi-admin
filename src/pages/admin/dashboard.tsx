@@ -39,5 +39,3 @@ export default function Dashboard() {
     </Space>
   );
 }
-
-Dashboard.title = 'Dashboard';

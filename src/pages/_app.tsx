@@ -3,29 +3,26 @@ import '@/styles/globals.scss';
 
 import { AppProps } from 'next/app';
 import { NextPage } from 'next';
-import Head from 'next/head';
 import NProgress from 'nprogress';
 import { SessionProvider } from 'next-auth/react';
+import { DefaultSeo } from 'next-seo';
 import { LayoutAdapter } from '@/layouts';
 import { AppStoreProvider } from '@/store';
-import useAppMeta from '@/hooks/web/useAppMeta';
 import useProgress from '@/hooks/web/useProgress';
+
+import SEO from '../../next-seo.config.json';
 
 // NProgress configuration
 NProgress.configure({ showSpinner: false });
 
 // Extended component properties
-type NextPageWithLayout = NextPage & {
-  title?: string;
-};
+type NextPageWithLayout = NextPage & {};
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const { title, description, keywords, author } = useAppMeta(Component.title);
-
   useProgress(
     () => NProgress.start(),
     () => NProgress.done(),
@@ -33,17 +30,9 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <AppStoreProvider>
-      <Head>
-        <title>{title}</title>
-        <meta property="og:title" content={description} key="title" />
-        <meta name="description" content={description} />
-        <meta property="og:description" content={description} key="description" />
-        <meta name="keywords" content={keywords} />
-        <meta name="author" content={author} />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <DefaultSeo {...SEO} />
       <SessionProvider session={pageProps.session} refetchInterval={10}>
-        <LayoutAdapter>
+        <LayoutAdapter {...pageProps}>
           <Component {...pageProps} />
         </LayoutAdapter>
       </SessionProvider>
