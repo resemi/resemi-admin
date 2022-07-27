@@ -27,6 +27,7 @@
   "dependencies": {
     "@douyinfe/semi-icons": "^2.15.1",
     "@douyinfe/semi-ui": "^2.15.1",
+    "@iconify/react": "^3.2.2",
     "@potjs/http": "^0.1.1",
     "dayjs": "^1.11.4",
     "lodash-es": "^4.17.21",
