@@ -8,6 +8,7 @@ import { useAppState } from '@/store';
 import { routes, RouteType } from '@/routes';
 import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
 import { LocaleSwitcher } from '@/layouts/components/LocaleSwitcher';
+import { Icon } from '@/components/Icon';
 
 export type ProLayoutProps = {};
 
@@ -31,7 +32,7 @@ export const BasicLayout: FunctionComponent<ProLayoutProps> = ({ children }) => 
         // itemKey: route.id,
         itemKey: `${(parent && parent.path) || ''}/${route.path}`.replace('//', '/'),
         text: route.name,
-        icon: route.icon,
+        icon: route.icon && <Icon name={route.icon} />,
         items: createNavItems(route.children, route),
       };
     });
