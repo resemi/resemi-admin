@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/resemi/resemi-admin/compare/v0.4.1...v0.5.0) (2022-07-28)
+
+
+### Features
+
+* **seo:** add next-seo ([f7cc867](https://github.com/resemi/resemi-admin/commit/f7cc8676fe21c1205300c6a924ba52f37b16595b))
+
+
+### Bug Fixes
+
+* **auth:** small fix ([06565a1](https://github.com/resemi/resemi-admin/commit/06565a1b92476fcec1e45f75e003cfec7e843fb2))
+* **icon:** add icon component for iconify ([1529a42](https://github.com/resemi/resemi-admin/commit/1529a425c566d90f91983f1e65017e54dc5773a8))
+* **intl:** optimize react-intl ([624ede7](https://github.com/resemi/resemi-admin/commit/624ede785063471884eb7138ba4f6f49cbd4f7e6))
+* migration middleware for next@12.2 ([8260102](https://github.com/resemi/resemi-admin/commit/826010239fffd1805c051c20f822e96f1d7eba8c))
+* remove page-transition ([b52dac8](https://github.com/resemi/resemi-admin/commit/b52dac8442cc725636cf408b556bfab5ca397565))
+
 ### [0.4.1](https://github.com/resemi/resemi-admin/compare/v0.4.0...v0.4.1) (2022-06-22)
 
 
