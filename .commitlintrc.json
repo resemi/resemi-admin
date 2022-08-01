@@ -17,6 +17,7 @@
         "revert",
         "wip",
         "workflow",
+        "build",
         "types",
         "release"
       ]
