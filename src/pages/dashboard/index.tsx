@@ -1,6 +1,6 @@
 import { Space, Card, Avatar, Rating } from '@douyinfe/semi-ui';
 
-export default function Dashboard() {
+export default function Index() {
   const { Meta } = Card;
   const list = Array.from(new Array(10).keys());
   return (
