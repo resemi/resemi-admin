@@ -11,6 +11,15 @@
 Resemi Admin is a free and open-source middle and back-end template. Using the latest `NextJS 12`,`React 18`,`TypeScript` and other mainstream technology development.
 
 
+## Preparation
+- [Semi Design](https://semi.design/) - A modern, comprehensive, flexible design system and UI library.
+- [Next.js](https://nextjs.org/) - The React Framework
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [Recoil](https://recoiljs.org/) - A state management library for React
+- [TypeScript](https://www.typescriptlang.org/) - TypeScript is JavaScript with syntax for types.
+- [WindiCSS](https://windicss.org/) - Next generation utility-first CSS framework.
+
+
 ## Usage
 
 ```bash
