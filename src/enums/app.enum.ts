@@ -5,7 +5,7 @@ export enum ThemeMode {
 
 export enum PageEnum {
   Home = '/',
-  Admin = '/admin/dashboard',
+  Admin = '/dashboard',
 }
 
 export default {};

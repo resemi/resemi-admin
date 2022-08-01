@@ -6,24 +6,26 @@ export type RouteType = {
   children?: RouteType[];
 };
 
-export const adminBasePath = '/admin';
+export function isAdmin(route: string): boolean {
+  return route.startsWith('/dashboard');
+}
 
 export const routes: RouteType[] = [
   {
     id: 'Home',
-    path: '/admin/dashboard',
+    path: '/dashboard',
     name: '首页',
     icon: 'home',
   },
   {
     id: 'Changelog',
-    path: '/admin/changelog',
+    path: '/dashboard/changelog',
     name: '更新日志',
     icon: 'article',
   },
   {
     id: 'Components',
-    path: '/admin/comp',
+    path: '/dashboard/comp',
     name: '组件',
     icon: 'widgets',
     children: [
@@ -46,7 +48,7 @@ export const routes: RouteType[] = [
   },
   {
     id: 'Features',
-    path: '/admin/feat',
+    path: '/dashboard/feat',
     name: '功能',
     icon: 'extension',
     children: [
@@ -59,7 +61,7 @@ export const routes: RouteType[] = [
   },
   {
     id: 'Settings',
-    path: '/admin/settings',
+    path: '/dashboard/settings',
     name: '设置',
     icon: 'settings',
   },
