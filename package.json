@@ -16,8 +16,7 @@
     "lint": "lint-staged",
     "reinstall": "rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
     "release": "esno ./scripts/release",
-    "prepare": "husky install",
-    "l": "next lint"
+    "prepare": "husky install"
   },
   "engines": {
     "node": ">=14"
