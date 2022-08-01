@@ -7,7 +7,6 @@
   },
   "private": true,
   "scripts": {
-    "preinstall": "npx only-allow yarn",
     "dev": "next dev",
     "build": "next build",
     "build:prod": "NODE_ENV=production next build",
@@ -19,8 +18,7 @@
     "prepare": "husky install"
   },
   "engines": {
-    "node": ">=14",
-    "yarn": ">=1"
+    "node": ">=14"
   },
   "homepage": "https://github.com/resemi/resemi-admin#readme",
   "dependencies": {
