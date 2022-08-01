@@ -27,13 +27,13 @@ Resemi Admin 是一个免费开源的中后台模版, 使用了最新的`NextJS 
 git clone https://github.com/resemi/resemi-admin.git
 
 # 安装依赖
-cd resemi-admin && yarn install
+cd resemi-admin && pnpm install
 
 # 运行
-yarn dev
+pnpm dev
 
 # 构建打包
-yarn build
+pnpm build
 ```
 
 

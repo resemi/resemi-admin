@@ -27,13 +27,13 @@ Resemi Admin is a free and open-source middle and back-end template. Using the l
 git clone https://github.com/resemi/resemi-admin.git
 
 # installation dependencies
-cd resemi-admin && yarn install
+cd resemi-admin && pnpm install
 
 # run
-yarn dev
+pnpm dev
 
 # build
-yarn build
+pnpm build
 ```
 
 

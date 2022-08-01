@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "Resemi Admin",
-      "script": "yarn start",
+      "script": "npm start",
       "args": "",
       "cwd": "./",
       "instances": 1,
@@ -34,7 +34,7 @@
       "ref": "origin/main",
       "repo": "<your_git_repo_url>",
       "path": "/home/<your_server_username>/<repo_name>",
-      "post-setup": "yarn install",
+      "post-setup": "npm install",
       "post-deploy": "pm2 startOrRestart ecosystem.json --env production"
     }
   }
