@@ -16,8 +16,7 @@
     "lint": "lint-staged",
     "reinstall": "rimraf yarn.lock && rimraf node_modules && yarn install",
     "release": "esno ./scripts/release",
-    "prepare": "husky install",
-    "sitemap": "next-sitemap"
+    "prepare": "husky install"
   },
   "engines": {
     "node": ">=14",
@@ -69,7 +68,6 @@
     "inquirer": "^9.0.2",
     "intercept-stdout": "^0.1.2",
     "lint-staged": "^13.0.3",
-    "next-sitemap": "^3.1.12",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "sass": "^1.54.0",
