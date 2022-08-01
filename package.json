@@ -3,7 +3,8 @@
   "version": "0.5.0",
   "author": {
     "name": "Anguer",
-    "email": "*@gmail.com"
+    "email": "qq191030830@gmail.com",
+    "url": "https://github.com/anguer"
   },
   "private": true,
   "scripts": {
@@ -13,9 +14,10 @@
     "build:staging": "NODE_ENV=test next build",
     "start": "next start",
     "lint": "lint-staged",
-    "reinstall": "rimraf yarn.lock && rimraf node_modules && yarn install",
+    "reinstall": "rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
     "release": "esno ./scripts/release",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "l": "next lint"
   },
   "engines": {
     "node": ">=14"
