@@ -11,6 +11,15 @@
 Resemi Admin 是一个免费开源的中后台模版, 使用了最新的`NextJS 12`,`React 18`，`TypeScript`等主流技术开发。
 
 
+## 准备
+- [Semi Design](https://semi.design/) - 一个现代化、全面、灵活的设计系统和UI库
+- [Next.js](https://nextjs.org/) - React 框架
+- [React](https://reactjs.org/) - 用于构建用户界面的 JavaScript 库
+- [Recoil](https://recoiljs.org/zh-hans/) - React 状态管理库
+- [TypeScript](https://www.typescriptlang.org/) - JavaScript的超集
+- [WindiCSS](https://cn.windicss.org/) - 下一代工具类 CSS 框架
+
+
 ## 安装使用
 
 ```bash
