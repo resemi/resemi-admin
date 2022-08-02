@@ -13,5 +13,5 @@ export default withAuth(
 
 // Supports both a single string value or an array of matchers
 export const config = {
-  matcher: ['/admin/:path*'],
+  matcher: ['/dashboard/:path*'],
 };

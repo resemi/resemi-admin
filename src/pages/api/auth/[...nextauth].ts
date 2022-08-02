@@ -27,9 +27,21 @@ export default NextAuth({
     async signIn() {
       return true;
     },
-    // async redirect({ baseUrl }) {
-    //   return baseUrl;
-    // },
+    async redirect({ baseUrl, url }) {
+      try {
+        // Allows relative callback URLs
+        if (url.startsWith('/')) {
+          return `${baseUrl}${url}`;
+        }
+        // Allows callback URLs on the same origin
+        if (new URL(url).origin === baseUrl) {
+          return url;
+        }
+      } catch (e) {
+        console.error(e);
+      }
+      return baseUrl;
+    },
     async session({ session, token }) {
       const theSession = session;
       theSession.user = { ...theSession.user, ...pick(token, ['id', 'name']) };
