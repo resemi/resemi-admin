@@ -6,7 +6,7 @@ const semi = require('@douyinfe/semi-next').default({
   /* the extension options */
 });
 
-// [[[ Temporarily fix duplicate atom key from https://github.com/facebookexperimental/Recoil/issues/733#issuecomment-923492445
+// [[[ FIXME: Temporarily fix duplicate atom key from https://github.com/facebookexperimental/Recoil/issues/733#issuecomment-923492445
 const intercept = require('intercept-stdout');
 
 // safely ignore recoil warning messages in dev (triggered by HMR)
@@ -46,29 +46,10 @@ const nextConfig = semi({
   },
 
   rewrites() {
-    return [
-      {
-        source: '/',
-        destination: '/www',
-      },
-      {
-        source: '/login',
-        destination: '/www/login',
-      },
-      {
-        source: '/register',
-        destination: '/www/register',
-      },
-    ];
+    return [];
   },
   redirects() {
-    return [
-      {
-        source: '/www',
-        destination: '/',
-        permanent: true,
-      },
-    ];
+    return [];
   },
 });
 
