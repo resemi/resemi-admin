@@ -44,6 +44,11 @@ export const routes: RouteType[] = [
         path: '/table',
         name: '基础数据',
       },
+      {
+        id: 'Watermark',
+        path: '/watermark',
+        name: '水印',
+      },
     ],
   },
   {
