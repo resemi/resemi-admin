@@ -11,6 +11,7 @@ specifiers:
   '@douyinfe/semi-ui': ^2.16.0
   '@douyinfe/semi-webpack-plugin': ^2.16.0
   '@iconify/react': ^3.2.2
+  '@potjs/cipher': ^0.0.2
   '@potjs/http': ^0.1.1
   '@semi-bot/semi-theme-resemi-admin': ^0.0.1
   '@types/lodash-es': ^4.17.6
@@ -60,6 +61,7 @@ dependencies:
   '@douyinfe/semi-icons': 2.16.0_react@18.2.0
   '@douyinfe/semi-ui': 2.16.0_biqbaboplfbrettd7655fr4n2y
   '@iconify/react': 3.2.2_react@18.2.0
+  '@potjs/cipher': 0.0.2
   '@potjs/http': 0.1.1
   dayjs: 1.11.4
   lodash-es: 4.17.21
@@ -854,6 +856,13 @@ packages:
 
   /@panva/hkdf/1.0.2:
     resolution: {integrity: sha512-MSAs9t3Go7GUkMhpKC44T58DJ5KGk2vBo+h1cqQeqlMfdGkxaVB78ZWpv9gYi/g2fa4sopag9gJsNvS8XGgWJA==}
+    dev: false
+
+  /@potjs/cipher/0.0.2:
+    resolution: {integrity: sha512-qZ+QEHjjTK8QM8HQrSVY/zj2xC4cRWf5ZU2o3GNNat35Vfd+erqNdXYjgoGjVn0JmLCelPx5qMqUQ3WWQ2P6Qg==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      crypto-js: 4.1.1
     dev: false
 
   /@potjs/http/0.1.1:
@@ -2016,6 +2025,10 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: true
+
+  /crypto-js/4.1.1:
+    resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}
+    dev: false
 
   /css-in-js-utils/2.0.1:
     resolution: {integrity: sha512-PJF0SpJT+WdbVVt0AOYp9C8GnuruRlL/UFW7932nLWmFLQTaWEzTBQEx7/hn4BuV+WON75iAViSUJLiU3PKbpA==}

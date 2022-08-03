@@ -46,7 +46,7 @@ export default function Home() {
     <Carousel style={style} theme="dark">
       {imgList.map((src, index) => {
         return (
-          <div style={{ backgroundSize: 'cover', backgroundImage: `url(${src})` }}>
+          <div key={Math.random()} style={{ backgroundSize: 'cover', backgroundImage: `url(${src})` }}>
             <Space vertical align="start" spacing="medium" style={titleStyle}>
               {renderLogo()}
               <Title heading={2} style={colorStyle}>
