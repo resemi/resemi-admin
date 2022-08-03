@@ -56,12 +56,12 @@ export default function Login({ csrfToken }) {
       callbackUrl: router.query.callbackUrl || PageEnum.Admin,
       redirect: false,
     });
-    setLoading(false);
     if (res && res.error) {
       Toast.error(res.error);
     } else if (res.ok) {
-      await router.push(res.url);
+      router.replace(res.url).then(() => {});
     }
+    setLoading(false);
   }
 
   return (

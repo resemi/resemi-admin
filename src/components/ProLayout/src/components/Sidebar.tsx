@@ -21,11 +21,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = () => {
           items={state.menu.items}
           isCollapsed={!state.isMobile && state.isSideCollapsed}
           onCollapseChange={state.onSideCollapse}
-          header={{
-            logo: <img alt="logo" src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg" />,
-            text: 'Resemi Admin',
-            link: '/',
-          }}
+          header={state.logo}
           footer={
             !state.isMobile && {
               collapseButton: true,

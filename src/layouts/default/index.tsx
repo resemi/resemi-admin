@@ -9,6 +9,7 @@ import { routes, RouteType } from '@/routes';
 import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
 import { LocaleSwitcher } from '@/layouts/components/LocaleSwitcher';
 import { Icon } from '@/components/Icon';
+import { Logo } from '@/layouts/components/Logo';
 
 export type ProLayoutProps = {};
 
@@ -113,6 +114,7 @@ export const BasicLayout: FunctionComponent<ProLayoutProps> = ({ children }) => 
           </>
         ),
       }}
+      logo={<Logo href="/" collapsed={!appState.isMobile && appState.isSideCollapsed} />}
     >
       {children}
     </ProLayout>
