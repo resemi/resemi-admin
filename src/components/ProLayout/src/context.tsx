@@ -36,6 +36,7 @@ export interface LayoutContextValue {
   onSideSheetCollapse?: (collapsed: boolean) => void;
   menu?: Menu;
   header?: Header;
+  logo?: ReactNode;
 }
 
 export const defaultValue: LayoutContextValue = {
