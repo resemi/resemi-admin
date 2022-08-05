@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { Spin } from '@douyinfe/semi-ui';
 import { useRouter } from 'next/router';
 import useProgress from '@/hooks/web/useProgress';
+import styles from '../Layout.module.scss';
+import { useLayoutContext } from '../context';
 
-export type LoadingProps = {
-  className: string;
-};
-
-export default function PageLoading({ className }: LoadingProps) {
+export default function PageLoading() {
+  const state = useLayoutContext();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -20,7 +19,21 @@ export default function PageLoading({ className }: LoadingProps) {
     },
   );
   return (
-    <div className={loading ? className : 'hidden'}>
+    <div className={loading ? `${state.prefixCls}-layout-loading` : 'hidden'}>
+      <style jsx>{`
+        .${state.prefixCls}-layout-loading {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          top: 0;
+          left: 0;
+          height: calc(100vh - ${styles.headerHeight});
+          width: 100%;
+          background-color: var(--semi-color-bg-0);
+          z-index: 999;
+        }
+      `}</style>
       <Spin size="large" />
     </div>
   );

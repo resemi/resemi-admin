@@ -6,11 +6,16 @@
 import { atom, selector, useRecoilState, useSetRecoilState } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
 import { ThemeMode } from '@/enums/app.enum';
+import { getStorageShortName } from '@/utils/env';
 
-const { persistAtom } = recoilPersist({});
+const { persistAtom } = recoilPersist({
+  key: getStorageShortName('app'),
+});
 
 export type AppState = {
+  // prefixCls: string;
   themeMode: ThemeMode;
+  layout: 'side' | 'top' | 'mix';
   isMobile: boolean;
   isSideCollapsed: boolean;
   isSideSheetVisible: boolean;
@@ -24,7 +29,9 @@ export type AppSelector = {
 export const appState = atom<AppState>({
   key: 'appStateKey',
   default: {
+    // prefixCls: 'resemi',
     themeMode: ThemeMode.LIGHT,
+    layout: 'side',
     isMobile: false,
     isSideCollapsed: false,
     isSideSheetVisible: false,
