@@ -1,15 +1,22 @@
 import { Layout, Nav, SideSheet } from '@douyinfe/semi-ui';
 import { FunctionComponent } from 'react';
 import css from 'styled-jsx/css';
-import stylesModule from '../Layout.module.scss';
 import { useLayoutContext } from '../context';
+import { Logo } from './Logo';
 
 export type SidebarProps = {
   showLogo: boolean;
   top?: number;
+  isSideSheetVisible?: boolean;
+  onSideSheetCollapse?: (visible: boolean) => void;
 };
 
-export const Sidebar: FunctionComponent<SidebarProps> = ({ showLogo, top = 0 }) => {
+export const Sidebar: FunctionComponent<SidebarProps> = ({
+  showLogo,
+  top = 0,
+  isSideSheetVisible = false,
+  onSideSheetCollapse,
+}) => {
   const state = useLayoutContext();
 
   if (!state.menu) {
@@ -19,7 +26,6 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({ showLogo, top = 0 }) 
   const { className, styles } = css.resolve`
     .${state.prefixCls}-layout-sidebar {
       position: fixed;
-      margin-top: 0;
       height: 100%;
       top: 0;
       left: 0;
@@ -34,7 +40,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({ showLogo, top = 0 }) 
     }
     .${state.prefixCls}-layout-navigation {
       height: 100%;
-      max-width: ${stylesModule.sidebarWidth};
+      max-width: ${state.sidebar.width}px;
     }
   `;
 
@@ -51,7 +57,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({ showLogo, top = 0 }) 
             onCollapseChange={state.onSideCollapse}
             header={
               showLogo && {
-                children: state.logo,
+                children: <Logo {...state.logo} collapsed={!state.isMobile && state.isSideCollapsed} />,
                 style: { paddingTop: 0, paddingBottom: 0, height: '60px' },
               }
             }
@@ -68,7 +74,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({ showLogo, top = 0 }) 
   }
 
   function onSheetCancel() {
-    state.onSideSheetCollapse(false);
+    onSideSheetCollapse(false);
   }
 
   function renderSideSheet() {
@@ -78,8 +84,8 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({ showLogo, top = 0 }) 
         bodyStyle={{ padding: 0 }}
         placement="left"
         closable={false}
-        visible={state.isSideSheetVisible}
-        width={stylesModule.sidebarWidth}
+        visible={isSideSheetVisible}
+        width={state.sidebar.width}
         onCancel={onSheetCancel}
       >
         {renderSidebar()}

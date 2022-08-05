@@ -1,6 +1,5 @@
-import { CSSProperties, FunctionComponent } from 'react';
+import { CSSProperties, FunctionComponent, useState } from 'react';
 import css from 'styled-jsx/css';
-import stylesModule from './Layout.module.scss';
 import { Header, Sidebar, Footer, Main } from './components';
 import { useLayoutContext } from './context';
 
@@ -36,6 +35,18 @@ export type BasicLayoutProps = {};
 
 export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children }) => {
   const state = useLayoutContext();
+  const [theState, setTheState] = useState({
+    isSideSheetVisible: false,
+  });
+
+  function onSideSheetCollapse(visible) {
+    setTheState((oldValue) => {
+      return {
+        ...oldValue,
+        isSideSheetVisible: visible,
+      };
+    });
+  }
 
   const renderTop = () => {
     switch (state.layout) {
@@ -43,11 +54,17 @@ export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children }) =
         return <Header showLogo />;
       }
       case 'mix': {
-        return <Header showLogo />;
+        return <Header showLogo onSideSheetCollapse={onSideSheetCollapse} />;
       }
       case 'side':
       default: {
-        return <Sidebar showLogo />;
+        return (
+          <Sidebar
+            showLogo
+            isSideSheetVisible={theState.isSideSheetVisible}
+            onSideSheetCollapse={onSideSheetCollapse}
+          />
+        );
       }
     }
   };
@@ -55,7 +72,7 @@ export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children }) =
   const renderMain = () => {
     const style = {
       ...(!state.isMobile && {
-        marginLeft: state.isSideCollapsed ? '60px' : stylesModule.sidebarWidth,
+        marginLeft: `${state.isSideCollapsed ? 60 : state.sidebar.width}px`,
       }),
     };
 
@@ -73,7 +90,12 @@ export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children }) =
       case 'mix': {
         return (
           <MainLayout style={style}>
-            <Sidebar showLogo={false} top={60} />
+            <Sidebar
+              showLogo={state.isMobile}
+              top={state.isMobile ? 0 : 60}
+              isSideSheetVisible={theState.isSideSheetVisible}
+              onSideSheetCollapse={onSideSheetCollapse}
+            />
             <Main>{children}</Main>
             <Footer />
           </MainLayout>
@@ -83,7 +105,7 @@ export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children }) =
       default: {
         return (
           <MainLayout style={style}>
-            <Header showLogo={false} style={style} />
+            <Header showLogo={state.isMobile} style={style} onSideSheetCollapse={onSideSheetCollapse} />
             <Main>{children}</Main>
             <Footer />
           </MainLayout>

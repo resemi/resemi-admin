@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import styles from '../Landing.module.scss';
 import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
 import { LocaleSwitcher } from '@/layouts/components/LocaleSwitcher';
-import { Logo } from '@/layouts/components/Logo';
+import { Logo } from '@/components/ProLayout/src/components/Logo';
 
 export type HeaderProps = {};
 
@@ -24,7 +24,13 @@ export const Header: FunctionComponent<HeaderProps> = () => {
     <Layout.Header className={styles.header}>
       <Nav
         mode="horizontal"
-        header={<Logo href="/" />}
+        header={
+          <Logo
+            href="/"
+            logo="https://sf6-cdn-tos.douyinstatic.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/webcast_logo.svg"
+            text="Resemi Admin"
+          />
+        }
         footer={
           <>
             <ThemeModeSwitcher />

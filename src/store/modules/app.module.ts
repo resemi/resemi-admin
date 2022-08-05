@@ -18,7 +18,6 @@ export type AppState = {
   layout: 'side' | 'top' | 'mix';
   isMobile: boolean;
   isSideCollapsed: boolean;
-  isSideSheetVisible: boolean;
 };
 
 export type AppSelector = {
@@ -34,7 +33,6 @@ export const appState = atom<AppState>({
     layout: 'side',
     isMobile: false,
     isSideCollapsed: false,
-    isSideSheetVisible: false,
   },
   effects_UNSTABLE: [persistAtom],
 });

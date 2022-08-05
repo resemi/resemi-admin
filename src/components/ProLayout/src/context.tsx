@@ -22,28 +22,47 @@ export interface Menu {
   onSelect: (data: OnSelectedData) => void;
 }
 
-export interface Header {
-  rightContent: ReactNode;
+export interface IHeader {
+  height?: number;
+  rightContent?: ReactNode;
+}
+
+export interface ISidebar {
+  width?: number;
+}
+
+export interface IFooter {
+  height?: number;
 }
 
 export interface LayoutContextValue {
   prefixCls?: string;
+  spacing?: number;
   layout?: 'side' | 'top' | 'mix';
   isMobile?: boolean;
   isSideCollapsed?: boolean;
-  isSideSheetVisible?: boolean;
   onSideCollapse?: (collapsed: boolean) => void;
-  onSideSheetCollapse?: (collapsed: boolean) => void;
   menu?: Menu;
-  header?: Header;
-  logo?: ReactNode;
+  header?: IHeader;
+  sidebar?: ISidebar;
+  footer?: IFooter;
+  logo?: { href: string; logo: string; text?: string };
 }
 
 export const defaultValue: LayoutContextValue = {
   prefixCls: 'resemi',
+  spacing: 24,
   isMobile: false,
   isSideCollapsed: false,
-  isSideSheetVisible: false,
+  header: {
+    height: 60,
+  },
+  sidebar: {
+    width: 240,
+  },
+  footer: {
+    height: 60,
+  },
 };
 
 export const LayoutContext = createContext<LayoutContextValue>(defaultValue);

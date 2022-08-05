@@ -4,9 +4,23 @@ import { BasicLayout } from './Layout';
 
 export interface LayoutProviderProps extends LayoutContextValue {}
 
-export const LayoutProvider: FunctionComponent<LayoutProviderProps> = ({ children, ...props }) => {
+export const LayoutProvider: FunctionComponent<LayoutProviderProps> = ({
+  children,
+  header,
+  footer,
+  sidebar,
+  ...props
+}) => {
   const oldValue = useLayoutContext();
-  const value = useMemo(() => ({ ...oldValue, ...props }), [oldValue, props]);
+  const value = useMemo(() => {
+    return {
+      ...oldValue,
+      ...props,
+      header: { ...oldValue.header, ...header },
+      footer: { ...oldValue.footer, ...footer },
+      sidebar: { ...oldValue.sidebar, ...sidebar },
+    };
+  }, [footer, header, oldValue, props, sidebar]);
 
   return (
     <LayoutContext.Provider value={value}>
