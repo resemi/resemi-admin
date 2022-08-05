@@ -1,7 +1,10 @@
 import { atom, selector } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
+import { getStorageShortName } from '@/utils/env';
 
-const { persistAtom } = recoilPersist({});
+const { persistAtom } = recoilPersist({
+  key: getStorageShortName('user'),
+});
 
 const pause = (millis) =>
   new Promise((resolve) => {

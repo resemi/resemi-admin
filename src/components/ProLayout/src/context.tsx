@@ -40,7 +40,7 @@ export interface LayoutContextValue {
 }
 
 export const defaultValue: LayoutContextValue = {
-  prefixCls: 'pot',
+  prefixCls: 'resemi',
   isMobile: false,
   isSideCollapsed: false,
   isSideSheetVisible: false,

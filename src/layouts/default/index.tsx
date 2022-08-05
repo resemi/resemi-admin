@@ -15,29 +15,34 @@ export type ProLayoutProps = {};
 
 export const BasicLayout: FunctionComponent<ProLayoutProps> = ({ children }) => {
   const router = useRouter();
-  const [defaultSelectedKeys, setSelectedKeys] = useState([]);
   const [appState, setAppState] = useAppState();
+  const [defaultSelectedKeys, setSelectedKeys] = useState([]);
+  const [menuList, setMenuList] = useState([]);
 
   useEffect(() => {
     setSelectedKeys([router.pathname]);
   }, [router.pathname]);
 
-  /**
-   * 生成导航菜单项
-   * @param __
-   * @param parent
-   */
-  function createNavItems(__: RouteType[], parent?: RouteType) {
-    return __?.map((route) => {
-      return {
-        // itemKey: route.id,
-        itemKey: `${(parent && parent.path) || ''}/${route.path}`.replace('//', '/'),
-        text: route.name,
-        icon: route.icon && <Icon name={route.icon} />,
-        items: createNavItems(route.children, route),
-      };
-    });
-  }
+  useEffect(() => {
+    /**
+     * 生成导航菜单项
+     * @param __
+     * @param parent
+     */
+    function createNavItems(__: RouteType[], parent?: RouteType) {
+      return __?.map((route) => {
+        return {
+          // itemKey: route.id,
+          itemKey: `${(parent && parent.path) || ''}/${route.path}`.replace('//', '/'),
+          text: route.name,
+          icon: route.icon && <Icon name={route.icon} />,
+          items: createNavItems(route.children, route),
+        };
+      });
+    }
+
+    setMenuList(createNavItems(routes));
+  }, []);
 
   /**
    * 切换菜单
@@ -76,7 +81,7 @@ export const BasicLayout: FunctionComponent<ProLayoutProps> = ({ children }) => 
       {...appState}
       onSideCollapse={onSideCollapse}
       onSideSheetCollapse={onSideSheetCollapse}
-      menu={{ defaultSelectedKeys, items: createNavItems(routes), onSelect: onSelectItem }}
+      menu={{ defaultSelectedKeys, items: menuList, onSelect: onSelectItem }}
       header={{
         rightContent: (
           <>
