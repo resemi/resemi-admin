@@ -41,7 +41,8 @@
     "react-use": "^17.4.0",
     "recoil": "^0.7.4",
     "recoil-persist": "^4.2.0",
-    "reset-css": "^5.0.1"
+    "reset-css": "^5.0.1",
+    "styled-jsx": "^5.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
