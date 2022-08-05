@@ -6,7 +6,6 @@ export default function Page() {
   const [appState, setAppState] = useAppState();
 
   function onLayoutChange(e) {
-    console.log(e);
     setAppState((oldValue) => {
       return {
         ...oldValue,

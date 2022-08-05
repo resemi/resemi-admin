@@ -1,3 +1,5 @@
-import { LayoutProvider } from './src';
+import { LayoutProvider as ProLayout } from './src';
 
-export default LayoutProvider;
+export default ProLayout;
+
+export { ProLayout };

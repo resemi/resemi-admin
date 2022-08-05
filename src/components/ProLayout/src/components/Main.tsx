@@ -1,6 +1,5 @@
 import { Breadcrumb } from '@douyinfe/semi-ui';
 import { FunctionComponent } from 'react';
-import styles from '../Layout.module.scss';
 import PageLoading from './PageLoading';
 import { Page } from './Page';
 import { useLayoutContext } from '@/components/ProLayout/src/context';
@@ -14,9 +13,9 @@ export const Main: FunctionComponent<MainProps> = ({ children }) => {
       <style jsx>{`
         .${state.prefixCls}-layout-content {
           position: relative;
-          padding: ${styles.baseSpace};
+          padding: ${state.spacing}px;
           flex: auto;
-          min-height: calc(100vh - ${styles.headerHeight} - ${styles.footerHeight});
+          min-height: calc(100vh - ${state.header.height}px - ${state.footer.height}px);
           background-color: var(--semi-color-bg-0);
         }
       `}</style>

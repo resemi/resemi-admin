@@ -2,26 +2,26 @@ import { Button, Layout, Nav } from '@douyinfe/semi-ui';
 import { IconSidebar } from '@douyinfe/semi-icons';
 import { CSSProperties, FunctionComponent } from 'react';
 import css from 'styled-jsx/css';
-import stylesModule from '../Layout.module.scss';
 import { useLayoutContext } from '../context';
-import { Logo } from '@/layouts/components/Logo';
+import { Logo } from './Logo';
 
 export type HeaderProps = {
   showLogo: boolean;
   style?: CSSProperties;
+  onSideSheetCollapse?: (visible: boolean) => void;
 };
 
-export const Header: FunctionComponent<HeaderProps> = ({ showLogo, style }) => {
+export const Header: FunctionComponent<HeaderProps> = ({ showLogo, style, onSideSheetCollapse }) => {
   const state = useLayoutContext();
 
   function onSideShow() {
-    state.onSideSheetCollapse(true);
+    onSideSheetCollapse(true);
   }
 
   const { className, styles } = css.resolve`
     .${state.prefixCls}-layout-header {
       position: relative;
-      height: ${stylesModule.headerHeight};
+      height: ${state.header.height}px;
       background-color: var(--semi-color-bg-1);
     }
     .${state.prefixCls}-layout-header-inner {
@@ -34,6 +34,10 @@ export const Header: FunctionComponent<HeaderProps> = ({ showLogo, style }) => {
     }
   `;
 
+  function showSideSwitcher() {
+    return state.isMobile && state.layout !== 'top';
+  }
+
   return (
     <div className={`${state.prefixCls}-layout-header ${className}`}>
       <Layout.Header className={`${state.prefixCls}-layout-header-inner ${className}`} style={style}>
@@ -42,8 +46,8 @@ export const Header: FunctionComponent<HeaderProps> = ({ showLogo, style }) => {
           mode="horizontal"
           header={
             <>
-              {showLogo && <Logo href="/" collapsed={state.isMobile} />}
-              {state.isMobile && (
+              {showLogo && <Logo {...state.logo} collapsed={state.isMobile} />}
+              {showSideSwitcher() && (
                 <Button
                   icon={<IconSidebar size="large" />}
                   style={{

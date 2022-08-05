@@ -1,6 +1,5 @@
 import { IconGithubLogo } from '@douyinfe/semi-icons';
 import React, { FunctionComponent } from 'react';
-import styles from '../Layout.module.scss';
 import { useLayoutContext } from '../context';
 
 export type FooterProps = {};
@@ -13,9 +12,9 @@ export const Footer: FunctionComponent<FooterProps> = () => {
         .${state.prefixCls}-layout-footer {
           display: flex;
           flex: 0 0 auto;
-          height: ${styles.footerHeight};
+          height: ${state.footer.height};
           justify-content: space-between;
-          padding: ${styles.baseSpace};
+          padding: ${state.spacing}px;
           color: var(--semi-color-text-2);
           background-color: rgba(var(--semi-grey-0), 1);
         }

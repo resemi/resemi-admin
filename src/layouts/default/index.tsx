@@ -3,13 +3,12 @@ import { FunctionComponent, useEffect, useState } from 'react';
 import { signOut } from 'next-auth/react';
 import { IconBell } from '@douyinfe/semi-icons';
 import { Avatar, Button, Dropdown } from '@douyinfe/semi-ui';
-import ProLayout from '@/components/ProLayout';
+import { ProLayout } from '@/components/ProLayout';
 import { useAppState } from '@/store';
 import { routes, RouteType } from '@/routes';
 import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
 import { LocaleSwitcher } from '@/layouts/components/LocaleSwitcher';
 import { Icon } from '@/components/Icon';
-import { Logo } from '@/layouts/components/Logo';
 
 export type ProLayoutProps = {};
 
@@ -63,15 +62,6 @@ export const BasicLayout: FunctionComponent<ProLayoutProps> = ({ children }) => 
     });
   }
 
-  function onSideSheetCollapse(value) {
-    setAppState((oldValue) => {
-      return {
-        ...oldValue,
-        isSideSheetVisible: value,
-      };
-    });
-  }
-
   async function onLogout() {
     await signOut({ callbackUrl: '/login' });
   }
@@ -80,7 +70,6 @@ export const BasicLayout: FunctionComponent<ProLayoutProps> = ({ children }) => 
     <ProLayout
       {...appState}
       onSideCollapse={onSideCollapse}
-      onSideSheetCollapse={onSideSheetCollapse}
       menu={{ defaultSelectedKeys, items: menuList, onSelect: onSelectItem }}
       header={{
         rightContent: (
@@ -119,7 +108,11 @@ export const BasicLayout: FunctionComponent<ProLayoutProps> = ({ children }) => 
           </>
         ),
       }}
-      logo={<Logo href="/" collapsed={!appState.isMobile && appState.isSideCollapsed} />}
+      logo={{
+        href: '/',
+        logo: 'https://anguer.com/upload/2020/1/favicon-fdb258cf2c2643c6bfc4ad261b1d9f25.ico',
+        text: 'Resemi Admin',
+      }}
     >
       {children}
     </ProLayout>
