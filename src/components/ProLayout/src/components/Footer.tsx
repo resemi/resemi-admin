@@ -12,7 +12,7 @@ export const Footer: FunctionComponent<FooterProps> = () => {
         .${state.prefixCls}-layout-footer {
           display: flex;
           flex: 0 0 auto;
-          height: ${state.footer.height};
+          height: ${state.footer.height}px;
           justify-content: space-between;
           padding: ${state.spacing}px;
           color: var(--semi-color-text-2);

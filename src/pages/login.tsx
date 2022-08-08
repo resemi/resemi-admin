@@ -66,39 +66,41 @@ export default function Login({ csrfToken }) {
 
   return (
     <ClientOnly>
-      <NextSeo title="Sign in" />
-      <Form initValues={initValues} onSubmit={onSubmit}>
-        <Card
-          style={{ width: 360 }}
-          title={
-            <Card.Meta
-              title={<FormattedMessage id="page.login.title" />}
-              description={<FormattedMessage id="page.login.desc" />}
-              avatar={<Avatar color="red">An</Avatar>}
+      <div className="flex-1 flex justify-center items-center h-full">
+        <NextSeo title="Sign in" />
+        <Form initValues={initValues} onSubmit={onSubmit}>
+          <Card
+            style={{ width: 360 }}
+            title={
+              <Card.Meta
+                title={<FormattedMessage id="page.login.title" />}
+                description={<FormattedMessage id="page.login.desc" />}
+                avatar={<Avatar color="red">An</Avatar>}
+              />
+            }
+            footerLine
+            footerStyle={{ display: 'flex', justifyContent: 'flex-end' }}
+            footer={<ComponentUsingFormApi />}
+          >
+            <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+            <Form.Input
+              field="username"
+              label={<FormattedMessage id="page.login.label.username" />}
+              placeholder={intl.formatMessage({ id: 'page.login.label.username' })}
+              rules={[{ required: true, message: intl.formatMessage({ id: 'page.login.error.required' }) }]}
+              prefix={<IconUser />}
             />
-          }
-          footerLine
-          footerStyle={{ display: 'flex', justifyContent: 'flex-end' }}
-          footer={<ComponentUsingFormApi />}
-        >
-          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-          <Form.Input
-            field="username"
-            label={<FormattedMessage id="page.login.label.username" />}
-            placeholder={intl.formatMessage({ id: 'page.login.label.username' })}
-            rules={[{ required: true, message: intl.formatMessage({ id: 'page.login.error.required' }) }]}
-            prefix={<IconUser />}
-          />
-          <Form.Input
-            field="password"
-            label={<FormattedMessage id="page.login.label.password" />}
-            placeholder={intl.formatMessage({ id: 'page.login.label.password' })}
-            rules={[{ required: true, message: intl.formatMessage({ id: 'page.login.error.required' }) }]}
-            mode="password"
-            prefix={<IconLock />}
-          />
-        </Card>
-      </Form>
+            <Form.Input
+              field="password"
+              label={<FormattedMessage id="page.login.label.password" />}
+              placeholder={intl.formatMessage({ id: 'page.login.label.password' })}
+              rules={[{ required: true, message: intl.formatMessage({ id: 'page.login.error.required' }) }]}
+              mode="password"
+              prefix={<IconLock />}
+            />
+          </Card>
+        </Form>
+      </div>
     </ClientOnly>
   );
 }

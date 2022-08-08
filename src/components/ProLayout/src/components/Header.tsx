@@ -22,6 +22,7 @@ export const Header: FunctionComponent<HeaderProps> = ({ showLogo, style, onSide
     .${state.prefixCls}-layout-header {
       position: relative;
       height: ${state.header.height}px;
+      min-height: ${state.header.height}px;
       background-color: var(--semi-color-bg-1);
     }
     .${state.prefixCls}-layout-header-inner {
