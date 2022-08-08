@@ -5,6 +5,9 @@ export type PageProps = {};
 
 export const Page: FunctionComponent<PageProps> = ({ children }) => {
   const state = useLayoutContext();
+  if (!state.page) {
+    return <> {children}</>;
+  }
   return (
     <div className={`${state.prefixCls}-layout-page`}>
       <style jsx>{`

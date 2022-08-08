@@ -42,6 +42,8 @@ export interface LayoutContextValue {
   isMobile?: boolean;
   isSideCollapsed?: boolean;
   onSideCollapse?: (collapsed: boolean) => void;
+  breadcrumb?: boolean;
+  page?: boolean;
   menu?: Menu;
   header?: IHeader;
   sidebar?: ISidebar;

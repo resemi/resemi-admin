@@ -69,6 +69,8 @@ export const BasicLayout: FunctionComponent<ProLayoutProps> = ({ children }) => 
   return (
     <ProLayout
       {...appState}
+      breadcrumb
+      page
       onSideCollapse={onSideCollapse}
       menu={{ defaultSelectedKeys, items: menuList, onSelect: onSelectItem }}
       header={{
