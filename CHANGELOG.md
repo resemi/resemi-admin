@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/resemi/resemi-admin/compare/v0.5.0...v0.6.0) (2022-08-08)
+
+
+### Features
+
+* add watermark component ([0106169](https://github.com/resemi/resemi-admin/commit/01061692880c6e69c79c1af94e7a3a91b7b0af52))
+
+
+### Bug Fixes
+
+* clean images ([916cc9e](https://github.com/resemi/resemi-admin/commit/916cc9e19460482fd784e93d11096b028e8a73c7))
+* **layout:** optimize layout and logo ([1bf1bef](https://github.com/resemi/resemi-admin/commit/1bf1bef8b54aeb44cb26d9cd10eafd7e994d2463))
+* **layouts:** replace landing-layout to ProLayout ([bd5f7fb](https://github.com/resemi/resemi-admin/commit/bd5f7fb3ce1e0f708a7818636c82ea597d3c843b))
+* optimize page route ([bf73d77](https://github.com/resemi/resemi-admin/commit/bf73d770e347e0b844a79c5117442b6d58008995))
+* optimize page route ([fd1d3d1](https://github.com/resemi/resemi-admin/commit/fd1d3d1a9ebcf4d93509b32986555d2e29ca9461))
+* **ProLayout:** fix 'styled-jsx' not found ([b759e64](https://github.com/resemi/resemi-admin/commit/b759e6425b80c624db7b7169adea2e1e66e43ab1))
+* **ProLayout:** optimize layout and styles ([aca4eb6](https://github.com/resemi/resemi-admin/commit/aca4eb6b86671a4c0ab23894b15abedfa7d65267))
+* **ProLayout:** remove css module ([ced101e](https://github.com/resemi/resemi-admin/commit/ced101e4ec69cffddd7f28773af1e3dd98e20f4c))
+
 ## [0.5.0](https://github.com/resemi/resemi-admin/compare/v0.4.1...v0.5.0) (2022-07-28)
 
 
