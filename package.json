@@ -1,6 +1,6 @@
 {
   "name": "resemi-admin",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "author": {
     "name": "Anguer",
     "email": "qq191030830@gmail.com",
@@ -23,14 +23,14 @@
   },
   "homepage": "https://github.com/resemi/resemi-admin#readme",
   "dependencies": {
-    "@douyinfe/semi-icons": "^2.16.0",
-    "@douyinfe/semi-ui": "^2.16.0",
+    "@douyinfe/semi-icons": "^2.17.0",
+    "@douyinfe/semi-ui": "^2.17.0",
     "@iconify/react": "^3.2.2",
     "@potjs/cipher": "^0.0.2",
     "@potjs/http": "^0.1.1",
-    "dayjs": "^1.11.4",
+    "dayjs": "^1.11.5",
     "lodash-es": "^4.17.21",
-    "next": "^12.2.4",
+    "next": "^12.2.5",
     "next-auth": "^4.10.3",
     "next-seo": "^5.5.0",
     "nprogress": "^0.2.0",
@@ -39,19 +39,19 @@
     "react-intl": "^6.0.5",
     "react-markdown": "^8.0.3",
     "react-use": "^17.4.0",
-    "recoil": "^0.7.4",
+    "recoil": "^0.7.5",
     "recoil-persist": "^4.2.0",
     "reset-css": "^5.0.1",
-    "styled-jsx": "^5.0.2"
+    "styled-jsx": "^5.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
-    "@douyinfe/semi-next": "^2.16.0",
-    "@douyinfe/semi-webpack-plugin": "^2.16.0",
+    "@douyinfe/semi-next": "^2.17.0",
+    "@douyinfe/semi-webpack-plugin": "^2.17.0",
     "@semi-bot/semi-theme-resemi-admin": "^0.0.1",
     "@types/lodash-es": "^4.17.6",
-    "@types/node": "^18.6.1",
+    "@types/node": "^18.7.3",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
@@ -71,13 +71,13 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
-    "sass": "^1.54.0",
+    "sass": "^1.54.4",
     "semver": "^7.3.7",
     "standard-version": "^9.5.0",
     "typescript": "^4.7.4",
     "webpack": "^5.74.0",
     "windicss": "^3.5.6",
-    "windicss-webpack-plugin": "^1.7.4"
+    "windicss-webpack-plugin": "^1.7.5"
   },
   "resolutions": {
     "@types/react": "^17.0.43"
