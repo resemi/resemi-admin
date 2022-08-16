@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import { Icon as BaseIcon, loadIcons, getIcon, IconProps as BaseIconProps } from '@iconify/react';
-import { Spin } from '@douyinfe/semi-ui';
+import { IconSpin } from '@douyinfe/semi-icons';
 
 export type IconProps = {
   prefix?: string;
@@ -39,7 +39,7 @@ export const Icon: FunctionComponent<IconProps> = ({
   }, [prefix, name]);
 
   if (!data) {
-    return <Spin style={{}} />;
+    return <IconSpin spin style={{ fontSize: `${iconSize}px` }} />;
   }
 
   return <BaseIcon style={{}} icon={data} inline={inline} height={iconSize} width={iconSize} {...delegated} />;
