@@ -75,11 +75,7 @@ export default class CanvasCropper {
    * @memberof MapCanvas
    */
   async initCanvas(url: string) {
-    this.startPos.x = 0;
-    this.startPos.y = 0;
-    this.imgX = 0;
-    this.imgY = 0;
-    this.imgScale = 0.5;
+    this.clear();
 
     await this.loadImage(url);
     this.drawImage();
@@ -99,6 +95,11 @@ export default class CanvasCropper {
 
   clear() {
     this.img = null;
+    this.startPos.x = 0;
+    this.startPos.y = 0;
+    this.imgX = 0;
+    this.imgY = 0;
+    this.imgScale = 0.5;
     this.ctx.clearRect(0, 0, this.canvasRef.width, this.canvasRef.height);
     // PC端事件监听
     this.canvasRef.removeEventListener('mousedown', this.startMouse.bind(this));

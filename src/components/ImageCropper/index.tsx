@@ -15,6 +15,8 @@ export type ImageCropperProps = {
   tip?: string | ReactNode;
   previewTip?: string | ReactNode;
   onError?: (e: Error) => void;
+  onValueChange?: (e: string) => void;
+  onSubmit?: (e: string) => void;
 };
 
 function checkFile(file) {
@@ -48,9 +50,12 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
   width = 500,
   tip,
   previewTip,
-  onError,
+  onError: onCustomError,
+  onValueChange: onCustomValueChange,
+  onSubmit: onCustomSubmit,
 }) => {
   const [visible, setVisible] = useState(false);
+  const [value, setValue] = useState('');
   const [sourceState, setSourceState] = useState('');
   const [sizeState, setSizeState] = useState(calcSize(width, ratio));
   const fileRef = useRef<HTMLInputElement>();
@@ -79,7 +84,7 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
     setVisible(true);
     const [err] = checkFile(files[0]);
     if (err) {
-      onError(err);
+      onCustomError(err);
     } else {
       updateSourceImage(files[0]);
     }
@@ -87,7 +92,14 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
     e.target.value = '';
   }
 
-  function onSubmit() {}
+  function onValueChange(v) {
+    onCustomValueChange?.(v);
+    setValue(v);
+  }
+
+  function onSubmit() {
+    onCustomSubmit?.(value);
+  }
 
   function onCancel() {
     setVisible(false);
@@ -118,6 +130,7 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
           preview={sizeState.preview}
           tip={tip}
           previewTip={previewTip}
+          onValueChange={onValueChange}
         >
           <span className="text-primary cursor-pointer" onClick={handleUpload}>
             点击上传
@@ -150,6 +163,7 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
           preview={sizeState.preview}
           tip={tip}
           previewTip={previewTip}
+          onValueChange={onValueChange}
         >
           <span className="text-primary cursor-pointer" onClick={handleUpload}>
             重新上传
