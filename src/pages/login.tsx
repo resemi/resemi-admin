@@ -35,7 +35,7 @@ export default function Login({ csrfToken }) {
       formApi.setValue('password', '123456');
     }
     return (
-      <Space>
+      <Space spacing={12}>
         <Button onClick={onChange}>Set Password</Button>
         <Link href="/register">
           <Button theme="borderless" type="primary">
