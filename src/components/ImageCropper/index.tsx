@@ -1,36 +1,28 @@
 import { FunctionComponent, ReactNode, useEffect, useRef, useState } from 'react';
 import { Modal } from '@douyinfe/semi-ui';
-import { Cropper } from '@/components/ImageCropper/Cropper';
+import { Cropper } from './Cropper';
 
 export type ImageCropperChildrenArgs = {
   upload: (e: any) => void;
+  clear: (e: any) => void;
 };
 
 export type ImageCropperProps = {
-  children?: (e: ImageCropperChildrenArgs) => ReactNode;
+  children?: (args: ImageCropperChildrenArgs) => ReactNode;
+  uploader: (args: ImageCropperChildrenArgs) => ReactNode;
   title?: string;
   // 宽高比：宽/高，默认1.5
   ratio?: number;
   width?: number;
+  accept?: string;
+  // 图片最大限制：单位M，默认5M
+  maxSize?: number;
   tip?: string | ReactNode;
   previewTip?: string | ReactNode;
-  onError?: (e: Error) => void;
-  onValueChange?: (e: string) => void;
-  onSubmit?: (e: string) => void;
+  onError?: (err: Error) => void;
+  onValueChange?: (value: string) => void;
+  onSubmit?: (value: string, clear: () => void) => void;
 };
-
-function checkFile(file) {
-  const maxSize = 1024 * 5;
-  // 仅限图片
-  if (file.type.indexOf('image') === -1) {
-    return [new Error('仅限图片格式')];
-  }
-  // 超出大小
-  if (file.size / 1024 > maxSize) {
-    return [new Error(`单文件大小不能超过 ${maxSize} kb`)];
-  }
-  return [];
-}
 
 function calcSize(width: number, ratio: number, gutter = 24, preview = 100) {
   let r = ratio;
@@ -45,9 +37,12 @@ function calcSize(width: number, ratio: number, gutter = 24, preview = 100) {
 
 export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
   children,
+  uploader,
   title,
   ratio = 1.5,
   width = 500,
+  accept = 'image/jpeg,image/png,image/svg+xml',
+  maxSize = 5,
   tip,
   previewTip,
   onError: onCustomError,
@@ -64,10 +59,30 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
     setSizeState(calcSize(width, ratio));
   }, [ratio, width]);
 
+  function checkFile(file) {
+    const theMaxSize = 1024 * maxSize;
+    // 仅限图片
+    if (file.type.indexOf('image') === -1) {
+      return [new Error('error:type:仅限图片格式')];
+    }
+    // 超出大小
+    if (file.size / 1024 > theMaxSize) {
+      return [new Error(`error:size:单文件大小不能超过 ${theMaxSize} kb`)];
+    }
+    return [];
+  }
+
+  // file upload handler
   function handleUpload(e) {
     if (e.target !== fileRef.current) {
       fileRef.current.click();
     }
+  }
+
+  // clear image data
+  function handleClear() {
+    setSourceState('');
+    setVisible(false);
   }
 
   function updateSourceImage(file) {
@@ -92,57 +107,68 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
     e.target.value = '';
   }
 
+  // When image crop value changed
   function onValueChange(v) {
     onCustomValueChange?.(v);
     setValue(v);
   }
 
+  // on modal submitting
   function onSubmit() {
-    onCustomSubmit?.(value);
+    onCustomSubmit?.(value, handleClear);
   }
 
+  // on modal closed
   function onCancel() {
     setVisible(false);
     setSourceState('');
   }
 
+  // render cropper component
+  function renderCropper() {
+    return (
+      <Cropper
+        uploader={uploader({ upload: handleUpload, clear: handleClear })}
+        loading={false}
+        image={sourceState}
+        width={width}
+        height={sizeState.height}
+        gutter={sizeState.gutter}
+        preview={sizeState.preview}
+        tip={tip}
+        previewTip={previewTip}
+        onValueChange={onValueChange}
+      />
+    );
+  }
+
+  // render hidden input
   function renderFileInput() {
     return (
       <input
         ref={fileRef}
         style={{ display: 'none', visibility: 'hidden', width: 0, height: 0 }}
         type="file"
-        accept="image/jpeg,image/png,image/svg+xml"
+        accept={accept}
         onChange={onFileChange}
       />
     );
   }
 
+  // inline mode
   if (!children) {
     return (
       <>
         {renderFileInput()}
-        <Cropper
-          image={sourceState}
-          width={width}
-          height={sizeState.height}
-          gutter={sizeState.gutter}
-          preview={sizeState.preview}
-          tip={tip}
-          previewTip={previewTip}
-          onValueChange={onValueChange}
-        >
-          <span className="text-primary cursor-pointer" onClick={handleUpload}>
-            点击上传
-          </span>
-        </Cropper>
+        {renderCropper()}
       </>
     );
   }
 
+  // modal mode
   return (
     <>
-      {children({ upload: handleUpload })}
+      {children({ upload: handleUpload, clear: handleClear })}
       {renderFileInput()}
       <Modal
         title={title}
@@ -152,23 +178,9 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
         centered
         maskClosable={false}
         closeOnEsc={false}
-        // size="medium"
         width={sizeState.modalWidth}
       >
-        <Cropper
-          image={sourceState}
-          width={width}
-          height={sizeState.height}
-          gutter={sizeState.gutter}
-          preview={sizeState.preview}
-          tip={tip}
-          previewTip={previewTip}
-          onValueChange={onValueChange}
-        >
-          <span className="text-primary cursor-pointer" onClick={handleUpload}>
-            重新上传
-          </span>
-        </Cropper>
+        {renderCropper()}
       </Modal>
     </>
   );

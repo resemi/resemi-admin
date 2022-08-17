@@ -1,9 +1,11 @@
 import { FunctionComponent, ReactNode, useEffect, useRef, useState } from 'react';
-import { Space } from '@douyinfe/semi-ui';
+import { Space, Spin } from '@douyinfe/semi-ui';
 import debounce from 'lodash-es/debounce';
 import CanvasCropper from './src/CanvasCropper';
 
 export type CropperProps = {
+  uploader: ReactNode;
+  loading: boolean;
   image: string;
   width: number;
   height: number;
@@ -15,7 +17,8 @@ export type CropperProps = {
 };
 
 export const Cropper: FunctionComponent<CropperProps> = ({
-  children,
+  uploader,
+  loading,
   image,
   width,
   height,
@@ -44,6 +47,7 @@ export const Cropper: FunctionComponent<CropperProps> = ({
 
   useEffect(() => {
     if (!state || !image) {
+      setPreviewState('');
       return () => {};
     }
     state.initCanvas(image).then();
@@ -56,15 +60,15 @@ export const Cropper: FunctionComponent<CropperProps> = ({
 
   return (
     <Space spacing={gutter} align="start">
-      <div>
+      <Spin spinning={loading}>
         <div className="image-cropper--desc">
-          {children}
+          {uploader}
           {tip}
         </div>
         <div className="image-cropper--cropper">
           <canvas ref={canvasRef} height={200} width={300} />
         </div>
-      </div>
+      </Spin>
       <div>
         <div className="image-cropper--desc">{previewTip}</div>
         <div className="image-cropper--preview">
