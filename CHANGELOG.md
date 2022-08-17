@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/resemi/resemi-admin/compare/v0.6.1...v0.7.0) (2022-08-17)
+
+
+### Bug Fixes
+
+* **Icon:** fix icon spinning ([c38c3ca](https://github.com/resemi/resemi-admin/commit/c38c3cac95b32418267c1424b785bd731c8a3175))
+* **ImageCropper:** add ImageCropper component ([d3a44f1](https://github.com/resemi/resemi-admin/commit/d3a44f159e330857d904cfa76a0e020e2a0093c1))
+* **ImageCropper:** small fix and code optimize ([2ba3015](https://github.com/resemi/resemi-admin/commit/2ba301561d9fc44431ad5fd514842b2318c27e2a))
+
 ### [0.6.1](https://github.com/resemi/resemi-admin/compare/v0.6.0...v0.6.1) (2022-08-14)
 
 ## [0.6.0](https://github.com/resemi/resemi-admin/compare/v0.5.0...v0.6.0) (2022-08-08)
