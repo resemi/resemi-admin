@@ -11,6 +11,7 @@ export type CropperProps = {
   gutter: number;
   tip?: string | ReactNode;
   previewTip?: string | ReactNode;
+  onValueChange?: (v: string) => void;
 };
 
 export const Cropper: FunctionComponent<CropperProps> = ({
@@ -22,6 +23,7 @@ export const Cropper: FunctionComponent<CropperProps> = ({
   preview,
   tip,
   previewTip,
+  onValueChange,
 }) => {
   const [state, setState] = useState<CanvasCropper>();
   const [previewState, setPreviewState] = useState('');
@@ -47,6 +49,10 @@ export const Cropper: FunctionComponent<CropperProps> = ({
     state.initCanvas(image).then();
     return () => state.clear();
   }, [image, state]);
+
+  useEffect(() => {
+    onValueChange?.(previewState);
+  }, [onValueChange, previewState]);
 
   return (
     <Space spacing={gutter} align="start">
