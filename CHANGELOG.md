@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/resemi/resemi-admin/compare/v0.7.0...v0.8.0) (2022-08-17)
+
+
+### Features
+
+* add SignaturePad component ([2993f1f](https://github.com/resemi/resemi-admin/commit/2993f1f9e457e8a0bb9564b9d2631176f7f717f4))
+* **ImageCropper:** add some events ([9afa779](https://github.com/resemi/resemi-admin/commit/9afa779574852eb4ed8d83e035fde73a5f679787))
+
+
+### Bug Fixes
+
+* **ImageCropper:** small optimize ([02d5c3c](https://github.com/resemi/resemi-admin/commit/02d5c3cb83fd40a1b47320a30a4c03f212a6c25d))
+
 ## [0.7.0](https://github.com/resemi/resemi-admin/compare/v0.6.1...v0.7.0) (2022-08-17)
 
 
