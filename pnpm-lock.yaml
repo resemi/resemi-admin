@@ -51,6 +51,7 @@ specifiers:
   rimraf: ^3.0.2
   sass: ^1.54.4
   semver: ^7.3.7
+  signature_pad: ^4.0.7
   standard-version: ^9.5.0
   styled-jsx: ^5.0.4
   typescript: ^4.7.4
@@ -78,6 +79,7 @@ dependencies:
   recoil: registry.npmjs.org/recoil/0.7.5_biqbaboplfbrettd7655fr4n2y
   recoil-persist: 4.2.0_recoil@0.7.5
   reset-css: 5.0.1
+  signature_pad: registry.npmjs.org/signature_pad/4.0.7
   styled-jsx: registry.npmjs.org/styled-jsx/5.0.4_react@18.2.0
 
 devDependencies:
@@ -7089,6 +7091,12 @@ packages:
     dependencies:
       lru-cache: registry.npmjs.org/lru-cache/6.0.0
     dev: true
+
+  registry.npmjs.org/signature_pad/4.0.7:
+    resolution: {integrity: sha512-2edcoEa6hDKeu/cIEda841Zhf8o3AyIscebzTJQdrBszSRRUvhbgqScNGmZuzo4iWn5FWYfFF6zZEl7mqvp8gA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/signature_pad/-/signature_pad-4.0.7.tgz}
+    name: signature_pad
+    version: 4.0.7
+    dev: false
 
   registry.npmjs.org/source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz}

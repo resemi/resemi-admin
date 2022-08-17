@@ -42,6 +42,7 @@
     "recoil": "^0.7.5",
     "recoil-persist": "^4.2.0",
     "reset-css": "^5.0.1",
+    "signature_pad": "^4.0.7",
     "styled-jsx": "^5.0.4"
   },
   "devDependencies": {

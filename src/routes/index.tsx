@@ -40,9 +40,9 @@ export const routes: RouteType[] = [
         name: '输入框',
       },
       {
-        id: 'Table',
-        path: '/table',
-        name: '基础数据',
+        id: 'SignaturePad',
+        path: '/signature_pad',
+        name: '签名板',
       },
       {
         id: 'Watermark',
