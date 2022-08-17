@@ -49,6 +49,11 @@ export const routes: RouteType[] = [
         path: '/watermark',
         name: '水印',
       },
+      {
+        id: 'ImageCropper',
+        path: '/image_cropper',
+        name: '图片裁剪',
+      },
     ],
   },
   {
