@@ -5,55 +5,69 @@ export interface IPos {
   y: number;
 }
 
+export interface CanvasCropperOptions {
+  width?: number;
+  height?: number;
+  onChange?: (e: CanvasCropper) => void;
+}
+
 function loadImage(url: string) {
-  return new Promise<HTMLImageElement>((reject, resolve) => {
+  return new Promise<HTMLImageElement>((resolve, reject) => {
     const img = new Image();
     img.crossOrigin = 'Anonymous';
     img.onload = () => {
-      reject(img);
+      resolve(img);
     };
     img.onerror = (error) => {
-      console.error(error, 'error=====');
-      resolve(error);
+      reject(error);
     };
     img.src = url;
   });
 }
 
 export default class CanvasCropper {
-  private canvasRef: HTMLCanvasElement;
+  private readonly canvasRef: HTMLCanvasElement;
 
   private ctx: CanvasRenderingContext2D;
 
   private img: HTMLImageElement;
 
-  private startPos: IPos = { x: 0, y: 0 }; // 开始坐标
+  // 开始坐标
+  private startPos: IPos = { x: 0, y: 0 };
 
-  private touches: React.TouchList; // 存储多手指位置
+  // 存储多手指位置
+  private touches: React.TouchList;
 
-  private movePos: IPos; // 存储移动坐标位置
+  // 存储移动坐标位置
+  private movePos: IPos;
 
-  private imgX: number = 0; // 图片初始化X轴位置
+  // 图片初始化X轴位置
+  private imgX: number = 0;
 
-  private imgY: number = 0; // 图片初始化Y轴位置
+  // 图片初始化Y轴位置
+  private imgY: number = 0;
 
-  private isMove: boolean = false; // 是否移动
+  // 是否移动
+  private isMove: boolean = false;
 
-  private imgScale: number = 0.5; // 图片缩放比例
+  // 图片缩放比例
+  private imgScale: number = 0.5;
 
-  private MINIMUM_SCALE: number = 0.2; // 最小缩放
+  // 最小缩放
+  private MINIMUM_SCALE: number = 0.2;
 
-  private MAX_SCALE: number = 5; // 最大缩放
+  // 最大缩放
+  private MAX_SCALE: number = 5;
 
-  private readonly onChange: (e: CanvasCropper) => void;
+  private readonly options: CanvasCropperOptions;
 
-  constructor(canvas: HTMLCanvasElement, options?: { onChange: (e: CanvasCropper) => void }) {
+  constructor(canvas: HTMLCanvasElement, options?: CanvasCropperOptions) {
     this.canvasRef = canvas;
-    // const { width, height } = this.canvasRef.getBoundingClientRect();
-    // this.canvasRef.width = width;
-    // this.canvasRef.height = height;
+    this.options = options;
+    const { width = 300, height = 200 } = this.options;
+    this.canvasRef.width = width;
+    this.canvasRef.height = height;
     this.ctx = canvas.getContext('2d');
-    this.onChange = options?.onChange || (() => {});
   }
 
   /**
@@ -61,14 +75,22 @@ export default class CanvasCropper {
    * @memberof MapCanvas
    */
   async initCanvas(url: string) {
+    this.startPos.x = 0;
+    this.startPos.y = 0;
+    this.imgX = 0;
+    this.imgY = 0;
+    this.imgScale = 0.5;
+
     await this.loadImage(url);
     this.drawImage();
     // PC端事件监听
     this.canvasRef.addEventListener('mousedown', this.startMouse.bind(this));
     this.canvasRef.addEventListener('mousemove', this.moveMouse.bind(this));
     this.canvasRef.addEventListener('mouseup', this.endMouse.bind(this));
-    this.canvasRef.addEventListener('mousewheel', this.mouseWheel.bind(this)); // 监听滚轮
-    this.canvasRef.addEventListener('wheel', this.mouseWheel.bind(this)); // 监听滚轮
+    // 监听滚轮
+    this.canvasRef.addEventListener('mousewheel', this.mouseWheel.bind(this));
+    // 监听滚轮
+    this.canvasRef.addEventListener('wheel', this.mouseWheel.bind(this));
     // 移动端事件监听
     this.canvasRef.addEventListener('touchstart', this.startTouch.bind(this));
     this.canvasRef.addEventListener('touchmove', this.moveTouch.bind(this));
@@ -77,12 +99,15 @@ export default class CanvasCropper {
 
   clear() {
     this.img = null;
+    this.ctx.clearRect(0, 0, this.canvasRef.width, this.canvasRef.height);
     // PC端事件监听
     this.canvasRef.removeEventListener('mousedown', this.startMouse.bind(this));
     this.canvasRef.removeEventListener('mousemove', this.moveMouse.bind(this));
     this.canvasRef.removeEventListener('mouseup', this.endMouse.bind(this));
-    this.canvasRef.removeEventListener('mousewheel', this.mouseWheel.bind(this)); // 监听滚轮
-    this.canvasRef.removeEventListener('wheel', this.mouseWheel.bind(this)); // 监听滚轮
+    // 监听滚轮
+    this.canvasRef.removeEventListener('mousewheel', this.mouseWheel.bind(this));
+    // 监听滚轮
+    this.canvasRef.removeEventListener('wheel', this.mouseWheel.bind(this));
     // 移动端事件监听
     this.canvasRef.removeEventListener('touchstart', this.startTouch.bind(this));
     this.canvasRef.removeEventListener('touchmove', this.moveTouch.bind(this));
@@ -125,7 +150,7 @@ export default class CanvasCropper {
       this.img.height * this.imgScale,
     );
 
-    this.onChange(this);
+    this.options?.onChange(this);
   }
 
   /**
@@ -152,7 +177,8 @@ export default class CanvasCropper {
     // 判断是否为多手指
     if (touches.length < 2) {
       const { clientX, clientY } = touches[0];
-      this.startPos = this.windowToCanvas(clientX, clientY); // clientX：触摸点相对浏览器窗口的位置
+      // clientX：触摸点相对浏览器窗口的位置
+      this.startPos = this.windowToCanvas(clientX, clientY);
     } else {
       this.touches = touches;
     }
@@ -173,7 +199,8 @@ export default class CanvasCropper {
     const y = this.movePos.y - this.startPos.y;
     this.imgX += x;
     this.imgY += y;
-    this.startPos = { ...this.movePos }; // 更新最新位置
+    // 更新最新位置
+    this.startPos = { ...this.movePos };
     this.drawImage();
   }
 
@@ -203,8 +230,10 @@ export default class CanvasCropper {
         x: Number(((pos.x - this.imgX) / this.imgScale).toFixed(2)),
         y: Number(((pos.y - this.imgY) / this.imgScale).toFixed(2)),
       };
-      const curPos = CanvasCropper.getDistance(now[0], now[1]); // 当前位置
-      const startPos = CanvasCropper.getDistance(this.touches[0], this.touches[1]); // 前一个位置
+      // 当前位置
+      const curPos = CanvasCropper.getDistance(now[0], now[1]);
+      // 前一个位置
+      const startPos = CanvasCropper.getDistance(this.touches[0], this.touches[1]);
       // 判断位置是放大还是缩小
       if (curPos > startPos) {
         // 放大
@@ -268,7 +297,8 @@ export default class CanvasCropper {
     // 计算图片的位置， 根据当前缩放比例，计算新的位置
     this.imgX = (1 - this.imgScale) * newPos.x + (pos.x - newPos.x);
     this.imgY = (1 - this.imgScale) * newPos.y + (pos.y - newPos.y);
-    this.drawImage(); // 开始绘制图片
+    // 开始绘制图片
+    this.drawImage();
   }
 
   /**
@@ -301,26 +331,24 @@ export default class CanvasCropper {
     return Math.sqrt(x * x + y * y);
   }
 
-  async toDataUrl(): Promise<string> {
-    const width = 200;
-    const height = 200;
+  toDataUrl(): string {
+    const sideLength = Math.min(this.canvasRef.width, this.canvasRef.height);
+    const offsetX = Math.abs(Math.floor(this.canvasRef.width - this.canvasRef.height) / 2);
     const degree = 0;
 
     const canvas = document.createElement('canvas');
-    canvas.width = width;
-    canvas.height = height;
-
-    const cropImage = await loadImage(this.canvasRef.toDataURL());
+    canvas.width = sideLength;
+    canvas.height = sideLength;
 
     const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, sideLength, sideLength);
     // 将透明区域设置为透明底边
     ctx.fillStyle = 'rgba(255, 255, 255, 0)';
-    ctx.fillRect(0, 0, width, height);
-    ctx.translate(width * 0.5, height * 0.5);
+    ctx.fillRect(0, 0, sideLength, sideLength);
+    ctx.translate(sideLength * 0.5, sideLength * 0.5);
     ctx.rotate((Math.PI * degree) / 180);
-    ctx.translate(-width * 0.5, -height * 0.5);
-    ctx.drawImage(cropImage, 50, 0, width, height, 0, 0, width, height);
+    ctx.translate(-sideLength * 0.5, -sideLength * 0.5);
+    ctx.drawImage(this.canvasRef, offsetX, 0, sideLength, sideLength, 0, 0, sideLength, sideLength);
 
     return canvas.toDataURL();
   }

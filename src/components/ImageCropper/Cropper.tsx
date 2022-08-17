@@ -1,0 +1,124 @@
+import { FunctionComponent, ReactNode, useEffect, useRef, useState } from 'react';
+import { Space } from '@douyinfe/semi-ui';
+import debounce from 'lodash-es/debounce';
+import CanvasCropper from './src/CanvasCropper';
+
+export type CropperProps = {
+  image: string;
+  width: number;
+  height: number;
+  preview: number;
+  gutter: number;
+  tip?: string | ReactNode;
+  previewTip?: string | ReactNode;
+};
+
+export const Cropper: FunctionComponent<CropperProps> = ({
+  children,
+  image,
+  width,
+  height,
+  gutter,
+  preview,
+  tip,
+  previewTip,
+}) => {
+  const [state, setState] = useState<CanvasCropper>();
+  const [previewState, setPreviewState] = useState('');
+  const canvasRef = useRef<HTMLCanvasElement>();
+
+  useEffect(() => {
+    setState(
+      new CanvasCropper(canvasRef.current, {
+        width,
+        height,
+        onChange: debounce((e) => {
+          // console.log(e.toDataUrl());
+          setPreviewState(e.toDataUrl());
+        }, 100),
+      }),
+    );
+  }, [height, width]);
+
+  useEffect(() => {
+    if (!state || !image) {
+      return () => {};
+    }
+    state.initCanvas(image).then();
+    return () => state.clear();
+  }, [image, state]);
+
+  return (
+    <Space spacing={gutter} align="start">
+      <div>
+        <div className="image-cropper--desc">
+          {children}
+          {tip}
+        </div>
+        <div className="image-cropper--cropper">
+          <canvas ref={canvasRef} height={200} width={300} />
+        </div>
+      </div>
+      <div>
+        <div className="image-cropper--desc">{previewTip}</div>
+        <div className="image-cropper--preview">
+          <div className="image-cropper--preview-item">
+            <img src={previewState} alt="Preview" height={100} width={100} />
+          </div>
+          <div className="image-cropper--preview-item is-circle">
+            <img src={previewState} alt="Preview" height={100} width={100} />
+          </div>
+        </div>
+      </div>
+      <style jsx>{`
+        .image-cropper--desc {
+          font-size: 14px;
+          margin-bottom: 8px;
+        }
+        .image-cropper--cropper {
+          position: relative;
+          width: ${width}px;
+          height: ${height}px;
+        }
+        .image-cropper--preview {
+          position: relative;
+          width: ${preview}px;
+        }
+        .image-cropper--cropper canvas,
+        .image-cropper--preview .image-cropper--preview-item {
+          width: 100%;
+          border: thin solid #eee;
+          border-radius: 8px;
+          overflow: hidden;
+          background-image: url('data:image/gif;base64,R0lGODdhEAAQAIAAAP///8zMzCwAAAAAEAAQAAACH4RvoauIzNyBSyYaLMDZcv15HAaSIlWiJ5Sya/RWVgEAOw==');
+        }
+        .image-cropper--cropper:before,
+        .image-cropper--cropper:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: ${Math.floor((width - height) / 2)}px;
+          z-index: 10;
+          background-color: rgba(255, 255, 255, 0.5);
+          pointer-events: none;
+        }
+        .image-cropper--cropper:before {
+          left: 0;
+        }
+        .image-cropper--cropper:after {
+          right: 0;
+        }
+        .image-cropper--preview .image-cropper--preview-item + .image-cropper--preview-item {
+          margin-top: ${gutter}px;
+        }
+        .image-cropper--preview .image-cropper--preview-item img[src=''] {
+          opacity: 0;
+        }
+        .image-cropper--preview .image-cropper--preview-item.is-circle {
+          border-radius: 50%;
+        }
+      `}</style>
+    </Space>
+  );
+};

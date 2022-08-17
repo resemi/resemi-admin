@@ -1,10 +1,20 @@
-import { FunctionComponent, useEffect, useRef, useState } from 'react';
-import { Modal, Space } from '@douyinfe/semi-ui';
-import debounce from 'lodash-es/debounce';
-import CanvasCropper from './src/CanvasCropper';
+import { FunctionComponent, ReactNode, useEffect, useRef, useState } from 'react';
+import { Modal } from '@douyinfe/semi-ui';
+import { Cropper } from '@/components/ImageCropper/Cropper';
+
+export type ImageCropperChildrenArgs = {
+  upload: (e: any) => void;
+};
 
 export type ImageCropperProps = {
+  children?: (e: ImageCropperChildrenArgs) => ReactNode;
   title?: string;
+  // 宽高比：宽/高，默认1.5
+  ratio?: number;
+  width?: number;
+  tip?: string | ReactNode;
+  previewTip?: string | ReactNode;
+  onError?: (e: Error) => void;
 };
 
 function checkFile(file) {
@@ -20,28 +30,34 @@ function checkFile(file) {
   return [];
 }
 
-export const ImageCropper: FunctionComponent<ImageCropperProps> = ({ children, title }) => {
+function calcSize(width: number, ratio: number, gutter = 24, preview = 100) {
+  let r = ratio;
+  if (ratio <= 0.5 || ratio >= 2) {
+    r = 1.5;
+  }
+  const height = Math.floor(width / r);
+  const modalWidth = Math.floor(width + preview + gutter * 3) + 2;
+
+  return { height, modalWidth, preview, gutter };
+}
+
+export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
+  children,
+  title,
+  ratio = 1.5,
+  width = 500,
+  tip,
+  previewTip,
+  onError,
+}) => {
   const [visible, setVisible] = useState(false);
   const [sourceState, setSourceState] = useState('');
-  const [previewState, setPreviewState] = useState('');
+  const [sizeState, setSizeState] = useState(calcSize(width, ratio));
   const fileRef = useRef<HTMLInputElement>();
-  const canvasRef = useRef<HTMLCanvasElement>();
 
   useEffect(() => {
-    if (!sourceState || !canvasRef.current) {
-      return;
-    }
-
-    const canvasCropper = new CanvasCropper(canvasRef.current, {
-      onChange: debounce(async (e) => {
-        // console.log(e.toDataUrl());
-        setPreviewState(await e.toDataUrl());
-      }, 100),
-    });
-
-    canvasCropper.clear();
-    canvasCropper.initCanvas(sourceState).then();
-  }, [sourceState]);
+    setSizeState(calcSize(width, ratio));
+  }, [ratio, width]);
 
   function handleUpload(e) {
     if (e.target !== fileRef.current) {
@@ -49,7 +65,7 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({ children, t
     }
   }
 
-  function setSourceImage(file) {
+  function updateSourceImage(file) {
     const fr = new FileReader();
     fr.onload = () => {
       setSourceState(fr.result as string);
@@ -63,10 +79,10 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({ children, t
     setVisible(true);
     const [err] = checkFile(files[0]);
     if (err) {
-      console.error(err.message);
-      return;
+      onError(err);
+    } else {
+      updateSourceImage(files[0]);
     }
-    setSourceImage(files[0]);
     // XXX: input field so if you removed it you can re-add the same file
     e.target.value = '';
   }
@@ -75,6 +91,7 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({ children, t
 
   function onCancel() {
     setVisible(false);
+    setSourceState('');
   }
 
   function renderFileInput() {
@@ -89,86 +106,30 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({ children, t
     );
   }
 
-  function renderCropper() {
-    return (
-      <Space spacing={24} align="start">
-        <div>
-          <div className="image-cropper--desc" onClick={handleUpload}>
-            重新上传
-          </div>
-          <div className="image-cropper--cropper">
-            <canvas ref={canvasRef} height={200} width={300} />
-          </div>
-        </div>
-        <div>
-          <div className="image-cropper--desc">图片预览</div>
-          <div className="image-cropper--preview">
-            <img src={previewState} alt="Preview" height={100} width={100} />
-            <img src={previewState} alt="Preview" className="is-circle" height={100} width={100} />
-          </div>
-        </div>
-        <style jsx>{`
-          .image-cropper--desc {
-            font-size: 14px;
-            margin-bottom: 8px;
-          }
-          .image-cropper--cropper {
-            position: relative;
-            width: 300px;
-            height: 200px;
-          }
-          .image-cropper--preview {
-            position: relative;
-            width: 72px;
-          }
-          .image-cropper--cropper canvas,
-          .image-cropper--preview img {
-            width: 100%;
-            border-radius: 3px;
-            background-image: url('data:image/gif;base64,R0lGODdhEAAQAIAAAP///8zMzCwAAAAAEAAQAAACH4RvoauIzNyBSyYaLMDZcv15HAaSIlWiJ5Sya/RWVgEAOw==');
-          }
-          .image-cropper--cropper:before,
-          .image-cropper--cropper:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 50px;
-            z-index: 10;
-            background-color: rgba(255, 255, 255, 0.5);
-          }
-          .image-cropper--cropper:before {
-            left: 0;
-          }
-          .image-cropper--cropper:after {
-            right: 0;
-          }
-          .image-cropper--preview img + img {
-            margin-top: 24px;
-          }
-          //.image-cropper--preview[src=''] {
-          //  opacity: 0;
-          //}
-          .image-cropper--preview img.is-circle {
-            border-radius: 50%;
-          }
-        `}</style>
-      </Space>
-    );
-  }
-
   if (!children) {
     return (
       <>
         {renderFileInput()}
-        {renderCropper()}
+        <Cropper
+          image={sourceState}
+          width={width}
+          height={sizeState.height}
+          gutter={sizeState.gutter}
+          preview={sizeState.preview}
+          tip={tip}
+          previewTip={previewTip}
+        >
+          <span className="text-primary cursor-pointer" onClick={handleUpload}>
+            点击上传
+          </span>
+        </Cropper>
       </>
     );
   }
 
   return (
     <>
-      <div onClick={handleUpload}>{children}</div>
+      {children({ upload: handleUpload })}
       {renderFileInput()}
       <Modal
         title={title}
@@ -178,8 +139,22 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({ children, t
         centered
         maskClosable={false}
         closeOnEsc={false}
+        // size="medium"
+        width={sizeState.modalWidth}
       >
-        {renderCropper()}
+        <Cropper
+          image={sourceState}
+          width={width}
+          height={sizeState.height}
+          gutter={sizeState.gutter}
+          preview={sizeState.preview}
+          tip={tip}
+          previewTip={previewTip}
+        >
+          <span className="text-primary cursor-pointer" onClick={handleUpload}>
+            重新上传
+          </span>
+        </Cropper>
       </Modal>
     </>
   );
