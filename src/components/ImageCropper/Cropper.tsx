@@ -35,23 +35,29 @@ export const Cropper: FunctionComponent<CropperProps> = ({
   useEffect(() => {
     setState(
       new CanvasCropper(canvasRef.current, {
-        width,
-        height,
         onChange: debounce((e) => {
           // console.log(e.toDataUrl());
           setPreviewState(e.toDataUrl());
         }, 100),
       }),
     );
-  }, [height, width]);
+  }, []);
 
   useEffect(() => {
-    if (!state || !image) {
-      setPreviewState('');
-      return () => {};
+    function mount() {
+      if (state && image) {
+        state.initCanvas(image).then();
+      } else {
+        setPreviewState('');
+      }
     }
-    state.initCanvas(image).then();
-    return () => state.clear();
+
+    function unmount() {
+      state?.clear();
+    }
+
+    mount();
+    return unmount;
   }, [image, state]);
 
   useEffect(() => {
@@ -66,7 +72,7 @@ export const Cropper: FunctionComponent<CropperProps> = ({
           {tip}
         </div>
         <div className="image-cropper--cropper">
-          <canvas ref={canvasRef} height={200} width={300} />
+          <canvas ref={canvasRef} height={height} width={width} />
         </div>
       </Spin>
       <div>
@@ -101,6 +107,9 @@ export const Cropper: FunctionComponent<CropperProps> = ({
           border-radius: 8px;
           overflow: hidden;
           background-image: url('data:image/gif;base64,R0lGODdhEAAQAIAAAP///8zMzCwAAAAAEAAQAAACH4RvoauIzNyBSyYaLMDZcv15HAaSIlWiJ5Sya/RWVgEAOw==');
+        }
+        .image-cropper--cropper canvas {
+          height: 100%;
         }
         .image-cropper--cropper:before,
         .image-cropper--cropper:after {
