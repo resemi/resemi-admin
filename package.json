@@ -16,7 +16,8 @@
     "lint": "lint-staged",
     "reinstall": "rimraf pnpm-lock.yaml && rimraf node_modules && pnpm install",
     "release": "esno ./scripts/release",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate": "esno scripts/generate/index"
   },
   "engines": {
     "node": ">=14"
@@ -50,7 +51,9 @@
     "@commitlint/config-conventional": "^17.0.3",
     "@douyinfe/semi-next": "^2.17.0",
     "@douyinfe/semi-webpack-plugin": "^2.17.0",
+    "@iconify/json": "^2.1.94",
     "@semi-bot/semi-theme-resemi-admin": "^0.0.1",
+    "@types/fs-extra": "^9.0.13",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.7.3",
     "@types/react": "^17.0.43",
@@ -66,10 +69,12 @@
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "esno": "^0.16.3",
+    "fs-extra": "^10.1.0",
     "husky": "^8.0.1",
     "inquirer": "^9.0.2",
     "intercept-stdout": "^0.1.2",
     "lint-staged": "^13.0.3",
+    "picocolors": "^1.0.0",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "sass": "^1.54.4",

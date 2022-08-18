@@ -30,6 +30,11 @@ export const routes: RouteType[] = [
     icon: 'widgets',
     children: [
       {
+        id: 'Icon',
+        path: '/icon',
+        name: '图标',
+      },
+      {
         id: 'Form',
         path: '/form',
         name: '表单',
