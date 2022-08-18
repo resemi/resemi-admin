@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useRef, useState } from 'react';
+import { FunctionComponent, useEffect, useMemo, useRef, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
 import { WatermarkBuilder, WatermarkOptions } from './src/WatermarkBuilder';
@@ -23,25 +23,31 @@ export const Watermark: FunctionComponent<WatermarkProps> = ({
   const [state, setState] = useState<WatermarkBuilder>();
   const screen = useWindowSize();
 
+  const options = useMemo(() => {
+    return {
+      cellSize,
+      fontSize,
+      fontFamily,
+      color,
+      rotateAngle,
+    };
+  }, [cellSize, color, fontFamily, fontSize, rotateAngle]);
+
   useEffect(() => {
     setState(new WatermarkBuilder({ appendEl: el.current }));
-  }, [el]);
+  }, []);
 
   useEffect(() => {
     if (visible) {
       state?.setup(text, {
-        cellSize,
-        fontSize,
-        fontFamily,
-        color,
-        rotateAngle,
+        ...options,
       });
     } else {
       state?.clear();
     }
 
     return () => state?.clear();
-  }, [state, screen, visible, text, cellSize, fontSize, fontFamily, color, rotateAngle]);
+  }, [state, screen, visible, text, options]);
 
   return <div className={className} ref={el} />;
 };
