@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.1](https://github.com/resemi/resemi-admin/compare/v0.8.0...v0.8.1) (2022-08-18)
+
+
+### Features
+
+* **Icon:** add icon set generator and icon dome page ([27cb041](https://github.com/resemi/resemi-admin/commit/27cb0418f0a142c289924efc0dba90cdc5c04190))
+
+
+### Bug Fixes
+
+* **ImageCropper:** optimize event listeners and setup devicePixelRatio to canvas ([888276f](https://github.com/resemi/resemi-admin/commit/888276fbef10d4a2eb086182be69ffbe8d0439d4))
+* **Watermark:** update option deps by useMemo ([fbe6a8d](https://github.com/resemi/resemi-admin/commit/fbe6a8d1276b5030db1a8af0b90d46e107e2b38f))
+
 ## [0.8.0](https://github.com/resemi/resemi-admin/compare/v0.7.0...v0.8.0) (2022-08-17)
 
 

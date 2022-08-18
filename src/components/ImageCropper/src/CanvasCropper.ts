@@ -1,4 +1,4 @@
-import React from 'react';
+import { MouseEvent, TouchEvent, WheelEvent, Touch, TouchList } from 'react';
 
 export interface IPos {
   x: number;
@@ -6,9 +6,16 @@ export interface IPos {
 }
 
 export interface CanvasCropperOptions {
-  width?: number;
-  height?: number;
   onChange?: (e: CanvasCropper) => void;
+}
+
+export interface CanvasCropperListeners {
+  startMouse: (e) => void;
+  moveMouse: (e) => void;
+  endMouse: (e) => void;
+  mouseWheel: (e) => void;
+  startTouch: (e) => void;
+  moveTouch: (e) => void;
 }
 
 function loadImage(url: string) {
@@ -36,7 +43,7 @@ export default class CanvasCropper {
   private startPos: IPos = { x: 0, y: 0 };
 
   // 存储多手指位置
-  private touches: React.TouchList;
+  private touches: TouchList;
 
   // 存储移动坐标位置
   private movePos: IPos;
@@ -61,18 +68,30 @@ export default class CanvasCropper {
 
   private readonly options: CanvasCropperOptions;
 
+  private readonly listeners: CanvasCropperListeners;
+
   constructor(canvas: HTMLCanvasElement, options?: CanvasCropperOptions) {
     this.canvasRef = canvas;
     this.options = options;
-    const { width = 300, height = 200 } = this.options;
-    this.canvasRef.width = width;
-    this.canvasRef.height = height;
+
+    const ratio = Math.max(window?.devicePixelRatio || 1, 1);
+    this.canvasRef.width = this.canvasRef.offsetWidth * ratio;
+    this.canvasRef.height = this.canvasRef.offsetHeight * ratio;
     this.ctx = canvas.getContext('2d');
+    this.ctx.scale(ratio, ratio);
+
+    this.listeners = {
+      startMouse: (e) => this.startMouse(e),
+      moveMouse: (e) => this.moveMouse(e),
+      endMouse: (e) => this.endMouse(e),
+      mouseWheel: (e) => this.mouseWheel(e),
+      startTouch: (e) => this.startTouch(e),
+      moveTouch: (e) => this.moveTouch(e),
+    };
   }
 
   /**
    * 初始化
-   * @memberof MapCanvas
    */
   async initCanvas(url: string) {
     this.clear();
@@ -80,17 +99,16 @@ export default class CanvasCropper {
     await this.loadImage(url);
     this.drawImage();
     // PC端事件监听
-    this.canvasRef.addEventListener('mousedown', this.startMouse.bind(this));
-    this.canvasRef.addEventListener('mousemove', this.moveMouse.bind(this));
-    this.canvasRef.addEventListener('mouseup', this.endMouse.bind(this));
+    this.canvasRef.addEventListener('mousedown', this.listeners.startMouse);
+    this.canvasRef.addEventListener('mousemove', this.listeners.moveMouse);
+    this.canvasRef.addEventListener('mouseup', this.listeners.endMouse);
     // 监听滚轮
-    this.canvasRef.addEventListener('mousewheel', this.mouseWheel.bind(this));
-    // 监听滚轮
-    this.canvasRef.addEventListener('wheel', this.mouseWheel.bind(this));
+    this.canvasRef.addEventListener('mousewheel', this.listeners.mouseWheel);
+    this.canvasRef.addEventListener('wheel', this.listeners.mouseWheel);
     // 移动端事件监听
-    this.canvasRef.addEventListener('touchstart', this.startTouch.bind(this));
-    this.canvasRef.addEventListener('touchmove', this.moveTouch.bind(this));
-    this.canvasRef.addEventListener('touchend', this.endMouse.bind(this));
+    this.canvasRef.addEventListener('touchstart', this.listeners.startTouch);
+    this.canvasRef.addEventListener('touchmove', this.listeners.moveTouch);
+    this.canvasRef.addEventListener('touchend', this.listeners.endMouse);
   }
 
   clear() {
@@ -102,25 +120,22 @@ export default class CanvasCropper {
     this.imgScale = 0.5;
     this.ctx.clearRect(0, 0, this.canvasRef.width, this.canvasRef.height);
     // PC端事件监听
-    this.canvasRef.removeEventListener('mousedown', this.startMouse.bind(this));
-    this.canvasRef.removeEventListener('mousemove', this.moveMouse.bind(this));
-    this.canvasRef.removeEventListener('mouseup', this.endMouse.bind(this));
+    this.canvasRef.removeEventListener('mousedown', this.listeners.startMouse);
+    this.canvasRef.removeEventListener('mousemove', this.listeners.moveMouse);
+    this.canvasRef.removeEventListener('mouseup', this.listeners.endMouse);
     // 监听滚轮
-    this.canvasRef.removeEventListener('mousewheel', this.mouseWheel.bind(this));
-    // 监听滚轮
-    this.canvasRef.removeEventListener('wheel', this.mouseWheel.bind(this));
+    this.canvasRef.removeEventListener('mousewheel', this.listeners.mouseWheel);
+    this.canvasRef.removeEventListener('wheel', this.listeners.mouseWheel);
     // 移动端事件监听
-    this.canvasRef.removeEventListener('touchstart', this.startTouch.bind(this));
-    this.canvasRef.removeEventListener('touchmove', this.moveTouch.bind(this));
-    this.canvasRef.removeEventListener('touchend', this.endMouse.bind(this));
+    this.canvasRef.removeEventListener('touchstart', this.listeners.startTouch);
+    this.canvasRef.removeEventListener('touchmove', this.listeners.moveTouch);
+    this.canvasRef.removeEventListener('touchend', this.listeners.endMouse);
   }
 
   /**
    * 图片加载
    * @private
-   * @param {string} url
-   * @returns
-   * @memberof MapCanvas
+   * @param url
    */
   private async loadImage(url: string) {
     try {
@@ -133,7 +148,6 @@ export default class CanvasCropper {
   /**
    * 绘制图片
    * @private
-   * @memberof MapCanvas
    */
   private drawImage() {
     // 清除上一帧绘制
@@ -157,10 +171,9 @@ export default class CanvasCropper {
   /**
    * 开始拖拽
    * @private
-   * @param {(React.MouseEvent<HTMLElement> | React.TouchEvent<HTMLElement>)} e
-   * @memberof MapCanvas
+   * @param e
    */
-  private startMouse(e: React.MouseEvent<HTMLElement>) {
+  private startMouse(e: MouseEvent<HTMLElement>) {
     const { pageX, pageY } = e;
     this.isMove = true;
     this.startPos = this.windowToCanvas(pageX, pageY);
@@ -169,10 +182,9 @@ export default class CanvasCropper {
   /**
    * 开始触摸
    * @private
-   * @param {React.TouchEvent<HTMLElement>} e
-   * @memberof MapCanvas
+   * @param e
    */
-  private startTouch(e: React.TouchEvent<HTMLElement>) {
+  private startTouch(e: TouchEvent<HTMLElement>) {
     const { touches } = e;
     this.isMove = true;
     // 判断是否为多手指
@@ -188,11 +200,11 @@ export default class CanvasCropper {
   /**
    * 拖拽移动
    * @private
-   * @param {(React.MouseEvent<HTMLElement> } e
-   * @memberof MapCanvas
+   * @param e
    */
-  private moveMouse(e: React.MouseEvent<HTMLElement>) {
+  private moveMouse(e: MouseEvent<HTMLElement>) {
     e.preventDefault();
+    e.stopPropagation();
     if (!this.isMove) return;
     const { pageX, pageY } = e;
     this.movePos = this.windowToCanvas(pageX, pageY);
@@ -208,11 +220,11 @@ export default class CanvasCropper {
   /**
    * 移动端拖动缩放
    * @private
-   * @param {React.TouchEvent<HTMLElement>} e
-   * @memberof MapCanvas
+   * @param e
    */
-  private moveTouch(e: React.TouchEvent<HTMLElement>) {
+  private moveTouch(e: TouchEvent<HTMLElement>) {
     e.preventDefault();
+    e.stopPropagation();
     if (!this.isMove || !e.touches) return;
     const { clientX, clientY } = e.touches[0];
     // 如果是单指
@@ -259,21 +271,23 @@ export default class CanvasCropper {
   /**
    * 拖拽结束
    * @private
-   * @param {(React.MouseEvent<HTMLElement> | React.TouchEvent<HTMLElement>)} e
-   * @memberof MapCanvas
+   * @param e
    */
-  private endMouse(e: React.MouseEvent<HTMLElement> | React.TouchEvent<HTMLElement>) {
-    if (!e) return;
+  private endMouse(e: MouseEvent<HTMLElement> | TouchEvent<HTMLElement>) {
+    if (!e) {
+      return;
+    }
     this.isMove = false;
   }
 
   /**
    * 监听滚轮
    * @private
-   * @param {(React.WheelEvent<HTMLElement> & { wheelDelta: number })} e
-   * @memberof MapCanvas
+   * @param e
    */
-  private mouseWheel(e: React.WheelEvent<HTMLElement> & { wheelDelta: number }) {
+  private mouseWheel(e: WheelEvent<HTMLElement> & { wheelDelta: number }) {
+    e.preventDefault();
+    e.stopPropagation();
     const { clientX, clientY, wheelDelta } = e;
     const pos = this.windowToCanvas(clientX, clientY);
     // 计算图片的位置
@@ -305,10 +319,9 @@ export default class CanvasCropper {
   /**
    * 处理鼠标的位置
    * @private
-   * @param {number} startX
-   * @param {number} startY
+   * @param startX
+   * @param startY
    * @returns {IPos}
-   * @memberof MapCanvas
    */
   private windowToCanvas(startX: number, startY: number): IPos {
     const { left, top, width, height } = this.canvasRef.getBoundingClientRect();
@@ -321,12 +334,11 @@ export default class CanvasCropper {
   /**
    * 勾股定理，求两点间的直线距离
    * @private
-   * @param {React.Touch} p1
-   * @param {React.Touch} p2
+   * @param p1
+   * @param p2
    * @returns {number}
-   * @memberof MapCanvas
    */
-  private static getDistance(p1: React.Touch, p2: React.Touch): number {
+  private static getDistance(p1: Touch, p2: Touch): number {
     const x = p2.pageX - p1.pageX;
     const y = p2.pageY - p1.pageY;
     return Math.sqrt(x * x + y * y);

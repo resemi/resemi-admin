@@ -1,7 +1,7 @@
 import pkg from '../../package.json';
 
 export function getEnv() {
-  return process.env.NODE_ENV;
+  return process.env.NEXT_PUBLIC_APP_ENV;
 }
 
 export function getStoragePrefix(): string {
