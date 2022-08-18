@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, Form, Space, useFormApi, Avatar, Toast } from '@douyinfe/semi-ui';
+import { Button, Card, Form, Space, useFormApi, Avatar, Toast, Tooltip } from '@douyinfe/semi-ui';
 import { IconLock, IconUser } from '@douyinfe/semi-icons';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -42,9 +42,11 @@ export default function Login({ csrfToken }) {
             {intl.formatMessage({ id: 'page.login.action.signUp' })}
           </Button>
         </Link>
-        <Button theme="solid" type="primary" htmlType="submit" loading={loading}>
-          {intl.formatMessage({ id: 'page.login.action.signIn' })}
-        </Button>
+        <Tooltip content={process.env.NEXT_PUBLIC_APP_URL}>
+          <Button theme="solid" type="primary" htmlType="submit" loading={loading}>
+            {intl.formatMessage({ id: 'page.login.action.signIn' })}
+          </Button>
+        </Tooltip>
       </Space>
     );
   }
