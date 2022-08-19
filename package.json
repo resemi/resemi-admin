@@ -29,6 +29,7 @@
     "@iconify/react": "^3.2.2",
     "@potjs/cipher": "^0.0.2",
     "@potjs/http": "^0.1.1",
+    "chart.js": "^3.9.1",
     "dayjs": "^1.11.5",
     "lodash-es": "^4.17.21",
     "next": "^12.2.5",

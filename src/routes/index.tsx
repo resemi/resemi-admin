@@ -40,6 +40,11 @@ export const routes: RouteType[] = [
         name: '表单',
       },
       {
+        id: 'Chart',
+        path: '/chart',
+        name: '图表',
+      },
+      {
         id: 'Input',
         path: '/input',
         name: '输入框',
