@@ -77,8 +77,8 @@ export default class CanvasCropper {
     const ratio = Math.max(window?.devicePixelRatio || 1, 1);
     this.canvasRef.width = this.canvasRef.offsetWidth * ratio;
     this.canvasRef.height = this.canvasRef.offsetHeight * ratio;
+    this.canvasRef.getContext('2d').scale(ratio, ratio);
     this.ctx = canvas.getContext('2d');
-    this.ctx.scale(ratio, ratio);
 
     this.listeners = {
       startMouse: (e) => this.startMouse(e),
