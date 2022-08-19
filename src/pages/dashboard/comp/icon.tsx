@@ -5,18 +5,19 @@ import { Icon, icons, prefix } from '@/components/Icon';
 import { Markdown } from '@/components/Markdown';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const content =
-    '```react\n' +
-    "import { Icon, icons, prefix } from '@/components/Icon';\n" +
-    '\n' +
-    '<Space spacing={24} wrap>\n' +
-    '  {icons.slice(0, 20).map((icon) => (\n' +
-    '    <Icon name={icon} prefix={prefix} size={36} key={icon} />\n' +
-    '  ))}\n' +
-    '</Space>\n' +
-    '\n' +
-    '<Icon name="material-symbols:star" size={36} />\n' +
-    '```';
+  const content = `
+    ~~~js
+    import { Icon, icons, prefix } from '@/components/Icon';
+
+    <Space spacing={24} wrap>
+      {icons.slice(0, 20).map((icon) => (
+        <Icon name={icon} prefix={prefix} size={36} key={icon} />
+      ))}
+    </Space>
+
+    <Icon name="material-symbols:star" size={36} />
+    ~~~;
+  `;
 
   return {
     props: {
