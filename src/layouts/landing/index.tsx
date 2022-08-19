@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { IconGithubLogo } from '@douyinfe/semi-icons';
-import { Button } from '@douyinfe/semi-ui';
+import { Button, Space } from '@douyinfe/semi-ui';
 import { useRouter } from 'next/router';
 import { ProLayout } from '@/components/ProLayout';
 import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
@@ -26,7 +26,7 @@ export const LandingLayout: FunctionComponent<LandingLayoutProps> = ({ children 
       page={false}
       header={{
         rightContent: (
-          <>
+          <Space spacing={12}>
             <ThemeModeSwitcher />
             <Button
               theme="borderless"
@@ -40,7 +40,7 @@ export const LandingLayout: FunctionComponent<LandingLayoutProps> = ({ children 
             <Button theme="solid" type="primary" onClick={onLogin}>
               Login
             </Button>
-          </>
+          </Space>
         ),
       }}
       logo={{
