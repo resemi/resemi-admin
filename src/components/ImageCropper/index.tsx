@@ -16,7 +16,7 @@ export type ImageCropperProps = {
   accept?: string;
   // 图片最大限制：单位M，默认5M
   maxSize?: number;
-  direction: 'horizontal' | 'vertical' | '';
+  direction?: 'horizontal' | 'vertical' | '';
   tip?: string | ReactNode;
   previewTip?: string | ReactNode;
   onError?: (err: Error) => void;
