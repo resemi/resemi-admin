@@ -11,12 +11,12 @@ export type ImageCropperProps = {
   children?: (args: ImageCropperChildrenArgs) => ReactNode;
   uploader: (args: ImageCropperChildrenArgs) => ReactNode;
   title?: string;
-  // 宽高比：宽/高，默认1.5
-  ratio?: number;
   width?: number;
+  height?: number;
   accept?: string;
   // 图片最大限制：单位M，默认5M
   maxSize?: number;
+  direction?: 'horizontal' | 'vertical' | '';
   tip?: string | ReactNode;
   previewTip?: string | ReactNode;
   onError?: (err: Error) => void;
@@ -24,25 +24,30 @@ export type ImageCropperProps = {
   onSubmit?: (value: string, clear: () => void) => void;
 };
 
-function calcSize(width: number, ratio: number, gutter = 24, preview = 100) {
-  let r = ratio;
-  if (ratio <= 0.5 || ratio >= 2) {
-    r = 1.5;
-  }
-  const height = Math.floor(width / r);
-  const modalWidth = Math.floor(width + preview + gutter * 3) + 2;
+export type CalcSizeProps = {
+  width: number;
+  height: number;
+  gutter?: number;
+  previewSize?: number;
+  direction?: 'horizontal' | 'vertical' | '';
+};
 
-  return { height, modalWidth, preview, gutter };
+function calcSize<T extends CalcSizeProps>({ width, height, gutter = 24, previewSize = 100 }: T) {
+  // 模态窗口宽度=剪切板宽度+预览图宽度+3个间距+2个像素的误差
+  const modalWidth = Math.floor(width + previewSize + gutter * 3) + 2;
+
+  return { width, height, modalWidth, previewSize, gutter };
 }
 
 export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
   children,
   uploader,
   title,
-  ratio = 1.5,
-  width = 500,
+  width = 480,
+  height = 320,
   accept = 'image/jpeg,image/png,image/svg+xml',
   maxSize = 5,
+  direction,
   tip,
   previewTip,
   onError: onCustomError,
@@ -52,12 +57,12 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
   const [visible, setVisible] = useState(false);
   const [value, setValue] = useState('');
   const [sourceState, setSourceState] = useState('');
-  const [sizeState, setSizeState] = useState(calcSize(width, ratio));
+  const [sizeState, setSizeState] = useState(calcSize({ width, height }));
   const fileRef = useRef<HTMLInputElement>();
 
   useEffect(() => {
-    setSizeState(calcSize(width, ratio));
-  }, [ratio, width]);
+    setSizeState(calcSize({ width, height }));
+  }, [height, width]);
 
   function checkFile(file) {
     const theMaxSize = 1024 * maxSize;
@@ -129,12 +134,12 @@ export const ImageCropper: FunctionComponent<ImageCropperProps> = ({
     return (
       <Cropper
         uploader={uploader({ upload: handleUpload, clear: handleClear })}
-        loading={false}
         image={sourceState}
-        width={width}
+        width={sizeState.width}
         height={sizeState.height}
         gutter={sizeState.gutter}
-        preview={sizeState.preview}
+        previewSize={sizeState.previewSize}
+        direction={direction}
         tip={tip}
         previewTip={previewTip}
         onValueChange={onValueChange}

@@ -13,6 +13,9 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
+  "globals": {
+    "JSX": "readonly"
+  },
   "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
   "rules": {
     "no-use-before-define": "off",

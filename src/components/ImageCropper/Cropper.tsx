@@ -1,15 +1,14 @@
 import { FunctionComponent, ReactNode, useEffect, useRef, useState } from 'react';
-import { Space, Spin } from '@douyinfe/semi-ui';
 import debounce from 'lodash-es/debounce';
 import CanvasCropper from './src/CanvasCropper';
 
 export type CropperProps = {
   uploader: ReactNode;
-  loading: boolean;
+  direction: 'horizontal' | 'vertical' | '';
   image: string;
   width: number;
   height: number;
-  preview: number;
+  previewSize: number;
   gutter: number;
   tip?: string | ReactNode;
   previewTip?: string | ReactNode;
@@ -18,12 +17,12 @@ export type CropperProps = {
 
 export const Cropper: FunctionComponent<CropperProps> = ({
   uploader,
-  loading,
+  direction,
   image,
   width,
   height,
   gutter,
-  preview,
+  previewSize,
   tip,
   previewTip,
   onValueChange,
@@ -65,54 +64,71 @@ export const Cropper: FunctionComponent<CropperProps> = ({
   }, [onValueChange, previewState]);
 
   return (
-    <Space spacing={gutter} align="start">
-      <Spin spinning={loading}>
+    <div className={['image-cropper', direction && `is-${direction}`].join(' ')}>
+      <div className="image-cropper--drawing">
         <div className="image-cropper--desc">
           {uploader}
           {tip}
         </div>
-        <div className="image-cropper--cropper">
+        <div className="image-cropper--canvas">
           <canvas ref={canvasRef} height={height} width={width} />
         </div>
-      </Spin>
-      <div>
+      </div>
+      <div className="image-cropper--preview">
         <div className="image-cropper--desc">{previewTip}</div>
-        <div className="image-cropper--preview">
+        <div className="image-cropper--preview-items">
           <div className="image-cropper--preview-item">
-            <img src={previewState} alt="Preview" height={100} width={100} />
+            <img src={previewState} alt="Preview" height={previewSize} width={previewSize} />
           </div>
           <div className="image-cropper--preview-item is-circle">
-            <img src={previewState} alt="Preview" height={100} width={100} />
+            <img src={previewState} alt="Preview" height={previewSize} width={previewSize} />
           </div>
         </div>
       </div>
       <style jsx>{`
+        .image-cropper {
+          position: relative;
+          display: inline-flex;
+          flex-direction: row;
+          column-gap: ${gutter}px;
+          row-gap: ${gutter}px;
+          flex-wrap: wrap;
+          max-width: 100%;
+        }
+        .image-cropper.is-vertical {
+          flex-direction: column;
+        }
         .image-cropper--desc {
           font-size: 14px;
           margin-bottom: 8px;
         }
-        .image-cropper--cropper {
+        .image-cropper--drawing {
+          flex: 1;
+          display: inline-flex;
+          flex-direction: column;
+        }
+        .image-cropper--drawing .image-cropper--canvas {
           position: relative;
-          width: ${width}px;
-          height: ${height}px;
+          min-width: 200px;
         }
         .image-cropper--preview {
           position: relative;
-          width: ${preview}px;
+          width: ${previewSize}px;
         }
-        .image-cropper--cropper canvas,
+        .image-cropper--drawing .image-cropper--canvas canvas,
         .image-cropper--preview .image-cropper--preview-item {
-          width: 100%;
           border: thin solid #eee;
           border-radius: 8px;
           overflow: hidden;
           background-image: url('data:image/gif;base64,R0lGODdhEAAQAIAAAP///8zMzCwAAAAAEAAQAAACH4RvoauIzNyBSyYaLMDZcv15HAaSIlWiJ5Sya/RWVgEAOw==');
         }
-        .image-cropper--cropper canvas {
-          height: 100%;
+        .image-cropper--drawing .image-cropper--canvas canvas {
+          width: ${width}px;
+          height: ${height}px;
+          max-width: 100%;
         }
-        .image-cropper--cropper:before,
-        .image-cropper--cropper:after {
+        .image-cropper--drawing .image-cropper--canvas:before,
+        .image-cropper--drawing .image-cropper--canvas:after {
           content: '';
           position: absolute;
           top: 0;
@@ -122,14 +138,24 @@ export const Cropper: FunctionComponent<CropperProps> = ({
           background-color: rgba(255, 255, 255, 0.5);
           pointer-events: none;
         }
-        .image-cropper--cropper:before {
+        .image-cropper--drawing .image-cropper--canvas:before {
           left: 0;
         }
-        .image-cropper--cropper:after {
+        .image-cropper--drawing .image-cropper--canvas:after {
           right: 0;
         }
-        .image-cropper--preview .image-cropper--preview-item + .image-cropper--preview-item {
-          margin-top: ${gutter}px;
+        .image-cropper--preview .image-cropper--preview-item {
+          width: ${previewSize}px;
+          height: ${previewSize}px;
+        }
+        .image-cropper--preview .image-cropper--preview-items {
+          display: inline-flex;
+          flex-direction: column;
+          column-gap: ${gutter}px;
+          row-gap: ${gutter}px;
+        }
+        .image-cropper.is-vertical .image-cropper--preview-items {
+          flex-direction: row;
         }
         .image-cropper--preview .image-cropper--preview-item img[src=''] {
           opacity: 0;
@@ -138,6 +164,6 @@ export const Cropper: FunctionComponent<CropperProps> = ({
           border-radius: 50%;
         }
       `}</style>
-    </Space>
+    </div>
   );
 };

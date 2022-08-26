@@ -22,6 +22,7 @@ specifiers:
   '@types/react-dom': ^18.0.6
   '@typescript-eslint/eslint-plugin': ^5.30.7
   '@typescript-eslint/parser': ^5.30.7
+  chart.js: ^3.9.1
   dayjs: ^1.11.5
   eslint: ^8.20.0
   eslint-config-airbnb: ^19.0.4
@@ -69,6 +70,7 @@ dependencies:
   '@iconify/react': 3.2.2_react@18.2.0
   '@potjs/cipher': 0.0.2
   '@potjs/http': 0.1.1
+  chart.js: 3.9.1
   dayjs: 1.11.5
   lodash-es: 4.17.21
   next: 12.2.5_ivfob5dyaiglqb5g2zdrumbbbm
@@ -1664,6 +1666,10 @@ packages:
   /chardet/0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
     dev: true
+
+  /chart.js/3.9.1:
+    resolution: {integrity: sha512-Ro2JbLmvg83gXF5F4sniaQ+lTbSv18E+TIf2cOeiH1Iqd2PGFOtem+DUufMZsCJwFE7ywPOpfXFBwRTGq7dh6w==}
+    dev: false
 
   /chokidar/3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz}

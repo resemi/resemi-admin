@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { FunctionComponent, useEffect, useState } from 'react';
 import { signOut } from 'next-auth/react';
 import { IconBell } from '@douyinfe/semi-icons';
-import { Avatar, Button, Dropdown } from '@douyinfe/semi-ui';
+import { Avatar, Button, Dropdown, Space } from '@douyinfe/semi-ui';
 import { ProLayout } from '@/components/ProLayout';
 import { useAppState } from '@/store';
 import { routes, RouteType } from '@/routes';
@@ -75,7 +75,7 @@ export const BasicLayout: FunctionComponent<ProLayoutProps> = ({ children }) => 
       menu={{ defaultSelectedKeys, items: menuList, onSelect: onSelectItem }}
       header={{
         rightContent: (
-          <>
+          <Space spacing={12}>
             <Button
               theme="borderless"
               icon={<IconBell size="large" />}
@@ -107,7 +107,7 @@ export const BasicLayout: FunctionComponent<ProLayoutProps> = ({ children }) => 
                 YJ
               </Avatar>
             </Dropdown>
-          </>
+          </Space>
         ),
       }}
       logo={{

@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/resemi/resemi-admin/compare/v0.8.1...v0.9.0) (2022-08-26)
+
+
+### Features
+
+* **Chart:** add chart components ([072005a](https://github.com/resemi/resemi-admin/commit/072005a1f4aaf47c34423e5f33081f8baa0fd975))
+
+
+### Bug Fixes
+
+* **ImageCropper:** fix direction type ([1e8a878](https://github.com/resemi/resemi-admin/commit/1e8a8782cb349b40199cd046e4c1a421c9d9bd73))
+* **ImageCropper:** fix styles ([c85649a](https://github.com/resemi/resemi-admin/commit/c85649a811be9eb0375ed6460cc41fcd709d06c9))
+* **pages:** clean code ([867245a](https://github.com/resemi/resemi-admin/commit/867245ae04fdd938e27a8519926d4fb2da0e6fe8))
+* **pages:** fix header's button spacing ([99aeb3e](https://github.com/resemi/resemi-admin/commit/99aeb3e5dcda5695d3622c75b1f9afda1832ad7b))
+* **seo:** fix seo description ([c37c67b](https://github.com/resemi/resemi-admin/commit/c37c67bc451fffde8b115fdd27073d629fdfcdbd))
+
 ### [0.8.1](https://github.com/resemi/resemi-admin/compare/v0.8.0...v0.8.1) (2022-08-18)
 
 
