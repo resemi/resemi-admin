@@ -20,7 +20,8 @@
     "generate": "esno scripts/generate/index"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=14",
+    "pnpm": ">=7"
   },
   "homepage": "https://github.com/resemi/resemi-admin#readme",
   "dependencies": {
