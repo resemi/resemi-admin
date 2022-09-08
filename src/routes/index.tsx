@@ -64,6 +64,11 @@ export const routes: RouteType[] = [
         path: '/image_cropper',
         name: '图片裁剪',
       },
+      {
+        id: 'VideoPlayer',
+        path: '/video_player',
+        name: '视频播放器',
+      },
     ],
   },
   {
