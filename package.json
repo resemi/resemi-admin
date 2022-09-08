@@ -46,7 +46,8 @@
     "recoil-persist": "^4.2.0",
     "reset-css": "^5.0.1",
     "signature_pad": "^4.0.7",
-    "styled-jsx": "^5.0.4"
+    "styled-jsx": "^5.0.4",
+    "video.js": "^7.20.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
@@ -60,6 +61,7 @@
     "@types/node": "^18.7.3",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^18.0.6",
+    "@types/video.js": "^7.3.46",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "eslint": "^8.20.0",

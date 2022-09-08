@@ -57,7 +57,8 @@
       "warn", {
         "additionalHooks": "useRecoilCallback"
       }
-    ]
+    ],
+    "react/static-property-placement": ["error", "static public field"]
   },
   "settings": {
     "import/resolver": {
