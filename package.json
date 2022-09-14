@@ -25,8 +25,9 @@
   },
   "homepage": "https://github.com/resemi/resemi-admin#readme",
   "dependencies": {
-    "@douyinfe/semi-icons": "^2.18.2",
-    "@douyinfe/semi-ui": "^2.18.2",
+    "@douyinfe/semi-icons": "^2.19.0",
+    "@douyinfe/semi-illustrations": "^2.19.0",
+    "@douyinfe/semi-ui": "^2.19.0",
     "@iconify/react": "^3.2.2",
     "@potjs/cipher": "^0.0.2",
     "@potjs/http": "^0.1.1",
@@ -52,8 +53,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
-    "@douyinfe/semi-next": "^2.18.2",
-    "@douyinfe/semi-webpack-plugin": "^2.18.2",
+    "@douyinfe/semi-next": "^2.19.0",
+    "@douyinfe/semi-webpack-plugin": "^2.19.0",
     "@iconify/json": "^2.1.94",
     "@semi-bot/semi-theme-resemi-admin": "^0.0.1",
     "@types/fs-extra": "^9.0.13",

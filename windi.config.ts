@@ -65,20 +65,20 @@ export default defineConfig({
   darkMode: 'class',
   theme: {
     // "spacing" by padding,margin,width,height
-    padding: {
-      xs: '4px',
-      sm: '8px',
-      md: '16px',
-      lg: '32px',
-      xl: '64px',
-    },
-    margin: {
-      xs: '4px',
-      sm: '8px',
-      md: '16px',
-      lg: '32px',
-      xl: '64px',
-    },
+    // padding: {
+    //   xs: '4px',
+    //   sm: '8px',
+    //   md: '16px',
+    //   lg: '32px',
+    //   xl: '64px',
+    // },
+    // margin: {
+    //   xs: '4px',
+    //   sm: '8px',
+    //   md: '16px',
+    //   lg: '32px',
+    //   xl: '64px',
+    // },
     colors: generateColorsBySemi(),
     screens: {
       sm: '640px',
