@@ -1,65 +1,75 @@
-import { Carousel, Typography, Space } from '@douyinfe/semi-ui';
-import { CSSProperties } from 'react';
+import { List, Empty, Button, Divider } from '@douyinfe/semi-ui';
+import { IllustrationConstruction, IllustrationConstructionDark } from '@douyinfe/semi-illustrations';
+import { Icon } from '@/components/Icon';
 
 export default function Home() {
-  const { Title, Paragraph } = Typography;
+  const data = [
+    { title: '最新技术栈', icon: 'star', description: '基于最新的NextJS 12，React 18，TypeScript等技术栈' },
+    { title: '主题配置', icon: 'star', description: '天然支持暗黑主题，自定义主题' },
+    { title: '丰富的组件', icon: 'star', description: '常用组件封装，以及对使用频率较高的组件二次封装' },
+    { title: '丰富的示例', icon: 'star', description: '常见的功能/插件代码实现' },
+    { title: '权限管理', icon: 'star', description: '敬请期待' },
+    { title: '敬请期待', icon: 'star', description: '敬请期待' },
+  ];
 
-  const style = {
-    width: '100%',
-    height: '400px',
-  };
-
-  const titleStyle: CSSProperties = {
-    position: 'absolute',
-    top: '100px',
-    left: '100px',
-    color: '#1C1F23',
-  };
-
-  const colorStyle = {
-    color: '#1C1F23',
-  };
-
-  const renderLogo = () => {
+  function renderItem(item) {
     return (
-      <img
-        src="https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/semi_logo.svg"
-        alt="semi_logo"
-        style={{ width: 87, height: 31 }}
+      <List.Item
+        header={<Icon name={item.icon} size={24} />}
+        main={
+          <div>
+            <span style={{ color: 'var(--semi-color-text-0)', fontWeight: 500, fontSize: '16px' }}>{item.title}</span>
+            <p style={{ color: 'var(--semi-color-text-2)', margin: '4px 0 24px' }}>{item.description}</p>
+          </div>
+        }
       />
     );
-  };
-
-  const imgList = [
-    'https://lf3-static.bytednsdoc.com/obj/eden-cn/hjeh7pldnulm/SemiDocs/bg-1.png',
-    'https://lf3-static.bytednsdoc.com/obj/eden-cn/hjeh7pldnulm/SemiDocs/bg-2.png',
-    'https://lf3-static.bytednsdoc.com/obj/eden-cn/hjeh7pldnulm/SemiDocs/bg-3.png',
-  ];
-
-  const textList = [
-    ['Semi 设计管理系统', '从 Semi Design，到 Any Design', '快速定制你的设计系统，并应用在设计稿和代码中'],
-    ['Semi 物料市场', '面向业务场景的定制化组件，支持线上预览和调试', '内容由 Semi Design 用户共建'],
-    ['Semi Pro (开发中)', '基于 40+ 真实组件代码设计', '海量页面模板前端代码一键转'],
-  ];
+  }
 
   return (
-    <Carousel style={style} theme="dark">
-      {imgList.map((src, index) => {
-        return (
-          <div key={Math.random()} style={{ backgroundSize: 'cover', backgroundImage: `url(${src})` }}>
-            <Space vertical align="start" spacing="medium" style={titleStyle}>
-              {renderLogo()}
-              <Title heading={2} style={colorStyle}>
-                {textList[index][0]}
-              </Title>
-              <Space vertical align="start">
-                <Paragraph style={colorStyle}>{textList[index][1]}</Paragraph>
-                <Paragraph style={colorStyle}>{textList[index][2]}</Paragraph>
-              </Space>
-            </Space>
-          </div>
-        );
-      })}
-    </Carousel>
+    <div className="container mx-auto max-w-screen-lg">
+      <Empty
+        image={<IllustrationConstruction style={{ width: 150, height: 150 }} />}
+        darkModeImage={<IllustrationConstructionDark style={{ width: 150, height: 150 }} />}
+        title="Resemi Admin"
+        description="🎉 A beautiful react admin, using NextJS, TypeScript and SemiDesign."
+      >
+        <div className="text-center">
+          <a className="inline-block" href="//github.com/resemi/resemi-admin" target="_blank" rel="noreferrer">
+            <Button
+              size="large"
+              theme="solid"
+              type="primary"
+              iconPosition="right"
+              icon={<Icon name="arrow-forward" size={24} />}
+            >
+              开始使用
+            </Button>
+          </a>
+          <a className="inline-block" href="/login" target="_blank" style={{ marginLeft: 24 }}>
+            <Button type="primary" size="large" iconPosition="right" icon={<Icon name="open-in-new" size={24} />}>
+              在线预览
+            </Button>
+          </a>
+        </div>
+      </Empty>
+      <Divider margin={50} />
+      <div>
+        <List
+          grid={{
+            gutter: 24,
+            xs: 0,
+            sm: 0,
+            md: 12,
+            lg: 8,
+            xl: 8,
+            xxl: 6,
+          }}
+          dataSource={data}
+          renderItem={renderItem}
+        />
+      </div>
+      <Divider margin={50} />
+    </div>
   );
 }
