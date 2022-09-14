@@ -5,8 +5,8 @@ import { Icon } from '@/components/Icon';
 export default function Home() {
   const data = [
     { title: '最新技术栈', icon: 'star', description: '基于最新的NextJS 12，React 18，TypeScript等技术栈' },
-    { title: '主题配置', icon: 'star', description: '天然支持暗黑主题，自定义主题' },
-    { title: '丰富的组件', icon: 'star', description: '常用组件封装，以及对使用频率较高的组件二次封装' },
+    { title: '主题配置', icon: 'star', description: '内置暗黑模式的支持，以及可定制化主题' },
+    { title: '丰富的组件', icon: 'star', description: '丰富的高阶组件和对常用组件的二次封装' },
     { title: '丰富的示例', icon: 'star', description: '常见的功能/插件代码实现' },
     { title: '权限管理', icon: 'star', description: '敬请期待' },
     { title: '敬请期待', icon: 'star', description: '敬请期待' },
