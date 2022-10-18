@@ -1,8 +1,10 @@
-import { FunctionComponent, useMemo } from 'react';
+import { FunctionComponent, ReactNode, useMemo } from 'react';
 import { LayoutContextValue, LayoutContext, useLayoutContext } from './context';
 import { BasicLayout } from './Layout';
 
-export interface LayoutProviderProps extends LayoutContextValue {}
+export interface LayoutProviderProps extends LayoutContextValue {
+  children?: ReactNode;
+}
 
 export const LayoutProvider: FunctionComponent<LayoutProviderProps> = ({
   children,

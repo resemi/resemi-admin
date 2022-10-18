@@ -1,7 +1,9 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import { useLayoutContext } from '@/components/ProLayout/src/context';
 
-export type PageProps = {};
+export type PageProps = {
+  children?: ReactNode;
+};
 
 export const Page: FunctionComponent<PageProps> = ({ children }) => {
   const state = useLayoutContext();

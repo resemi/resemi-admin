@@ -1,11 +1,13 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { BasicLayout as AdminLayout } from '@/layouts/default';
 import { LandingLayout } from '@/layouts/landing';
 import { isAdmin } from '@/routes';
 import { useMounted } from '@/components/ClientOnly';
 
-export type LayoutAdapterProps = {};
+export type LayoutAdapterProps = {
+  children?: ReactNode;
+};
 
 export const LayoutAdapter: FunctionComponent<LayoutAdapterProps> = ({ children }) => {
   const { route } = useRouter();
@@ -17,5 +19,6 @@ export const LayoutAdapter: FunctionComponent<LayoutAdapterProps> = ({ children 
 
   const Layout = isAdmin(route) ? AdminLayout : LandingLayout;
 
+  // @ts-ignore
   return <Layout>{children}</Layout>;
 };
