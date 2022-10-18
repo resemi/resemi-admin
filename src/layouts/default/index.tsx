@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, ReactNode, useEffect, useState } from 'react';
 import { signOut } from 'next-auth/react';
 import { IconBell } from '@douyinfe/semi-icons';
 import { Avatar, Button, Dropdown, Space } from '@douyinfe/semi-ui';
@@ -10,7 +10,9 @@ import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
 import { LocaleSwitcher } from '@/layouts/components/LocaleSwitcher';
 import { Icon } from '@/components/Icon';
 
-export type ProLayoutProps = {};
+export type ProLayoutProps = {
+  children?: ReactNode;
+};
 
 export const BasicLayout: FunctionComponent<ProLayoutProps> = ({ children }) => {
   const router = useRouter();

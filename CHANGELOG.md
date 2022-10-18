@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/resemi/resemi-admin/compare/v0.9.0...v0.10.0) (2022-10-18)
+
+
+### Features
+
+* add something content in home page ([ea920a6](https://github.com/resemi/resemi-admin/commit/ea920a64877aab560ef6139bd7c57860ef4a5f85))
+* **components:** add video player component ([181dcbf](https://github.com/resemi/resemi-admin/commit/181dcbf014366b33da8de0df63dfd451e39fa85e))
+
+
+### Bug Fixes
+
+* small fix ([3fafd19](https://github.com/resemi/resemi-admin/commit/3fafd19f202cb44bcf51e0024ca12158d1ca58fe))
+
 ## [0.9.0](https://github.com/resemi/resemi-admin/compare/v0.8.1...v0.9.0) (2022-08-26)
 
 

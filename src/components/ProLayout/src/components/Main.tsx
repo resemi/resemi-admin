@@ -1,10 +1,12 @@
 import { Breadcrumb } from '@douyinfe/semi-ui';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import PageLoading from './PageLoading';
 import { Page } from './Page';
 import { useLayoutContext } from '@/components/ProLayout/src/context';
 
-export type MainProps = {};
+export type MainProps = {
+  children?: ReactNode;
+};
 
 export const Main: FunctionComponent<MainProps> = ({ children }) => {
   const state = useLayoutContext();

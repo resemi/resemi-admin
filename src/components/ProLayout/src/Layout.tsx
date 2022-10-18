@@ -1,9 +1,10 @@
-import { CSSProperties, FunctionComponent, useState } from 'react';
+import { CSSProperties, FunctionComponent, useState, ReactNode } from 'react';
 import css from 'styled-jsx/css';
 import { Header, Sidebar, Footer, Main } from './components';
 import { useLayoutContext } from './context';
 
 export type MainLayoutProps = {
+  children?: ReactNode;
   style?: CSSProperties;
 };
 
@@ -31,7 +32,9 @@ export const MainLayout: FunctionComponent<MainLayoutProps> = ({ children, style
   );
 };
 
-export type BasicLayoutProps = {};
+export type BasicLayoutProps = {
+  children?: ReactNode;
+};
 
 export const BasicLayout: FunctionComponent<BasicLayoutProps> = ({ children }) => {
   const state = useLayoutContext();

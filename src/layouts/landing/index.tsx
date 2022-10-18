@@ -1,11 +1,13 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import { Button, Space } from '@douyinfe/semi-ui';
 import { useRouter } from 'next/router';
 import { ProLayout } from '@/components/ProLayout';
 import { ThemeModeSwitcher } from '@/layouts/components/ThemeModeSwitcher';
 import { LocaleSwitcher } from '@/layouts/components/LocaleSwitcher';
 
-export type LandingLayoutProps = {};
+export type LandingLayoutProps = {
+  children?: ReactNode;
+};
 
 export const LandingLayout: FunctionComponent<LandingLayoutProps> = ({ children }) => {
   const router = useRouter();

@@ -1,8 +1,10 @@
 import ReactMarkdown from 'react-markdown';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import styles from './markdown.module.scss';
 
-export type MarkdownProps = {};
+export type MarkdownProps = {
+  children?: ReactNode;
+};
 
 export const Markdown: FunctionComponent<MarkdownProps> = ({ children }) => {
   return (

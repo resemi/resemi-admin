@@ -1,16 +1,13 @@
 lockfileVersion: 5.4
 
-overrides:
-  '@types/react': ^17.0.43
-
 specifiers:
   '@commitlint/cli': ^17.0.3
   '@commitlint/config-conventional': ^17.0.3
-  '@douyinfe/semi-icons': ^2.19.0
-  '@douyinfe/semi-illustrations': ^2.19.0
-  '@douyinfe/semi-next': ^2.19.0
-  '@douyinfe/semi-ui': ^2.19.0
-  '@douyinfe/semi-webpack-plugin': ^2.19.0
+  '@douyinfe/semi-icons': ^2.21.2
+  '@douyinfe/semi-illustrations': ^2.21.2
+  '@douyinfe/semi-next': ^2.21.2
+  '@douyinfe/semi-ui': ^2.21.2
+  '@douyinfe/semi-webpack-plugin': ^2.21.2
   '@iconify/json': ^2.1.94
   '@iconify/react': ^3.2.2
   '@potjs/cipher': ^0.0.2
@@ -19,7 +16,7 @@ specifiers:
   '@types/fs-extra': ^9.0.13
   '@types/lodash-es': ^4.17.6
   '@types/node': ^18.7.3
-  '@types/react': ^17.0.43
+  '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
   '@types/video.js': ^7.3.46
   '@typescript-eslint/eslint-plugin': ^5.30.7
@@ -68,9 +65,9 @@ specifiers:
   windicss-webpack-plugin: ^1.7.5
 
 dependencies:
-  '@douyinfe/semi-icons': registry.npmjs.org/@douyinfe/semi-icons/2.19.0_react@18.2.0
-  '@douyinfe/semi-illustrations': registry.npmjs.org/@douyinfe/semi-illustrations/2.19.0_react@18.2.0
-  '@douyinfe/semi-ui': registry.npmjs.org/@douyinfe/semi-ui/2.19.0_biqbaboplfbrettd7655fr4n2y
+  '@douyinfe/semi-icons': registry.npmjs.org/@douyinfe/semi-icons/2.21.2_react@18.2.0
+  '@douyinfe/semi-illustrations': registry.npmjs.org/@douyinfe/semi-illustrations/2.21.2_react@18.2.0
+  '@douyinfe/semi-ui': registry.npmjs.org/@douyinfe/semi-ui/2.21.2_biqbaboplfbrettd7655fr4n2y
   '@iconify/react': 3.2.2_react@18.2.0
   '@potjs/cipher': 0.0.2
   '@potjs/http': 0.1.1
@@ -84,7 +81,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-intl: 6.0.5_qtbnez4q7bzoc4eqybg3efzzxe
-  react-markdown: 8.0.3_ujubvlhfvnp7ea23wxirrv4cw4
+  react-markdown: 8.0.3_iapumuv4e6jcjznwuxpf4tt22e
   react-use: 17.4.0_biqbaboplfbrettd7655fr4n2y
   recoil: 0.7.5_biqbaboplfbrettd7655fr4n2y
   recoil-persist: 4.2.0_recoil@0.7.5
@@ -96,14 +93,14 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 17.0.3
   '@commitlint/config-conventional': 17.0.3
-  '@douyinfe/semi-next': registry.npmjs.org/@douyinfe/semi-next/2.19.0_webpack@5.74.0
-  '@douyinfe/semi-webpack-plugin': registry.npmjs.org/@douyinfe/semi-webpack-plugin/2.19.0_webpack@5.74.0
+  '@douyinfe/semi-next': registry.npmjs.org/@douyinfe/semi-next/2.21.2_webpack@5.74.0
+  '@douyinfe/semi-webpack-plugin': registry.npmjs.org/@douyinfe/semi-webpack-plugin/2.21.2_webpack@5.74.0
   '@iconify/json': 2.1.94
   '@semi-bot/semi-theme-resemi-admin': 0.0.1
   '@types/fs-extra': 9.0.13
   '@types/lodash-es': 4.17.6
   '@types/node': 18.7.3
-  '@types/react': 17.0.48
+  '@types/react': registry.npmjs.org/@types/react/18.0.21
   '@types/react-dom': 18.0.6
   '@types/video.js': registry.npmjs.org/@types/video.js/7.3.46
   '@typescript-eslint/eslint-plugin': 5.31.0_jnss7dz76sznncvpyatba5hbxa
@@ -639,7 +636,7 @@ packages:
   /@types/hoist-non-react-statics/3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
     dependencies:
-      '@types/react': 17.0.48
+      '@types/react': registry.npmjs.org/@types/react/18.0.21
       hoist-non-react-statics: 3.3.2
     dev: false
 
@@ -697,22 +694,13 @@ packages:
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
+    dev: false
 
   /@types/react-dom/18.0.6:
     resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
     dependencies:
-      '@types/react': 17.0.48
+      '@types/react': registry.npmjs.org/@types/react/18.0.21
     dev: true
-
-  /@types/react/17.0.48:
-    resolution: {integrity: sha512-zJ6IYlJ8cYYxiJfUaZOQee4lh99mFihBoqkOSEGV+dFi9leROW6+PgstzQ+w3gWTnUfskALtQPGHK6dYmPj+2A==}
-    dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.2
-      csstype: 3.1.0
-
-  /@types/scheduler/0.16.2:
-    resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
@@ -1722,6 +1710,7 @@ packages:
 
   /csstype/3.1.0:
     resolution: {integrity: sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==}
+    dev: false
 
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
@@ -4275,7 +4264,7 @@ packages:
       '@formatjs/intl-displaynames': 6.0.3
       '@formatjs/intl-listformat': 7.0.3
       '@types/hoist-non-react-statics': 3.3.1
-      '@types/react': 17.0.48
+      '@types/react': registry.npmjs.org/@types/react/18.0.21
       hoist-non-react-statics: 3.3.2
       intl-messageformat: 10.1.1
       react: 18.2.0
@@ -4290,7 +4279,7 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: false
 
-  /react-markdown/8.0.3_ujubvlhfvnp7ea23wxirrv4cw4:
+  /react-markdown/8.0.3_iapumuv4e6jcjznwuxpf4tt22e:
     resolution: {integrity: sha512-We36SfqaKoVNpN1QqsZwWSv/OZt5J15LNgTLWynwAN5b265hrQrsjMtlRNwUvS+YyR3yDM8HpTNc4pK9H/Gc0A==}
     peerDependencies:
       '@types/react': '>=16'
@@ -4298,7 +4287,7 @@ packages:
     dependencies:
       '@types/hast': 2.3.4
       '@types/prop-types': 15.7.5
-      '@types/react': 17.0.48
+      '@types/react': registry.npmjs.org/@types/react/18.0.21
       '@types/unist': 2.0.6
       comma-separated-tokens: 2.0.2
       hast-util-whitespace: 2.0.0
@@ -5713,22 +5702,20 @@ packages:
       to-fast-properties: registry.npmjs.org/to-fast-properties/2.0.0
     dev: true
 
-  registry.npmjs.org/@douyinfe/semi-animation-react/2.19.0:
-    resolution: {integrity: sha512-y/TX1laLv5BtTt2a1dYt/S3k8XeRn0tlOY63f/VZGrK0NA8krt6/HmA/V1sHY5wFhRsXTg18dhRukgLY+pnXKg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-animation-react/-/semi-animation-react-2.19.0.tgz}
+  registry.npmjs.org/@douyinfe/semi-animation-react/2.21.2:
+    resolution: {integrity: sha512-W8idMqvQwvU1xihwaHcu9dKvQSDvIx8cjN5HQzIKwULNb0TCbqkiYKZfOtMcV5Q86PWUGv9dqyVn7NlLxm7ESg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-animation-react/-/semi-animation-react-2.21.2.tgz}
     name: '@douyinfe/semi-animation-react'
-    version: 2.19.0
+    version: 2.21.2
     dependencies:
       '@douyinfe/semi-animation': registry.npmjs.org/@douyinfe/semi-animation/2.12.0
-      '@douyinfe/semi-animation-styled': registry.npmjs.org/@douyinfe/semi-animation-styled/2.19.0
+      '@douyinfe/semi-animation-styled': registry.npmjs.org/@douyinfe/semi-animation-styled/2.21.2
       classnames: registry.npmjs.org/classnames/2.3.1
     dev: false
 
-  registry.npmjs.org/@douyinfe/semi-animation-styled/2.19.0:
-    resolution: {integrity: sha512-9m28W9rzzwHesNmnubvwi+SQOSpFwwx0y7+2HVYJCjYaoz8JmbqlPWWsRbwLFfGEndLXtrCDHatVrcXgUq7Hpg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-animation-styled/-/semi-animation-styled-2.19.0.tgz}
+  registry.npmjs.org/@douyinfe/semi-animation-styled/2.21.2:
+    resolution: {integrity: sha512-uBzbMfjjtOun5sQkPAShFmoPh7YS4vauJiOt8z4HwNHAkqgjm538n41QP4U6+NgIqzBL9EJP6M0RYYTJkdGXjA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-animation-styled/-/semi-animation-styled-2.21.2.tgz}
     name: '@douyinfe/semi-animation-styled'
-    version: 2.19.0
-    dependencies:
-      '@babel/runtime-corejs3': registry.npmjs.org/@babel/runtime-corejs3/7.18.9
+    version: 2.21.2
     dev: false
 
   registry.npmjs.org/@douyinfe/semi-animation/2.12.0:
@@ -5740,10 +5727,10 @@ packages:
       bezier-easing: registry.npmjs.org/bezier-easing/2.1.0
     dev: false
 
-  registry.npmjs.org/@douyinfe/semi-foundation/2.19.0:
-    resolution: {integrity: sha512-aJ0WWqGjEj7yIgk7+Y2aTaAfwOKgybpEEEZAHPtEgpnBTrwDQ/qJ8IQSqRypNuE6/gRE3+fvUXdzRDvL/7IYxg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-foundation/-/semi-foundation-2.19.0.tgz}
+  registry.npmjs.org/@douyinfe/semi-foundation/2.21.2:
+    resolution: {integrity: sha512-F/ChIm+YG61AOiJuf3ecKUgKMCZ7nSySpUYfcUyaw3/8NjJK2GLdxF3AmIshw4xbS7fAnak2T3UkNGATPfpHJw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-foundation/-/semi-foundation-2.21.2.tgz}
     name: '@douyinfe/semi-foundation'
-    version: 2.19.0
+    version: 2.21.2
     dependencies:
       '@douyinfe/semi-animation': registry.npmjs.org/@douyinfe/semi-animation/2.12.0
       async-validator: registry.npmjs.org/async-validator/3.5.2
@@ -5755,15 +5742,14 @@ packages:
       scroll-into-view-if-needed: registry.npmjs.org/scroll-into-view-if-needed/2.2.29
     dev: false
 
-  registry.npmjs.org/@douyinfe/semi-icons/2.19.0_react@18.2.0:
-    resolution: {integrity: sha512-ixqK/Xt5hvEQt+g1ou09+Qw5DOh0pGorcCWpWswSiyW6PbEg8gpn3a/VOkYFQUvK9K9r32Zcasr+iavGIaEsEQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-icons/-/semi-icons-2.19.0.tgz}
-    id: registry.npmjs.org/@douyinfe/semi-icons/2.19.0
+  registry.npmjs.org/@douyinfe/semi-icons/2.21.2_react@18.2.0:
+    resolution: {integrity: sha512-8Yi+5fxAIcXzA9/u28r1eNrqczf//LJGwS3Nl4yAXpLjfR0eVKWkItBN/7TbA6egZZDkytfV4pk8luRUSY+65A==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-icons/-/semi-icons-2.21.2.tgz}
+    id: registry.npmjs.org/@douyinfe/semi-icons/2.21.2
     name: '@douyinfe/semi-icons'
-    version: 2.19.0
+    version: 2.21.2
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime-corejs3': registry.npmjs.org/@babel/runtime-corejs3/7.18.9
       classnames: registry.npmjs.org/classnames/2.3.1
       react: 18.2.0
     dev: false
@@ -5780,24 +5766,24 @@ packages:
       react: 18.2.0
     dev: false
 
-  registry.npmjs.org/@douyinfe/semi-illustrations/2.19.0_react@18.2.0:
-    resolution: {integrity: sha512-WNkwBgQBGVPLzFuARAKZXL5She3OX5tmiIsblfxcwMyFptJ4yPl9pCab/vBCPw2RRVj7E+BLhZVNMgovfcwh0w==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-illustrations/-/semi-illustrations-2.19.0.tgz}
-    id: registry.npmjs.org/@douyinfe/semi-illustrations/2.19.0
+  registry.npmjs.org/@douyinfe/semi-illustrations/2.21.2_react@18.2.0:
+    resolution: {integrity: sha512-TNhQ25ImGJ1zn32i1XANrcvrSnLUwTScxa2IH2Q5maQ0+QmTsEYcUeyFo7Xr7WztnWIA4F+sZnWWakmyZxZDRA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-illustrations/-/semi-illustrations-2.21.2.tgz}
+    id: registry.npmjs.org/@douyinfe/semi-illustrations/2.21.2
     name: '@douyinfe/semi-illustrations'
-    version: 2.19.0
+    version: 2.21.2
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
     dev: false
 
-  registry.npmjs.org/@douyinfe/semi-next/2.19.0_webpack@5.74.0:
-    resolution: {integrity: sha512-5INPPdoFweLSlO6Gk1J6HCXoEo0E+RKqZsX0ELpCjIpCwL3MzndUFuy42YMjXTBJrj4fu1hmbqbR/RjJW8HC5A==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-next/-/semi-next-2.19.0.tgz}
-    id: registry.npmjs.org/@douyinfe/semi-next/2.19.0
+  registry.npmjs.org/@douyinfe/semi-next/2.21.2_webpack@5.74.0:
+    resolution: {integrity: sha512-8qn0Wj22HGmvx7MkKqgPmXau5GLHNC37OkW9TzPW0n7kNQz5T5CffzEukj7ezUAPxcMoYGs475oSajeby3ffyQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-next/-/semi-next-2.21.2.tgz}
+    id: registry.npmjs.org/@douyinfe/semi-next/2.21.2
     name: '@douyinfe/semi-next'
-    version: 2.19.0
+    version: 2.21.2
     dependencies:
-      '@douyinfe/semi-webpack-plugin': registry.npmjs.org/@douyinfe/semi-webpack-plugin/2.19.0_webpack@5.74.0
+      '@douyinfe/semi-webpack-plugin': registry.npmjs.org/@douyinfe/semi-webpack-plugin/2.21.2_webpack@5.74.0
     transitivePeerDependencies:
       - fibers
       - node-sass
@@ -5805,29 +5791,29 @@ packages:
       - webpack
     dev: true
 
-  registry.npmjs.org/@douyinfe/semi-theme-default/2.19.0:
-    resolution: {integrity: sha512-WZrUg3RNpxIITx2zLSJgVK8ovkCD7+P34yDIivOYryOzSplP2equcfI9TqjMOM+qh6LPheRDwDVeZVryoOCFtA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-theme-default/-/semi-theme-default-2.19.0.tgz}
+  registry.npmjs.org/@douyinfe/semi-theme-default/2.21.2:
+    resolution: {integrity: sha512-Z1+wAbR+EDR29KBcelgHokAHaMhwniS3igLOYx3o888rO1tVVDi+9vHK37bJozFLKVMhfHp+jEnEbhpXHQHiBw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-theme-default/-/semi-theme-default-2.21.2.tgz}
     name: '@douyinfe/semi-theme-default'
-    version: 2.19.0
+    version: 2.21.2
     dependencies:
       glob: registry.npmjs.org/glob/7.2.3
     dev: false
 
-  registry.npmjs.org/@douyinfe/semi-ui/2.19.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-zBxfkpcQoa9A+QVDiCHDLszWS1iCeWu2lSX5zW7XH+7XKEe/9pp9o7WdYnLyZmt2dmFSLLDvrPlCs3s4PT8FHg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-ui/-/semi-ui-2.19.0.tgz}
-    id: registry.npmjs.org/@douyinfe/semi-ui/2.19.0
+  registry.npmjs.org/@douyinfe/semi-ui/2.21.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-9pq0ac2qsmKgcBFsG+/l3PSRqQcH5U2XG2zmZE4LAagyE4nSWLel3QVVEleQayfzNKTXc7OL1deV4y9mzt482Q==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-ui/-/semi-ui-2.21.2.tgz}
+    id: registry.npmjs.org/@douyinfe/semi-ui/2.21.2
     name: '@douyinfe/semi-ui'
-    version: 2.19.0
+    version: 2.21.2
     peerDependencies:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
     dependencies:
       '@douyinfe/semi-animation': registry.npmjs.org/@douyinfe/semi-animation/2.12.0
-      '@douyinfe/semi-animation-react': registry.npmjs.org/@douyinfe/semi-animation-react/2.19.0
-      '@douyinfe/semi-foundation': registry.npmjs.org/@douyinfe/semi-foundation/2.19.0
-      '@douyinfe/semi-icons': registry.npmjs.org/@douyinfe/semi-icons/2.19.0_react@18.2.0
+      '@douyinfe/semi-animation-react': registry.npmjs.org/@douyinfe/semi-animation-react/2.21.2
+      '@douyinfe/semi-foundation': registry.npmjs.org/@douyinfe/semi-foundation/2.21.2
+      '@douyinfe/semi-icons': registry.npmjs.org/@douyinfe/semi-icons/2.21.2_react@18.2.0
       '@douyinfe/semi-illustrations': registry.npmjs.org/@douyinfe/semi-illustrations/2.15.0_react@18.2.0
-      '@douyinfe/semi-theme-default': registry.npmjs.org/@douyinfe/semi-theme-default/2.19.0
+      '@douyinfe/semi-theme-default': registry.npmjs.org/@douyinfe/semi-theme-default/2.21.2
       async-validator: registry.npmjs.org/async-validator/3.5.2
       classnames: registry.npmjs.org/classnames/2.3.1
       copy-text-to-clipboard: registry.npmjs.org/copy-text-to-clipboard/2.2.0
@@ -5845,11 +5831,11 @@ packages:
       utility-types: registry.npmjs.org/utility-types/3.10.0
     dev: false
 
-  registry.npmjs.org/@douyinfe/semi-webpack-plugin/2.19.0_webpack@5.74.0:
-    resolution: {integrity: sha512-NSxWxs8C21uK4x9RNabxSUQO1F5PBCRItbPHbjwO+vCEYU1NTGSu5ngl6kx4C2/sKtbgq+tp7WPE1gSU7+kMbw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-webpack-plugin/-/semi-webpack-plugin-2.19.0.tgz}
-    id: registry.npmjs.org/@douyinfe/semi-webpack-plugin/2.19.0
+  registry.npmjs.org/@douyinfe/semi-webpack-plugin/2.21.2_webpack@5.74.0:
+    resolution: {integrity: sha512-MJqs4vmG1ilgaIXKYPiaBK5hquumR4IJNVYSbp+0dXQMxsOWQ6pW7hW8TrrWIzaYxjv9/GM/SSvIFFRybtGHgQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@douyinfe/semi-webpack-plugin/-/semi-webpack-plugin-2.21.2.tgz}
+    id: registry.npmjs.org/@douyinfe/semi-webpack-plugin/2.21.2
     name: '@douyinfe/semi-webpack-plugin'
-    version: 2.19.0
+    version: 2.21.2
     peerDependencies:
       webpack: ^4 || ^5
     dependencies:
@@ -5859,8 +5845,8 @@ packages:
       css-loader: registry.npmjs.org/css-loader/4.3.0_webpack@5.74.0
       enhanced-resolve: registry.npmjs.org/enhanced-resolve/5.10.0
       loader-utils: registry.npmjs.org/loader-utils/2.0.0
-      sass: registry.npmjs.org/sass/1.32.2
-      sass-loader: registry.npmjs.org/sass-loader/10.3.1_sass@1.32.2+webpack@5.74.0
+      sass: registry.npmjs.org/sass/1.54.9
+      sass-loader: registry.npmjs.org/sass-loader/10.3.1_sass@1.54.9+webpack@5.74.0
       semver: registry.npmjs.org/semver/7.3.2
       style-loader: registry.npmjs.org/style-loader/1.3.0_webpack@5.74.0
       webpack: 5.74.0
@@ -6058,6 +6044,25 @@ packages:
     name: '@types/json-schema'
     version: 7.0.11
     dev: true
+
+  registry.npmjs.org/@types/prop-types/15.7.5:
+    resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz}
+    name: '@types/prop-types'
+    version: 15.7.5
+
+  registry.npmjs.org/@types/react/18.0.21:
+    resolution: {integrity: sha512-7QUCOxvFgnD5Jk8ZKlUAhVcRj7GuJRjnjjiY/IUBWKgOlnvDvTMLD4RTF7NPyVmbRhNrbomZiOepg7M/2Kj1mA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@types/react/-/react-18.0.21.tgz}
+    name: '@types/react'
+    version: 18.0.21
+    dependencies:
+      '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.5
+      '@types/scheduler': registry.npmjs.org/@types/scheduler/0.16.2
+      csstype: registry.npmjs.org/csstype/3.1.0
+
+  registry.npmjs.org/@types/scheduler/0.16.2:
+    resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz}
+    name: '@types/scheduler'
+    version: 0.16.2
 
   registry.npmjs.org/@types/video.js/7.3.46:
     resolution: {integrity: sha512-nWuT2/UyTDzr60btoB3nJD8Bpeh6kxmaiGvmeG7JPqlfCiR12uVnE9+XUUkEcHTPjgaSd+11PfhI2pEIb+TxNw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@types/video.js/-/video.js-7.3.46.tgz}
@@ -6332,6 +6337,11 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
     dev: true
+
+  registry.npmjs.org/csstype/3.1.0:
+    resolution: {integrity: sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/csstype/-/csstype-3.1.0.tgz}
+    name: csstype
+    version: 3.1.0
 
   registry.npmjs.org/date-fns-tz/1.3.6_date-fns@2.29.1:
     resolution: {integrity: sha512-C8q7mErvG4INw1ZwAFmPlGjEo5Sv4udjKVbTc03zpP9cu6cp5AemFzKhz0V68LGcWEtX5mJudzzg3G04emIxLA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/date-fns-tz/-/date-fns-tz-1.3.6.tgz}
@@ -6709,6 +6719,12 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       postcss: registry.npmjs.org/postcss/7.0.39
+    dev: true
+
+  registry.npmjs.org/immutable/4.1.0:
+    resolution: {integrity: sha512-oNkuqVTA8jqG1Q6c+UglTOD1xhC1BtjKI7XkCXRkZHrN5m18/XsnUp8Q89GkQO/z+0WjonSvl0FLhDYftp46nQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/immutable/-/immutable-4.1.0.tgz}
+    name: immutable
+    version: 4.1.0
     dev: true
 
   registry.npmjs.org/individual/2.0.0:
@@ -7178,7 +7194,7 @@ packages:
       rust-result: registry.npmjs.org/rust-result/1.0.0
     dev: false
 
-  registry.npmjs.org/sass-loader/10.3.1_sass@1.32.2+webpack@5.74.0:
+  registry.npmjs.org/sass-loader/10.3.1_sass@1.54.9+webpack@5.74.0:
     resolution: {integrity: sha512-y2aBdtYkbqorVavkC3fcJIUDGIegzDWPn3/LAFhsf3G+MzPKTJx37sROf5pXtUeggSVbNbmfj8TgRaSLMelXRA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/sass-loader/-/sass-loader-10.3.1.tgz}
     id: registry.npmjs.org/sass-loader/10.3.1
     name: sass-loader
@@ -7200,20 +7216,22 @@ packages:
       klona: registry.npmjs.org/klona/2.0.5
       loader-utils: registry.npmjs.org/loader-utils/2.0.2
       neo-async: registry.npmjs.org/neo-async/2.6.2
-      sass: registry.npmjs.org/sass/1.32.2
+      sass: registry.npmjs.org/sass/1.54.9
       schema-utils: registry.npmjs.org/schema-utils/3.1.1
       semver: registry.npmjs.org/semver/7.3.7
       webpack: 5.74.0
     dev: true
 
-  registry.npmjs.org/sass/1.32.2:
-    resolution: {integrity: sha512-u1pUuzqwz3SAgvHSWp1k0mRhX82b2DdlVnP6UIetQPZtYbuJUDaPQhZE12jyjB7vYeOScfz9WPsZJB6Rpk7heA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/sass/-/sass-1.32.2.tgz}
+  registry.npmjs.org/sass/1.54.9:
+    resolution: {integrity: sha512-xb1hjASzEH+0L0WI9oFjqhRi51t/gagWnxLiwUNMltA0Ab6jIDkAacgKiGYKM9Jhy109osM7woEEai6SXeJo5Q==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/sass/-/sass-1.54.9.tgz}
     name: sass
-    version: 1.32.2
-    engines: {node: '>=8.9.0'}
+    version: 1.54.9
+    engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
       chokidar: registry.npmjs.org/chokidar/3.5.3
+      immutable: registry.npmjs.org/immutable/4.1.0
+      source-map-js: registry.npmjs.org/source-map-js/1.0.2
     dev: true
 
   registry.npmjs.org/schema-utils/2.7.1:
@@ -7276,6 +7294,13 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: registry.npmjs.org/lru-cache/6.0.0
+    dev: true
+
+  registry.npmjs.org/source-map-js/1.0.2:
+    resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz}
+    name: source-map-js
+    version: 1.0.2
+    engines: {node: '>=0.10.0'}
     dev: true
 
   registry.npmjs.org/source-map/0.6.1:
